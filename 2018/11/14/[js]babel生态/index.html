@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;js&gt;babel生态 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  ES6,js,Babel
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2018-11-13T16:00:00.000Z">
+                    2018-11-14
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#core-js"><span class="toc-text">core-js</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#core-js%E7%9B%B8%E5%85%B3%E5%8C%85"><span class="toc-text">core-js相关包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#polyfill-%E6%96%B9%E6%A1%88"><span class="toc-text">polyfill 方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel"><span class="toc-text">babel</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#babel%E7%9B%B8%E5%85%B3%E5%8C%85"><span class="toc-text">babel相关包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#babel%E9%85%8D%E7%BD%AE"><span class="toc-text">babel配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#browserslist"><span class="toc-text">browserslist</span></a></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;js&gt;babel生态</h1>
+        <h3 id="core-js"><a href="#core-js" class="headerlink" title="core-js"></a>core-js</h3><ul>
+<li>由 Lerna 搭建的 Monorepo 风格的项目</li>
+<li>core-js 将自身能力充分解耦，提供出的多个包都可以被其他项目所依赖<br>  core-js-compact 可以被 Babel 生态使用，由 Babel 分析出根据环境需要按需加载的垫片；<br>  core-js-builder 可以被 Node.js 服务使用，构建出不同场景的垫片包。</li>
+</ul>
+<h4 id="core-js相关包"><a href="#core-js相关包" class="headerlink" title="core-js相关包"></a>core-js相关包</h4><ol>
+<li>core-js</li>
+</ol>
+<ul>
+<li>core-js 实现的基础垫片能力，是整个 core-js 的逻辑核心</li>
+</ul>
+<ol start="2">
+<li>core-js-pure</li>
+</ol>
+<ul>
+<li>core-js-pure 提供了不污染全局变量的垫片能力</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> _from <span class="keyword">from</span> <span class="string">&#x27;core-js-pure/features/array/from&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> _flat <span class="keyword">from</span> <span class="string">&#x27;core-js-pure/features/array/flat&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>core-js-compact</li>
+</ol>
+<ul>
+<li>core-js-compact 维护了按照browserslist规范的垫片需求数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;</span><br><span class="line">  list, <span class="comment">// array of required modules</span></span><br><span class="line">  targets, <span class="comment">// object with targets for each module</span></span><br><span class="line">&#125; = <span class="built_in">require</span>(<span class="string">&#x27;core-js-compat&#x27;</span>)(&#123;</span><br><span class="line">  targets: <span class="string">&#x27;&gt; 2.5%&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>core-js-builder</li>
+</ol>
+<ul>
+<li>core-js-builder 可以结合 core-js-compact 以及 core-js，并利用 webpack 能力，根据需求打包出 core-js 代码</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&#x27;core-js-builder&#x27;</span>)(&#123;</span><br><span class="line">  targets: <span class="string">&#x27;&gt; 0.5%&#x27;</span>,</span><br><span class="line">  filename: <span class="string">&#x27;./my-core-js-bundle.js&#x27;</span>,</span><br><span class="line">&#125;).then(<span class="function"><span class="params">code</span> =&gt;</span> &#123;&#125;).catch(<span class="function"><span class="params">error</span> =&gt;</span> &#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>core-js-bundle</li>
+</ol>
+<h4 id="polyfill-方案"><a href="#polyfill-方案" class="headerlink" title="polyfill 方案"></a>polyfill 方案</h4><ul>
+<li>核心原则：按照用户终端环境、按照业务代码使用情况</li>
+</ul>
+<ol>
+<li>手动打补丁：</li>
+</ol>
+<ul>
+<li>es5-shim 和 es6-shim 方案</li>
+<li>缺点：方案原始而难以维护，同时对于 polyfill 的实现要求较高</li>
+</ul>
+<ol start="2">
+<li>babel-polyfill 方案：</li>
+</ol>
+<ul>
+<li>babel-polyfill 融合了 core-js 和 regenerator-runtime</li>
+<li>缺点：如果粗暴地使用 babel-polyfill 一次性全量导入到项目中，会导致项目 size 过大</li>
+</ul>
+<ol start="3">
+<li>babel-polyfill 结合 @babel/preset-env + useBuiltins（entry） + preset-env targets 的方案</li>
+</ol>
+<ul>
+<li>@babel/preset-env 定义了 Babel 所需插件预设，同时由 Babel 根据 preset-env targets 配置的支持环境，自动按需加载 polyfills</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// babel配置</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [</span><br><span class="line">    [<span class="string">&quot;@babel/env&quot;</span>, &#123;</span><br><span class="line">      useBuiltIns: <span class="string">&#x27;entry&#x27;</span>,</span><br><span class="line">      targets: &#123; <span class="attr">chrome</span>: <span class="number">44</span> &#125;</span><br><span class="line">    &#125;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 工程入口处</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@babel/polyfill&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 编译后</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/XXXX/XXXX&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;core-js/XXXX/XXXXX&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>在线动态打补丁</li>
+</ol>
+<ul>
+<li>Polyfill.</li>
+<li>在高版本浏览器上，可能会返回空内容，因为该浏览器已经支持了 ES2015 特性。如果在低版本浏览器上，将会得到真实的 polyfills bundle</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;https:&#x2F;&#x2F;polyfill.io&#x2F;v3&#x2F;polyfill.min.js?features&#x3D;es2015&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="babel"><a href="#babel" class="headerlink" title="babel"></a>babel</h3><ul>
+<li>是一个 JavaScript 的“编译器”</li>
+<li>功能：<br>  语法转换，一般是高级语言特性的降级；<br>  Polyfill（垫片/补丁）特性的实现和接入；<br>  源码转换，比如 JSX 等。</li>
+<li>理念<br>  可插拔（Pluggable）：Babel 需要有一套灵活的插件机制，召集第三方开发者力量，同时还需要方便接入各种工具<br>  可调式（Debuggable）：编译过程中提供 source map<br>  基于协定（Compact）：实现灵活的配置方式,帮助开发者在“尽量还原规范”和“更小的编译产出体积”之间，找到平衡</li>
+</ul>
+<h4 id="babel相关包"><a href="#babel相关包" class="headerlink" title="babel相关包"></a>babel相关包</h4><ol>
+<li>@babel/core</li>
+</ol>
+<ul>
+<li>Babel 实现转换的核心，它可以根据配置，进行源码的编译转换</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> babel = <span class="built_in">require</span>(<span class="string">&quot;@babel/core&quot;</span>);</span><br><span class="line"></span><br><span class="line">babel.transform(code, options, <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line">  result; <span class="comment">// =&gt; &#123; code, map, ast &#125;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>@babel/cli</li>
+</ol>
+<ul>
+<li>Babel 提供的命令行，它可以在终端中通过命令行方式运行，编译文件或目录</li>
+<li>@babel/cli 使用了 commander 库搭建基本的命令行开发</li>
+<li>@babel/cli 负责获取配置内容，并最终依赖了 @babel/core 完成编译</li>
+</ul>
+<ol start="3">
+<li>@babel/standalone</li>
+</ol>
+<ul>
+<li>在非 Node.js 环境（比如浏览器环境）自动编译含有 text/babel 或 text/jsx 的 type 值的 script 标签，并进行编译</li>
+<li>编译行为由 @babel/core 提供</li>
+<li>@babel/standalone 可以在浏览器中直接执行，因此这个包对于浏览器环境动态插入高级语言特性的脚本、在线自动解析编译非常有意义</li>
+<li>Babel 官网也用到了这个包，JSFiddle、JS Bin 等也都是 @babel/standalone 的受益者</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;https://unpkg.com/@babel/standalone/babel.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/babel&quot;</span>&gt;<span class="comment">// 含有type=&quot;text/babel&quot;进行编译</span></span><br><span class="line">	<span class="keyword">const</span> getMessage = <span class="function">() =&gt;</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">	<span class="built_in">document</span>.getElementById(<span class="string">&#x27;output&#x27;</span>).innerHTML = getMessage();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>@babel/parser、@babel/code-frame、@babel/generator、@babel/traverse、@babel/types</li>
+</ol>
+<ul>
+<li><p>@babel/parser<br>  Babel 用来对 JavaScript 语言解析的解析器<br>  require(“@babel/parser”).parse()方法可以返回给我们一个针对源码编译得到的 AST</p>
+</li>
+<li><p>@babel/traverse<br>  可以对 babel AST 进行遍历，可以在遍历过程中进行修改</p>
+</li>
+<li><p>@babel/types<br>  包提供了对具体的 AST 节点的修改能力</p>
+</li>
+<li><p>@babel/generator<br>  对新的 AST 进行聚合并生成 JavaScript 代码</p>
+</li>
+</ul>
+<ol start="5">
+<li>@babel/preset-env</li>
+</ol>
+<ul>
+<li>直接暴露给开发者在业务中运用的包能力</li>
+<li>@babel/preset-env 允许我们配置需要支持的目标环境（一般是浏览器范围或 Node.js 版本范围），利用 babel-polyfill 完成补丁的接入</li>
+<li>通过 targets 参数，按照 browserslist 规范，结 合core-js-compat，筛选出适配环境所需的 polyfills</li>
+</ul>
+<ol start="6">
+<li>@babel/polyfill</li>
+</ol>
+<ul>
+<li>@babel/polyfill 其实就是 core-js 和 regenerator-runtime 两个包的结合</li>
+<li>@babel/polyfill 源码层面，通过 build-dist.sh 脚本，利用 browserify 进行打包</li>
+<li>@babel/polyfill 目前已经计划废弃，新的 Babel 生态（@babel/preset-env V7.4.0 版本）鼓励开发者直接在代码中引入 core-js 和 regenerator-runtime</li>
+</ul>
+<ol start="7">
+<li>@babel/plugin-transform-runtime</li>
+</ol>
+<ul>
+<li>可以重复使用 Babel 注入的 helpers 函数，达到节省代码大小的目的</li>
+<li>例如：将 _instanceof _classCallCheck 等helper函数，转换为引入</li>
+<li>helper 函数由 @babel/runtime 给出</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 源代码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用babel编译后</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_instanceof</span>(<span class="params">left, right</span>) </span>&#123; </span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span>(<span class="params">instance, Constructor</span>) </span>&#123; </span><br><span class="line">  <span class="keyword">if</span> (!_instanceof(instance, Constructor)) &#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&quot;Cannot call a class as a function&quot;</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  _classCallCheck(<span class="built_in">this</span>, Person);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 @babel/plugin-transform-runtime 后</span></span><br><span class="line"><span class="keyword">var</span> _interopRequireDefault = <span class="built_in">require</span>(<span class="string">&quot;@babel/runtime/helpers/interopRequireDefault&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> _classCallCheck2 = _interopRequireDefault(<span class="built_in">require</span>(<span class="string">&quot;@babel/runtime/helpers/classCallCheck&quot;</span>));</span><br><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  (<span class="number">0</span>, _classCallCheck2.default)(<span class="built_in">this</span>, Person);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>@babel/runtime</li>
+</ol>
+<ul>
+<li>@babel/runtime含有 Babel 编译所需的一些运行时 helpers 函数，供业务代码引入模块化的 Babel helpers 函数</li>
+<li>同时它提供了 regenerator-runtime，对 generator 和 async 函数进行编译降级<br>  @babel/plugin-transform-runtime 需要和 @babel/runtime 配合使用；<br>  @babel/plugin-transform-runtime 用于编译时，作为 devDependencies 使用；<br>  @babel/plugin-transform-runtime 将业务代码编译，引用 @babel/runtime 提供的 helpers，达到缩减编译产出体积的目的；<br>  @babel/runtime 用于运行时，作为 dependencies 使用</li>
+<li>除了可以对产出代码瘦身以外，还能避免污染全局作用域</li>
+</ul>
+<ol start="9">
+<li>@babel/plugin</li>
+</ol>
+<ul>
+<li>是 Babel 插件集合<br>  @babel/plugin-syntax-* 是 Babel 的语法插件<br>  @babel/plugin-proposal-* 用于编译转换在提议阶段的语言特性<br>  @babel/plugin-transform-* 是 Babel 的转换插件</li>
+</ul>
+<ol start="10">
+<li>@babel/template</li>
+</ol>
+<ul>
+<li>封装了基于 AST 的模板能力，可以将字符串代码转换为 AST</li>
+</ul>
+<ol start="11">
+<li>@babel/node</li>
+</ol>
+<ul>
+<li>类似 Node.js Cli，@babel/node 提供在命令行执行高级语法的环境，也就是说，相比于 Node.js Cli，它加入了对更多特性的支持</li>
+</ul>
+<ol start="12">
+<li>@babel/register</li>
+</ol>
+<ul>
+<li>为 require 增加了一个 hook，使用之后，所有被 Node.js 引用的文件都会先被 Babel 转码</li>
+<li>注意：@babel/node 和 @babel/register，都是在运行时进行编译转换，因此运行时性能上会有影响。在生产环境中，我们一般不直接使用</li>
+</ul>
+<ol start="13">
+<li>@babel/eslint-parser</li>
+</ol>
+<ul>
+<li>配合 ESLint 检验合法 Babel 代码的解析器</li>
+</ul>
+<h4 id="babel配置"><a href="#babel配置" class="headerlink" title="babel配置"></a>babel配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line"></span><br><span class="line">#### babel常用插件</span><br><span class="line"></span><br><span class="line">- @babel&#x2F;plugin-proposal-optional-chaining</span><br><span class="line">可选链</span><br><span class="line">&#96;&#96;&#96;javascript</span><br><span class="line">a?.b?.c</span><br></pre></td></tr></table></figure>
+
+<h3 id="browserslist"><a href="#browserslist" class="headerlink" title="browserslist"></a>browserslist</h3>
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

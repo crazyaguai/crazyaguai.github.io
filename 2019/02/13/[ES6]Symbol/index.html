@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;ES6&gt;Symbol | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  ES6,js
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2019-02-12T16:00:00.000Z">
+                    2019-02-13
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E5%90%8D%E7%A7%B0"><span class="toc-text">私有名称</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Symbol%E7%9B%B8%E5%85%B3"><span class="toc-text">Symbol相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BASymbol"><span class="toc-text">创建Symbol</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8BSymbol"><span class="toc-text">检测Symbol</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Symbol%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Symbol的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Symbol%E5%85%B1%E4%BA%AB%E4%BD%93%E7%B3%BB"><span class="toc-text">Symbol共享体系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Symbol%E4%B8%8E%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">Symbol与强制类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Symbol%E5%B1%9E%E6%80%A7%E7%9A%84%E6%A3%80%E7%B4%A2"><span class="toc-text">Symbol属性的检索</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#well-known-Symbol"><span class="toc-text">well-known Symbol</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;ES6&gt;Symbol</h1>
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li> ES6引入了第六种原始类型Symbol</li>
+</ul>
+<h4 id="私有名称"><a href="#私有名称" class="headerlink" title="私有名称"></a>私有名称</h4><ul>
+<li>为了创建非字符串属性名称设计的，Symbol出现之前一直通过属性名称来访问所有属性，全部通过一个字符串来访问。</li>
+</ul>
+<h3 id="Symbol相关"><a href="#Symbol相关" class="headerlink" title="Symbol相关"></a>Symbol相关</h3><h4 id="创建Symbol"><a href="#创建Symbol" class="headerlink" title="创建Symbol"></a>创建Symbol</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol()</span><br><span class="line">let obj &#x3D; &#123;&#125;</span><br><span class="line">obj[name] &#x3D; &#39;yxc&#39;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>由于Symbol是原始值，因此调用new Symbol()会报错，</li>
+<li>Symbol函数接收一个可选参数，让你添加文本描述，建议每次创建都添加。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Symbol的描述被存储在内部的[[Description]]属性中，只有当调用Symbol的toString()方法时才会读取这个属性。</li>
+</ul>
+<h4 id="检测Symbol"><a href="#检测Symbol" class="headerlink" title="检测Symbol"></a>检测Symbol</h4><ul>
+<li>使用typeof</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">name.toString()&#x2F;&#x2F;&quot;Symbol(name)&quot;</span><br><span class="line">typeof name&#x2F;&#x2F;&quot;symbol&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Symbol的使用"><a href="#Symbol的使用" class="headerlink" title="Symbol的使用"></a>Symbol的使用</h4><ul>
+<li>所有使用可计算属性名的地方都可以使用Symbol</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    [name]: &#39;yxc&#39;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用于Object.defineProperty()\Object.defineProperties()方法中</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">let obj &#x3D; &#123;&#125;</span><br><span class="line">Object.defineProperty(obj,name,&#123;writable:false&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Symbol共享体系"><a href="#Symbol共享体系" class="headerlink" title="Symbol共享体系"></a>Symbol共享体系</h4><ul>
+<li>ES6创建了一个可以随时访问的全局Symbol注册表，如果想创建一个可共享Symbol，使用Symbol.for()方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let id &#x3D; Symbol.for(&#39;id&#39;)</span><br><span class="line">let id2 &#x3D; Symbol.for(&#39;id&#39;)</span><br><span class="line">console.log(id&#x3D;&#x3D;&#x3D;id2)&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用Symbol.keyFor()方法在Symbol全局注册表中检索与Symbol有关的关键字</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let id &#x3D; Symbol.for(&#39;id&#39;)</span><br><span class="line">console.log(Symbol.keyFor(id))&#x2F;&#x2F;id</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Symbol全局注册表是一个类似全局作用域的共享环境，其他第三方库也有可能使用。</li>
+</ul>
+<h4 id="Symbol与强制类型转换"><a href="#Symbol与强制类型转换" class="headerlink" title="Symbol与强制类型转换"></a>Symbol与强制类型转换</h4><ul>
+<li>其他类型没有与Symbol逻辑等价的值，因此Symbol使用不是很灵活，尤其不能将Symbol强制转换为字符串和数字类型</li>
+<li>将Symbol强制转换为字符串会被错</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">let a &#x3D; name + &#39;&#39;&#x2F;&#x2F;VM1175:1 Uncaught TypeError: Cannot convert a Symbol value to a string</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Symbol与JS中的非空值类似，其等价布尔值为true</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">let a &#x3D; name&#x2F;1&#x2F;&#x2F;VM1299:2 Uncaught TypeError: Cannot convert a Symbol value to a number</span><br></pre></td></tr></table></figure>
+
+<h4 id="Symbol属性的检索"><a href="#Symbol属性的检索" class="headerlink" title="Symbol属性的检索"></a>Symbol属性的检索</h4><ul>
+<li>为了保持ES5函数原有功能，Object.keys(),Object.getOwnPropertyNames()都不支持Symbol属性，ES6添加Object.getOwnPropertySymbols()返回包含所有Symbol属性的数组。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let name &#x3D; Symbol(&#39;name&#39;)</span><br><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    [name]: &#39;yxc&#39;</span><br><span class="line">&#125;</span><br><span class="line">console.log(Object.getOwnPropertySymbols(obj))&#x2F;&#x2F;[Symbol(name)]</span><br></pre></td></tr></table></figure>
+
+<h4 id="well-known-Symbol"><a href="#well-known-Symbol" class="headerlink" title="well-known Symbol"></a>well-known Symbol</h4><ul>
+<li>对象可以从原型链中继承Symbol属性，ES6通过一些well-known Symbol预定义这些属性</li>
+</ul>
+<ol>
+<li>Symbol.hasInstance方法</li>
+</ol>
+<ul>
+<li>用于确认对象是否为函数的实例，该方法在Function.prototype中定义，所有函数都继承了instanceof属性的默认行为</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let obj &#x3D; []</span><br><span class="line">console.log(obj instanceof Array)&#x2F;&#x2F;true</span><br><span class="line">Array[Symbol.hasInstance](obj)&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol#">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Symbol#</a></li>
+</ul>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

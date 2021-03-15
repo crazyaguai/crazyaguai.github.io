@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;linux&gt;基础操作 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  linux
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2020-08-23T16:00:00.000Z">
+                    2020-08-24
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#linux%E7%89%88%E6%9C%AC"><span class="toc-text">linux版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="toc-text">内核版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC"><span class="toc-text">发行版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%91%E8%A1%8C%E7%89%88%E6%9C%AC-1"><span class="toc-text">发行版本</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E5%91%BD%E4%BB%A4"><span class="toc-text">帮助命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#man"><span class="toc-text">man</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#help"><span class="toc-text">help</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#info"><span class="toc-text">info</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">软件包管理器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rpm"><span class="toc-text">rpm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#yum"><span class="toc-text">yum</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%BA%90%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="toc-text">源代码编译安装</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4"><span class="toc-text">基本命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#pwd"><span class="toc-text">pwd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ls"><span class="toc-text">ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cd"><span class="toc-text">cd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mkdir"><span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#cp"><span class="toc-text">cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mv"><span class="toc-text">mv</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E6%9F%A5%E7%9C%8B"><span class="toc-text">文本查看</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cat"><span class="toc-text">cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#head"><span class="toc-text">head</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tail"><span class="toc-text">tail</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#wc"><span class="toc-text">wc</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E3%80%81%E5%8E%8B%E7%BC%A9%E3%80%81%E8%A7%A3%E5%8E%8B"><span class="toc-text">打包、压缩、解压</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tar%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9"><span class="toc-text">tar打包压缩</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tar%E8%A7%A3%E5%8E%8B"><span class="toc-text">tar解压</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi"><span class="toc-text">vi</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%B8%B8%E6%A8%A1%E5%BC%8F"><span class="toc-text">正常模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-text">插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-text">命令模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E6%A8%A1%E5%BC%8F"><span class="toc-text">可视模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%85%8D%E7%BD%AE"><span class="toc-text">全局配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E3%80%81%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86"><span class="toc-text">用户、权限管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-text">用户管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%BB%84"><span class="toc-text">用户组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#su"><span class="toc-text">su</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sudo"><span class="toc-text">sudo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="toc-text">文件权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90"><span class="toc-text">修改权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86"><span class="toc-text">网络管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ps%E3%80%81top%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="toc-text">ps、top查看进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%8E%A7%E5%88%B6%E5%91%BD%E4%BB%A4"><span class="toc-text">进程控制命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%A1%E5%8F%B7"><span class="toc-text">信号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="toc-text">守护进程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97"><span class="toc-text">系统日志</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#service-%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"><span class="toc-text">service 控制系统服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#systemctl-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="toc-text">systemctl 系统管理工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SELinux"><span class="toc-text">SELinux</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AD%98%E4%B8%8E%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86"><span class="toc-text">内存与磁盘管理</span></a></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;linux&gt;基础操作</h1>
+        <h3 id="linux版本"><a href="#linux版本" class="headerlink" title="linux版本"></a>linux版本</h3><h4 id="内核版本"><a href="#内核版本" class="headerlink" title="内核版本"></a>内核版本</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.kernel.org/">https://www.kernel.org/</a></li>
+<li>5.7.14 主版本呢号、次版本号、末版本号</li>
+<li>次版本号基数-&gt;开发板、偶数-&gt;稳定版</li>
+</ul>
+<h4 id="发行版本"><a href="#发行版本" class="headerlink" title="发行版本"></a>发行版本</h4><ul>
+<li>开源，厂商定制</li>
+<li>redhat</li>
+<li>fedora</li>
+<li>centos</li>
+<li>ubuntu</li>
+<li>debian</li>
+</ul>
+<h4 id="发行版本-1"><a href="#发行版本-1" class="headerlink" title="发行版本"></a>发行版本</h4><h3 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h3><h4 id="man"><a href="#man" class="headerlink" title="man"></a>man</h4><ul>
+<li>manual缩写</li>
+<li>参数：数字(1-9)：指定从哪本man手册中搜索帮助；关键字：指定要搜索帮助的关键字。</li>
+<li>man 1 ls，man 7 ls</li>
+<li>按 q 退出</li>
+</ul>
+<h4 id="help"><a href="#help" class="headerlink" title="help"></a>help</h4><ul>
+<li>bash内建命令，用于显示bash内建命令帮助信息</li>
+<li>内建命令使用 man buildin 获取</li>
+<li>help [选项] [参数]</li>
+<li>选项：-d 显示描述，-m 按照man手册输出，-s 只输出内建命令的命令格式</li>
+<li>默认选项类似 -m</li>
+</ul>
+<h4 id="info"><a href="#info" class="headerlink" title="info"></a>info</h4><ul>
+<li>info [选项] [参数]</li>
+<li>选项：-d：添加包含info格式帮助文档的目录；-f：指定要读取的info格式的帮助文档；-n：指定首先访问的info帮助文件的节点；-o：输出被选择的节点内容到指定文件。</li>
+</ul>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><h4 id="软件包管理器"><a href="#软件包管理器" class="headerlink" title="软件包管理器"></a>软件包管理器</h4><ol>
+<li>centos、redhat使用yum包管理器，包格式rpm</li>
+<li>debian、ubantu使用apt包管理器，包格式deb</li>
+</ol>
+<h4 id="rpm"><a href="#rpm" class="headerlink" title="rpm"></a>rpm</h4><ul>
+<li><p>包格式：yarn-1.3.2-lp151.3.2.x86_64.rpm，uwsgi-devel-2.0.18-8.fc30.x86_64.rpm，软件名称(yarn)+软件版本+系统版本(el7)+平台(x86_64)</p>
+</li>
+<li><p>需要将rpm包下载到本地安装</p>
+</li>
+<li><p>命令:rpm -q 查询 -i 安装 -e 卸载</p>
+</li>
+<li><p>rpm -qa 查询所有安装的rpm包</p>
+</li>
+<li><p>rpm -q vim-common 查询单个包</p>
+</li>
+<li><p>如果有依赖关系需要安装相关依赖包</p>
+</li>
+</ul>
+<h4 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h4><ul>
+<li>yum源，修改配置文件，参考阿里源 <a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/">地址</a></li>
+<li>常用命令</li>
+</ul>
+<ol>
+<li>列出所有可更新的软件清单命令：yum check-update</li>
+<li>更新所有软件命令：yum update</li>
+<li>仅安装指定的软件命令：yum install <package_name></li>
+<li>仅更新指定的软件命令：yum update <package_name></li>
+<li>列出所有可安裝的软件清单命令：yum list</li>
+<li>删除软件包命令：yum remove <package_name></li>
+<li>查找软件包 命令：yum search <keyword></li>
+<li>清除缓存命令:<br>yum clean packages: 清除缓存目录下的软件包<br>yum clean headers: 清除缓存目录下的 headers<br>yum clean oldheaders: 清除缓存目录下旧的 headers<br>yum clean, yum clean all (= yum clean packages; yum clean oldheaders) :清除缓存目录下的软件包及旧的headers</li>
+<li>yum info <package_name>查看软件信息</li>
+</ol>
+<h4 id="源代码编译安装"><a href="#源代码编译安装" class="headerlink" title="源代码编译安装"></a>源代码编译安装</h4><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><h4 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h4><ul>
+<li>显示当前路径</li>
+</ul>
+<h4 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h4><ul>
+<li>ls -l 显示详细内容</li>
+<li>ls -a 显示隐藏文件</li>
+<li>ls -r 逆向显示（默认文件名排序）ls -lrt 使用时间排序</li>
+<li>ls -R 递归显示</li>
+<li>ls -lh 按接近文件大小显示</li>
+<li>ls -Sl 由大到小排序 ls -Slr 由小到大排序</li>
+</ul>
+<h4 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h4><ul>
+<li>cd - 回到上一个路径</li>
+</ul>
+<h4 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h4><ul>
+<li>创建目录 mkdir ./a ./b ./c 创建多个目录</li>
+<li>mkdir -p ./a/b/c 创建多级目录</li>
+</ul>
+<h4 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h4><ul>
+<li>cp -v 显示复制过程</li>
+<li>cp -r 复制文件夹</li>
+<li>cp -p 保留原有文件属性（时间等）</li>
+<li>cp -a 保留文件属主等属性</li>
+</ul>
+<h4 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h4><ul>
+<li>文件移动、重命名操作</li>
+</ul>
+<h3 id="文本查看"><a href="#文本查看" class="headerlink" title="文本查看"></a>文本查看</h3><h4 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h4><ul>
+<li>文本内容显示到终端</li>
+<li>cat -n 添加行号</li>
+</ul>
+<h4 id="head"><a href="#head" class="headerlink" title="head"></a>head</h4><ul>
+<li>查看文件开头</li>
+<li>head -5 ./a 开头5行</li>
+</ul>
+<h4 id="tail"><a href="#tail" class="headerlink" title="tail"></a>tail</h4><ul>
+<li>查看文件结尾</li>
+<li>tail -5 ./a 结尾5行</li>
+<li>tail -f ./a 跟踪显示，有追加会更新显示</li>
+</ul>
+<h4 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h4><ul>
+<li>wc -l ./a 查看文件行数</li>
+<li>统计文件内容信息</li>
+<li>-c 字节数、 -l 行数、 -m 字符数、 -w 字数、 -L 最长行的长度</li>
+</ul>
+<h3 id="打包、压缩、解压"><a href="#打包、压缩、解压" class="headerlink" title="打包、压缩、解压"></a>打包、压缩、解压</h3><h4 id="tar打包压缩"><a href="#tar打包压缩" class="headerlink" title="tar打包压缩"></a>tar打包压缩</h4><ul>
+<li>tar -cf ./etc-back.tar /etc 打包tc文件夹</li>
+<li>tar -czf ./etc-back.tar.gz /etc 打包tc文件夹，并通过gzip压缩</li>
+<li>-j 通过bzip2 压缩，添加bz2后缀 tar -cjf ./etc-back.tar.bz2 /etc</li>
+<li>bzip2安装：yum install -y bzip2</li>
+</ul>
+<h4 id="tar解压"><a href="#tar解压" class="headerlink" title="tar解压"></a>tar解压</h4><ul>
+<li>tar -xf ./etc-back.tar -C /root 解压并放到root目录</li>
+<li>-zxf 解压gzip格式</li>
+<li>-jxf解压bzip2格式</li>
+</ul>
+<h3 id="vi"><a href="#vi" class="headerlink" title="vi"></a>vi</h3><h4 id="正常模式"><a href="#正常模式" class="headerlink" title="正常模式"></a>正常模式</h4><ul>
+<li>i 进入插入模式（光标位置），按 esc 返回正常模式</li>
+<li>I 进入插入模式，光标在所在行开头</li>
+<li>a 进入插入模式，光标在单词后位置</li>
+<li>A 进入插入模式，光标在所在行结尾</li>
+<li>o 进入插入模式，光标所在行下添加新行</li>
+<li>O 进入插入模式，光标所在行上添加新行</li>
+<li>: 进入命令模式，按 esc 返回正常模式</li>
+<li>hjkl 移动光标</li>
+<li>yy 复制一行，3yy 复制三行，y$ 复制光标位置到结尾</li>
+<li>p 粘贴 </li>
+<li>dd 剪切一行，d$ 剪切光标到结尾，3dd 剪切三行</li>
+<li>u 插销操作</li>
+<li>ctrl+r 重做操作</li>
+<li>x 单个字符删除</li>
+<li>r+输入新字符，单个字符替换</li>
+<li>输入行数，shift+g，跳转到指定行开头</li>
+<li>g 文本第一行，G 文本最后一行</li>
+<li>^ 跳转行开头，$ 跳转行结尾</li>
+</ul>
+<h4 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h4><h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><ul>
+<li>set nu 显示当前所在行</li>
+<li>w 保存，w+文件名 保存到新文件</li>
+<li>q 退出，wq 保存退出，q! 不保存退出</li>
+<li>!+linux命令 执行linux命令，!ls</li>
+<li>/+文本 搜索命令 ，n 向下移动，N 向上移动</li>
+<li>s/旧字符/新字符，当前行查找替换，只替换第一个</li>
+<li>%s/旧字符/新字符，全局查找替换，只替换第一个</li>
+<li>%s/旧字符/新字符/g，全局替换</li>
+<li>3,5s/旧字符/新字符/g，3-5行之间替换</li>
+<li>set+命令，修改 vi 配置</li>
+</ul>
+<h4 id="可视模式"><a href="#可视模式" class="headerlink" title="可视模式"></a>可视模式</h4><ul>
+<li>v 字可视模式</li>
+<li>V 行可视模式</li>
+<li>ctrl+v 块可视模式，配合 d、l、I(大写i)可以进行块操作，d 删除、I 插入</li>
+</ul>
+<h4 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h4><ul>
+<li>vim /etc/vimrc 在结尾添加配置，如：set nu</li>
+</ul>
+<h3 id="用户、权限管理"><a href="#用户、权限管理" class="headerlink" title="用户、权限管理"></a>用户、权限管理</h3><h4 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h4><ul>
+<li>id 查找用户，id root 查看root用户信息，id 当前用户信息</li>
+<li>useradd 新建用户，useradd yxc</li>
+<li>userdel 删除用户，userdel -r yxc 删除用户以及相关配置文件</li>
+<li>passwd 修改用户密码，passwd yxc 更改指定用户密码，passwd 更改当前用户密码</li>
+<li>usermod 修改用户属性，usermod -d /home/yxc1 yxc 修改用户家目录</li>
+<li>chage 修改帐号和密码的有效期限</li>
+<li>查看所有用户：cat /etc/passwd</li>
+<li>/etc/shadow 用户密码信息</li>
+</ul>
+<h4 id="用户组"><a href="#用户组" class="headerlink" title="用户组"></a>用户组</h4><ul>
+<li>groupadd 新建用户组，groupadd g1</li>
+<li>groupdel 删除用户组</li>
+<li>usermod -g yxc g1 修改用户所属组</li>
+<li>查看所有用户组 cat /etc/passwd</li>
+<li>vim /etc/password 编辑用户配置文件，yxc:x:1000:1001::/home/yxc:/bin/bash，x 是否需要密码登录</li>
+<li>/etc/group 用户组信息</li>
+</ul>
+<h4 id="su"><a href="#su" class="headerlink" title="su"></a>su</h4><ul>
+<li>su - yxc 切换用户，使用后 exit 退出</li>
+<li>su -c ls root 切换用户执行命令，执行后退出</li>
+</ul>
+<h4 id="sudo"><a href="#sudo" class="headerlink" title="sudo"></a>sudo</h4><ul>
+<li>使用 visudo 配置用户权限</li>
+</ul>
+<h3 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h3><ul>
+<li>drwxr-xr-x. 2 root root       19 7月  20 22:23 test</li>
+<li>-rw-r–r–. 1 root root    10240 7月  20 22:23 text.tar</li>
+<li>类型 d 文件夹， - 普通文件， b 块特殊文件，c 字特殊文件， l 符号链接，f 管道链接，s 套接字文件</li>
+<li>rwx 文件类型，9个字符，分三组，所属用户、所属组、其他用户权限</li>
+<li>r 读权限， w 写权限， x 执行权限。</li>
+<li>数字表示 r=4, w=2，x=1</li>
+<li>目录权限表示：x 进入目录， rx 显示目录文件名， wx 修改目录内的文件名</li>
+<li>权限冲突时以属主权限为主</li>
+</ul>
+<h4 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h4><ul>
+<li>chmod u+x a.txt, chmod 755 a.txt，chmod u=rwx ./a 设置权限 u(用户)、g(组)、o(其他)、a(全部)，+(增加)、-(减少)、=(设置)</li>
+<li>chown 更改属主、属组，chown yxc ./a，chown :g1 ./a</li>
+<li>chgrp 单独更改属组，不常用</li>
+</ul>
+<h3 id="网络管理"><a href="#网络管理" class="headerlink" title="网络管理"></a>网络管理</h3><ol>
+<li>网络状态查看</li>
+</ol>
+<ul>
+<li>net-tools<br>安装：yum -y install net-tools<br>ifconfig、route、netstat<br>普通用户需要输入 /sbin/ifconfig<br>mii-tool eth0 查看网卡物理链接情况<br>route -n 查看网关（路由）-n 不解析域名</li>
+<li>iproute2<br>ip、ss</li>
+</ul>
+<ol start="2">
+<li>网络配置</li>
+<li>路由命令</li>
+<li>网络故障排除</li>
+<li>网络服务管理</li>
+<li>常用网络配置文件</li>
+</ol>
+<h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><h4 id="ps、top查看进程"><a href="#ps、top查看进程" class="headerlink" title="ps、top查看进程"></a>ps、top查看进程</h4><ul>
+<li>ps -f 显示UID、 -a 显示所有进程、 -l 更详细的显示（线程）</li>
+<li>pstree</li>
+<li>top 显示模式按 1 切换cpu统计模式 、显示模式按 s 修改更新时间 ，top -p 1888 按进程查询</li>
+</ul>
+<h4 id="进程控制命令"><a href="#进程控制命令" class="headerlink" title="进程控制命令"></a>进程控制命令</h4><ul>
+<li>优先级调整（NI）：</li>
+</ul>
+<ol>
+<li>nice 范围i -20到19，值越小优先级越高，占用资源越多，nice -n 10 ./a.sh</li>
+<li>renice 重新设置优先级，renice -n 15 1888</li>
+</ol>
+<ul>
+<li>进程的作业控制：</li>
+</ul>
+<ol>
+<li>jobs，jobs 显示后台进程，将后台运行的进程切换至前台，fg 1(后台进程代码) 召回制前台</li>
+<li>&amp; 符号，后台运行进程， ./ a,sh &amp;</li>
+<li>ctrl+z 挂起正在运行的程序，jobs 查看进程，fg 展示至前台，bg 后台运行</li>
+</ol>
+<h4 id="信号"><a href="#信号" class="headerlink" title="信号"></a>信号</h4><ul>
+<li>终端用户输入中断命令，通过信号机制停止程序运行</li>
+<li>kill -l 查看kill支持的信号</li>
+<li>kill -9 [进程号] 结束程序</li>
+</ul>
+<h4 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h4><ul>
+<li>nohup 将程序以忽略挂起信号的方式运行起来</li>
+<li>守护进程：独立于控制终端并且周期性地执行某种任务或等待处理某些发生的事件。它不需要用户输入就能运行而且提供某种服务，不是对整个系统就是对某个用户程序提供服务。守护进程一般在系统启动时开始运行，除非强行终止，否则直到系统关机都保持运行。守护进程的名称通常以d结尾，比如sshd、xinetd、crond等。守护进程的父进程是init进程。</li>
+<li>screen  只要Screen本身没有终止，在其内部运行的会话都可以恢复。screen 进入screen环境，ctrl+a d 退出screen环境，screen -ls 查看screen的会话，screen -r sessionId 回复会话，安装：yum install screen，screent 中 使用 exit 命令退出。</li>
+</ul>
+<h4 id="系统日志"><a href="#系统日志" class="headerlink" title="系统日志"></a>系统日志</h4><ul>
+<li>/var/log 文件夹</li>
+<li>messages 系统常规日志，dmesg 内核运行信息，secure 安全日志，cron 周期计划任务日志</li>
+</ul>
+<h4 id="service-控制系统服务"><a href="#service-控制系统服务" class="headerlink" title="service 控制系统服务"></a>service 控制系统服务</h4><h4 id="systemctl-系统管理工具"><a href="#systemctl-系统管理工具" class="headerlink" title="systemctl 系统管理工具"></a>systemctl 系统管理工具</h4><ul>
+<li>系统已安装的服务 /usr/lib/systemd/system/</li>
+</ul>
+<h4 id="SELinux"><a href="#SELinux" class="headerlink" title="SELinux"></a>SELinux</h4><ul>
+<li>安全增强组件，会降低性能，大多数生产环境关闭</li>
+<li>getenforce 查询当前SELinux状态</li>
+<li>配置文件 /etc/selinux/config SELINUX=，修改后需要重启生效</li>
+<li>setenforce 0,临时修改配置，重启后失效</li>
+</ul>
+<h3 id="内存与磁盘管理"><a href="#内存与磁盘管理" class="headerlink" title="内存与磁盘管理"></a>内存与磁盘管理</h3><ol>
+<li>内存与磁盘使用查看</li>
+</ol>
+<p>内存使用查看</p>
+<ul>
+<li>free free -m, free -g，Swap交换分区（虚拟内存），在磁盘中，内存不够之后会分到虚拟内存中</li>
+<li>top</li>
+</ul>
+<p>磁盘使用查看</p>
+<ul>
+<li>fdisk fdisk -l 查看磁盘</li>
+<li>parted -l 查看分区</li>
+<li>df df -h 查看分区以及挂载目录</li>
+<li>du 显示每个文件和目录的磁盘使用空间</li>
+<li>du 与 ls 区别，ls 是实际大小，du 是所占磁盘空间，默认linux系统分区的 block size 是4k，使文件只有1个字节，也会占用4k，ls 显示的文件大小比du显示的磁盘占用空间小</li>
+</ul>
+<ol start="2">
+<li>ext4 文件系统</li>
+<li>磁盘配额使用</li>
+<li>磁盘分区与挂载</li>
+<li>交换分区（虚拟内存）查看创建</li>
+<li>软件RAID使用</li>
+<li>逻辑券管理</li>
+<li>系统综合状态查看</li>
+</ol>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

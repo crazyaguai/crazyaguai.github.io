@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;css&gt;视口概念 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  h5,视口
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2019-01-19T16:00:00.000Z">
+                    2019-01-20
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%8F%A3"><span class="toc-text">视口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%83%8F%E7%B4%A0%EF%BC%88pixel%EF%BC%89"><span class="toc-text">像素（pixel）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E8%A7%86%E5%8F%A3"><span class="toc-text">布局视口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%86%E8%A7%89%E8%A7%86%E5%8F%A3"><span class="toc-text">视觉视口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3"><span class="toc-text">理想视口</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E5%8F%A3%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">视口之间的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%A9%E6%94%BE"><span class="toc-text">缩放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-text">分辨率</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E5%88%86%E8%BE%A8%E7%8E%87"><span class="toc-text">物理分辨率</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%BE%E5%A4%87%E5%83%8F%E7%B4%A0%E6%AF%94"><span class="toc-text">设备像素比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#meta"><span class="toc-text">meta</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">媒体查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%89%E7%A7%8D%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-text">媒体查询三种类型：</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;css&gt;视口概念</h1>
+        <h3 id="视口"><a href="#视口" class="headerlink" title="视口"></a>视口</h3><h4 id="像素（pixel）"><a href="#像素（pixel）" class="headerlink" title="像素（pixel）"></a>像素（pixel）</h4><ol>
+<li>设备像素：任何屏幕的物理像素数量是固定的</li>
+<li>CSS像素：CSS抽象的</li>
+</ol>
+<h4 id="布局视口"><a href="#布局视口" class="headerlink" title="布局视口"></a>布局视口</h4><ul>
+<li>概念</li>
+</ul>
+<ol>
+<li>CSS中，被称为初始包含块，是所有CSS百分比宽度推算的根源。</li>
+<li>PC浏览器布局视口的宽度与浏览器的宽度相同。</li>
+<li>移动端浏览器，布局视口与浏览器屏幕宽度不再相互关联，完全独立。</li>
+</ol>
+<ul>
+<li>js获取方式</li>
+</ul>
+<ol>
+<li>document.documentElement.clientWidth</li>
+<li>document.documentElement.clientWidth</li>
+</ol>
+<h4 id="视觉视口"><a href="#视觉视口" class="headerlink" title="视觉视口"></a>视觉视口</h4><ul>
+<li>概念</li>
+</ul>
+<ol>
+<li>用户正在看到的网站区域，用户可以通过缩放操作视觉视口，同时不会影响布局视口，布局视口仍会保持原来的宽度。</li>
+<li>移动端视觉视口与设备屏幕一样宽，并且它表示的CSS像素数量会根据缩放改变。</li>
+</ol>
+<ul>
+<li>js获取方式</li>
+</ul>
+<ol>
+<li>window.innerWidth</li>
+<li>window.innerHeight</li>
+</ol>
+<h4 id="理想视口"><a href="#理想视口" class="headerlink" title="理想视口"></a>理想视口</h4><ul>
+<li>概念</li>
+</ul>
+<ol>
+<li>移动设备上，布局视口的默认宽度不是一个理想的宽度，因此引进理想视口。</li>
+<li>当网站是移动设备使用时理想视口才会生效（meta标签生效）。</li>
+<li>设置布局视口宽度与理想视口宽度一致。</li>
+<li>浏览器厂商决定理想视口。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;device&quot; content&#x3D;&quot;width&#x3D;device-width&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>js获取方式</li>
+</ul>
+<ol>
+<li>screen.width/height 存在严重的兼容性问题，也可能返回浏览器设备像素尺寸。</li>
+</ol>
+<h3 id="视口之间的关系"><a href="#视口之间的关系" class="headerlink" title="视口之间的关系"></a>视口之间的关系</h3><ol>
+<li>桌面浏览器，浏览器窗口就是布局视口。</li>
+<li>手机上，布局视口限制CSS布局，视觉视口决定用户看到的内容。</li>
+<li>理想视口是移动浏览器布局的一个理想尺寸，可以把布局视口尺寸设置为理想视口尺寸，实现响应式布局。</li>
+</ol>
+<h3 id="缩放"><a href="#缩放" class="headerlink" title="缩放"></a>缩放</h3><ul>
+<li>缩放行为在手机和桌面上区别很大。</li>
+<li>桌面上：</li>
+</ul>
+<ol>
+<li>行为一般是一次性的。</li>
+<li>布局视口会被缩放影响，因为桌面布局视口与视觉视口相同。</li>
+</ol>
+<ul>
+<li>移动设备上</li>
+</ul>
+<ol>
+<li>缩放是一个交互过程</li>
+<li>布局视口不会被缩放影响。</li>
+<li>移动端缩放不会导致CSS布局被重新计算。</li>
+<li>移动端浏览器根据理想视口的大小来计算缩放程度。</li>
+<li>拖放</li>
+<li>禁止缩放</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;user-scalable&#x3D;no&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h3><h4 id="物理分辨率"><a href="#物理分辨率" class="headerlink" title="物理分辨率"></a>物理分辨率</h4><ol>
+<li>物理分辨率 = 像素数量 / 英寸单位宽度</li>
+<li>简称DPI</li>
+<li>每英寸像素数量越多显示越清晰</li>
+<li>有些手机可以动过screen.width获取，但是有兼容性问题</li>
+<li>96dpi = 1dppx</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;css使用需要加单位</span><br><span class="line">@media all and (min-resolution: 192dpi)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="设备像素比"><a href="#设备像素比" class="headerlink" title="设备像素比"></a>设备像素比</h4><ol>
+<li>设备像素比 = 设备像素个数 / 理想视口</li>
+<li>简称DPR(Device Pixel Ratio)</li>
+<li>js属性window.devicePixelRatio</li>
+<li>CSS device-pixel-ratio（基于webkit浏览器）和分辨率的媒体查询。</li>
+<li>浏览器厂商决定理想视口，因此DPR也由他们决定。</li>
+<li>单位dppx但是使用时不需要添加。</li>
+<li>96dpi = 1dppx</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;js使用</span><br><span class="line">if(window.devicePixelRatio&gt;&#x3D;2)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;css使用</span><br><span class="line">@media all and (-webkit-min-device-pixel-ratio: 2)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="meta"><a href="#meta" class="headerlink" title="meta"></a>meta</h3><ol>
+<li>width：设置布局视口宽度为特定值。</li>
+<li>initial-scale：设置页面初始缩放程度和布局视口的宽度。</li>
+<li>minimum-scale\maximum-scale设置用户最小最大可缩放程度。</li>
+<li>user-scalable：是否阻止缩放。</li>
+</ol>
+<ul>
+<li>将布局视口设置为设备理想视口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>initial-scale</li>
+</ul>
+<ol>
+<li>缩放程度根据理想视口计算。</li>
+<li>initial-scale=1时，视觉视口和理想视口尺寸一样。</li>
+<li>initial-scale=2时，会放大到200%，此时视觉视口的宽高是理想视口的一半。</li>
+<li>使用initial-scale，同时会将布局视口的尺寸设置为缩放后的尺寸。</li>
+<li>initial-scale与width=decice-width效果一样。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, user-scalable&#x3D;no, initial-scale&#x3D;1.0, maximum-scale&#x3D;1.0, minimum-scale&#x3D;1.0&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><ul>
+<li>语法</li>
+</ul>
+<ol>
+<li>媒介类型：media_type: all | aural | braille | handheld | print | projection | screen | tty | tv | embossed</li>
+<li>and</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@media tv and (min-width: 700px) and (orientation: landscape) &#123; &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>or：使用逗号分隔效果等同于or逻辑操作符</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@media (min-width: 700px), handheld and (orientation: landscape) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>not：not关键字仅能应用于整个查询，而不能单独应用于一个独立的查询</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;例如</span><br><span class="line">@media not all and (monochrome) &#123;&#125;</span><br><span class="line">&#x2F;&#x2F;等价于</span><br><span class="line">@media not (all and (monochrome)) &#123;&#125;</span><br><span class="line">&#x2F;&#x2F;而不是</span><br><span class="line">@media (not all) and (monochrome) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@media not screen and (color), print and (color)</span><br><span class="line">&#x2F;&#x2F;等价于</span><br><span class="line">@media (not (screen and (color))), print and (color)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries">MDN</a></li>
+</ul>
+<h4 id="媒体查询三种类型："><a href="#媒体查询三种类型：" class="headerlink" title="媒体查询三种类型："></a>媒体查询三种类型：</h4><ol>
+<li>媒介查询，是什么类型的设备</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@media print&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>视口相关查询</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;布局视口宽度小于等于400px时生效</span><br><span class="line">@media all and (max-width: 400)&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;布局视口不超过400px，设备处于横屏，并且devicePixelRatio小于1.5时生效</span><br><span class="line">@media all and (max-width: 400) and (orientation: potrait) and  ((max-resolution: 144dpi),(-webkit-max-device-pixel-ratio: 1.5)) &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>特性相关查询，浏览器是否支持某些特性</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@supports ( display: flex ) &#123;</span><br><span class="line">    .foo &#123; display: flex; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

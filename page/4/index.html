@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  
+
+<div class="container-lg">
+    
+
+<div class="blog-intro">
+    <div class="blog-intro-user">
+        <!--<img class="avatar" src="https://avatars2.githubusercontent.com/u/19149642?s=460&amp;v=4">-->
+        <img class="avatar" src="/images/my_head.jpeg">
+        <div class="user-name">
+            <div class="blog-title"></div>
+            <!--<div class="blog-author"></div>-->
+            <ul class="user-detail mobile-only">
+                
+                <li>
+                    <i class="fa fa-link"></i>
+                    <a href="https://github.com/crazyaguai">https://github.com/crazyaguai</a>
+                </li>
+            </ul>
+        </div>
+        <div class="blog-description">
+            
+        </div>
+    </div>
+
+    <ul class="user-detail desktop-only">
+        
+        <li>
+            <i class="fa fa-link"></i>
+            <a href="https://github.com/crazyaguai">https://github.com/crazyaguai</a>
+        </li>
+    </ul>
+    <!--社交媒体-->
+    <!--<div class="social-media desktop-only">-->
+        <!--<h4>Social Media</h4>-->
+        <!--<ul>-->
+            <!---->
+        <!--</ul>-->
+    <!--</div>-->
+</div>
+
+
+    <div class="blog-detail">
+        
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="selected">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/">Posts <span class="counter">58</span></a>
+    </li>
+    <li class="">
+      <a href="/">Categories <span
+                class="counter">24</span></a></li>
+    <li class="">
+      <a href="/">Tags <span class="counter">41</span></a></li>
+  </ul>
+</nav>
+
+        <div class="body-secondary">
+            <p class="right-title"></p>
+            <ul class="recent-post clearfix">
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/09/26/%5Bwebpack%5D%E9%85%8D%E7%BD%AE%E5%85%A8%E5%B1%80%E5%B8%B8%E9%87%8F/">&lt;webpack&gt;配置全局常量</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ 需求：进行项目打包时需要配置不同的服务url，手动去更改容易出错，因此将不同url
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/webpack/"><i
+                              class="fa fa-folder-open"></i> webpack</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 1 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/09/06/%5B%E6%B5%8F%E8%A7%88%E5%99%A8%5D%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">&lt;浏览器&gt;浏览器缓存</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               
+   强制缓存  
+ 当浏览器对某个资源的请求命中了强制缓存时，返回的http状态为200，
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/%E7%BC%93%E5%AD%98/"><i
+                              class="fa fa-folder-open"></i> 缓存</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/22/%5BES6%5DSet&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ 如果开发者想使用非数值型索引，就会使用数组对象创建数据结构，这是Set&amp;amp;M
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/22/%5BES6%5Dclass/">&lt;ES6&gt;class</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               基本的类声明语法  
+ 注意：类的属性不可以被赋予新值 
+ 
+ 
+ 类声明与let声明类似，不
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/22/%5BES6%5Dpromise/">&lt;ES6&gt;promise</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介    异步编程  
+  Promise可以完成其他语言中类似Future和Deferre
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/22/%5BES6%5D%E8%BF%AD%E4%BB%A3%E5%99%A8iterator&amp;%E7%94%9F%E6%88%90%E5%99%A8generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ 通过程序化的方式使用迭代器对象返回集合中的元素，可以极大地简化数据操作，例如：fo
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/21/%5BES6%5D%E5%87%BD%E6%95%B0/">&lt;ES6&gt;函数</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ ES6在ES5的基础上做了大量改进，使编程更加灵活，更少出错。 
+ 
+   参数默
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/21/%5BES6%5D%E6%89%A9%E5%B1%95%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7/">&lt;ES6&gt;扩展对象属性</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ ES6通过多种方式加强对象的使用，通过简单的语法扩展，提供更多操作对象以及对象交互
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2018/08/20/%5Bhexo%5D%E5%88%9B%E5%BB%BAHexo-github%E5%8D%9A%E5%AE%A2%E6%B5%81%E7%A8%8B/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ HEXO快速、简单且功能强大的 Node.js 博客框架。  https://he
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/hexo/"><i
+                              class="fa fa-folder-open"></i> hexo</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 1 </span>
+                        </p>
+                    </div>
+                </li>
+                
+                <li class="recent-post-item">
+                    <div class="clearfix">
+                        <h5 class="post-title text-ellipsis">
+                            <i class="fa fa-bars"></i>
+                            <a href="/2017/08/17/%5BES6%5D%E8%A7%A3%E6%9E%84/">&lt;ES6&gt;解构</a>
+                        </h5>
+                        <p class="post-description text-ellipsis desktop-only">
+                               简介  
+ 对象和数组是JS里面常用的两种数据结构，ES6中添加了简化任务的新特性：结构，是一
+                        </p>
+                        <p class="post-info desktop-only">
+              <span>
+                  
+                  <a class="category-link" href="/categories/ES6/"><i
+                              class="fa fa-folder-open"></i> ES6</a>
+                  
+              </span>
+                            <span><i class="fa fa-tag"></i> 2 </span>
+                        </p>
+                    </div>
+                </li>
+                
+            </ul>
+            <!--<div class="calendar-container" id="calendar">
+    <div class="calendar">
+        <h3>
+            {{posts.length}} contributions in the last year
+        </h3>
+        <div class="calendar-graph-container">
+            <div class="calendar-graph">
+                <svg width="676" height="104" @mouseout="mouseoverDate=null">
+                    <g transform="translate(16, 20)">
+                        <g v-for="week in calendar" :transform="week.transform">
+                            <rect v-for="day in week.days"
+                                  :x="day.x"
+                                  :y="day.y"
+                                  :fill="day.fill"
+                                  @click="selectedDate=day.date"
+                                  @mouseover="mouseoverDate=day.date"
+                                  :class="{active:selectedDate===day.date}"
+                                  data-count="{{day.posts.length}}"
+                                  data-date="{{day.date}}"
+                                  class="day" width="10" height="10"
+                            ></rect>
+                        </g>
+
+                        <text v-for="month in monthLabels"
+                              :x="month.x"
+                              y="-5"
+                              class="month">{{month.text}}
+                        </text>
+
+
+                        <text text-anchor="start" class="wday" dx="-14" dy="8"
+                              style="display: none;">S
+                        </text>
+                        <text text-anchor="start" class="wday" dx="-14" dy="20">Mon</text>
+                        <text text-anchor="start" class="wday" dx="-14" dy="32"
+                              style="display: none;">T
+                        </text>
+                        <text text-anchor="start" class="wday" dx="-14" dy="44">Wed</text>
+                        <text text-anchor="start" class="wday" dx="-14" dy="57"
+                              style="display: none;">T
+                        </text>
+                        <text text-anchor="start" class="wday" dx="-14" dy="69">Fri</text>
+                        <text text-anchor="start" class="wday" dx="-14" dy="81"
+                              style="display: none;">S
+                        </text>
+                    </g>
+                </svg>
+                <div class="svg-tip svg-tip-one-line"
+                     v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
+                    <strong>{{svgtip.text}}</strong> on
+                    {{moment(mouseoverDate).format('MMM DD, YYYY')}}
+                </div>
+            </div>
+            <div class="calendar-footer clearfix">
+      <span>
+        <a href="#">Learn how we count contributions.</a>
+      </span>
+                <div class="calendar-legend">
+                    <span>Less</span>
+                    <ul class="legend">
+                        <li style="background-color: #eee"></li>
+                        <li style="background-color: #d6e685"></li>
+                        <li style="background-color: #8cc665"></li>
+                        <li style="background-color: #44a340"></li>
+                        <li style="background-color: #1e6823"></li>
+                    </ul>
+                    <span>More</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3>Contribution activity</h3>
+    <div class="contribution-list">
+        <ul>
+            <li v-for="post in posts | filterBy selectedDate in 'date'">
+                <a href="{{post.url}}">{{post.title}}
+                </a>
+                <span>{{post.date}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    var posts = [{"date":"2020-06-11","title":"<工程化>docker常用命令","url":"https://github.com/crazyaguai/2020/06/11/[%E5%B7%A5%E7%A8%8B%E5%8C%96]docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"},{"date":"2020-06-11","title":"<react>react-router实现原理","url":"https://github.com/crazyaguai/2020/06/11/[react]react-router%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"},{"date":"2020-06-11","title":"<react>redux实现原理","url":"https://github.com/crazyaguai/2020/06/11/[react]redux%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/"},{"date":"2020-07-20","title":"<工程化>yarn使用","url":"https://github.com/crazyaguai/2020/07/20/[%E5%B7%A5%E7%A8%8B%E5%8C%96]yarn%E4%BD%BF%E7%94%A8/"},{"date":"2020-08-24","title":"<linux>基础操作","url":"https://github.com/crazyaguai/2020/08/24/[linux]%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"},{"date":"2020-09-10","title":"<工程化>代码检查","url":"https://github.com/crazyaguai/2020/09/10/[%E5%B7%A5%E7%A8%8B%E5%8C%96]%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5/"},{"date":"2020-09-11","title":"<node>pm2使用","url":"https://github.com/crazyaguai/2020/09/11/[node]pm2%E4%BD%BF%E7%94%A8/"},{"date":"2020-09-12","title":"<react>react相关知识","url":"https://github.com/crazyaguai/2020/09/12/[react]react%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86/"},{"date":"2020-10-06","title":"<工程化>git-使用","url":"https://github.com/crazyaguai/2020/10/06/[%E5%B7%A5%E7%A8%8B%E5%8C%96]git-%E4%BD%BF%E7%94%A8/"},{"date":"2020-12-22","title":"<工程化>npm使用","url":"https://github.com/crazyaguai/2020/12/22/[%E5%B7%A5%E7%A8%8B%E5%8C%96]npm%E4%BD%BF%E7%94%A8/"},{"date":"2021-01-11","title":"<js>new、call、apply、bind实现","url":"https://github.com/crazyaguai/2021/01/11/[js]new%E3%80%81call%E3%80%81apply%E3%80%81bind%E5%AE%9E%E7%8E%B0/"},{"date":"2021-02-20","title":"<node>nodejs使用","url":"https://github.com/crazyaguai/2021/02/20/[node]nodejs%E4%BD%BF%E7%94%A8/"},{"date":"2021-03-03","title":"<js>数据类型","url":"https://github.com/crazyaguai/2021/03/03/[js]%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"},{"date":"2029-03-03","title":"<js>继承","url":"https://github.com/crazyaguai/2029/03/03/[js]%E7%BB%A7%E6%89%BF/"}];
+    var today = moment().format('YYYY-MM-DD');
+    var oneYearAgo = moment(today).subtract(1, 'years');
+    posts = posts.filter(function (post) {
+        return new Date(post.date) > oneYearAgo;
+    });
+    var monthLabels = [];
+    var monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var calendar = getCalendar(posts);
+
+    var dateRange = {
+        start: moment(oneYearAgo).format('MMM D, YYYY'),
+        end: moment().format('MMM D, YYYY')
+    }
+
+    var app = new Vue({
+        el: '#calendar',
+        data: {
+            posts: posts,
+            selectedDate: null,
+            calendar: calendar,
+            dateRange: dateRange,
+            mouseoverDate: null,
+            moment: moment,
+            monthLabels: monthLabels
+        },
+        created: function () {
+            this.selectedDate = 'none';
+        },
+        methods: {},
+        computed: {
+            svgtip: function () {
+                var date = this.mouseoverDate;
+                var display = date ? 'block' : 'none';
+                if (date) {
+                    var coordinator = getIndexByDate(date);
+                    var x = coordinator[0];
+                    var y = coordinator[1];
+                    var len = this.calendar[x].days[y].posts.length;
+                    var text = len ? len + ' contributions' : 'No contributions';
+                    var left = coordinator[0] * 12 - 37 + 'px';
+                    coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
+                    var top = coordinator[1] * 12 + 12 - 32 + 'px';
+                }
+                return {
+                    text: text,
+                    left: left,
+                    top: top,
+                    display: display
+                }
+            }
+        }
+    });
+
+    function getCalendar(posts) {
+        // raw calendar
+        var maxCount = 0;
+        var tmr = new Date();
+        tmr.setDate(tmr.getDate() + 1);
+        var tmrStr = tmr.toISOString().slice(0, 10);
+        var date = new Date();
+        date.setYear(date.getFullYear() - 1); // start date is a year ago;
+        var calendar = [];
+        while (date.toISOString().slice(0, 10) !== tmrStr) {
+            var day = date.getDay();
+            if (day === 0 || calendar.length === 0) {
+                var x = calendar.length * 13;
+                calendar.push({
+                    transform: 'translate(' + x + ',0)',
+                    days: []
+                })
+            }
+
+            calendar[calendar.length - 1].days.push({
+                x: 14 - calendar.length,
+                y: day * 12,
+                date: date.toISOString().slice(0, 10),
+                posts: []
+            });
+
+            if (day === 0 && date.getDate() < 8) {
+                monthLabels.push({
+                    x: 14 - calendar.length + x,
+                    text: monthName[date.getMonth() - 1]
+                })
+            }
+
+            date.setDate(date.getDate() + 1);
+        }
+
+        // handle post info
+        posts.forEach(function (post) {
+            var x = getIndexByDate(post.date)[0];
+            var y = getIndexByDate(post.date)[1];
+
+            calendar[x].days[y].posts.push({
+                title: post.title,
+                url: post.url
+            });
+
+            var len = calendar[x].days[y].posts.length;
+            maxCount = Math.max(len, maxCount);
+        })
+
+        // handle fill color
+        calendar.forEach(function (week) {
+            week.days.forEach(function (day) {
+                day.fill = getColorByLength(day.posts.length, maxCount);
+            })
+        })
+
+        return calendar;
+    }
+
+    function getIndexByDate(date) {
+        date = moment(date);
+        var firstColumnLen = 7 - oneYearAgo.day();
+        var days = date.diff(oneYearAgo, 'days');
+
+        var x = days > firstColumnLen - 1 ? Math.ceil((days - firstColumnLen + 1) / 7) : 0;
+        var y = days > firstColumnLen - 1 ? date.day() : date.day() - oneYearAgo.day();
+        return [x, y];
+    }
+
+    function getColorByLength(len, max) {
+        var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
+        var colorsLen = colors.length - 1;
+        var color = len ? colors[0] : colors[1];
+        var interval = max / colorsLen;
+        if (max < colorsLen) {
+            color = colors[len];
+        } else {
+            color = colors[Math.ceil(len / interval)];
+        }
+        return color;
+    }
+
+</script>
+
+-->
+        </div>
+    </div>
+</div>
+
+
+<nav class="page-nav text-center">
+    <a class="extend prev" rel="prev" href="/page/3/">〈</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+</nav>
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

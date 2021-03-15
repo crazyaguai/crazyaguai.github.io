@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;js&gt;正则表达式 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  js,正则表达式
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2019-03-19T16:00:00.000Z">
+                    2019-03-20
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E5%8C%B9%E9%85%8D"><span class="toc-text">模糊匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-text">修饰符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%83%E5%AD%97%E7%AC%A6"><span class="toc-text">元字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E7%B1%BB%EF%BC%88%E5%AD%97%E7%AC%A6%E7%BB%84%EF%BC%89"><span class="toc-text">字符类（字符组）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8C%83%E5%9B%B4%E7%B1%BB"><span class="toc-text">范围类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E8%8C%83%E5%9B%B4%E7%B1%BB"><span class="toc-text">预定义的范围类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E5%8C%B9%E9%85%8D"><span class="toc-text">位置匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%B9%E7%95%8C"><span class="toc-text">边界</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%89%8D%E7%9E%BB-amp-%E5%90%8E%E9%A1%BE"><span class="toc-text">前瞻&amp;后顾</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8F%E8%AF%8D"><span class="toc-text">量词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%A9%AA%E6%A8%A1%E5%BC%8F%E4%B8%8E%E9%9D%9E%E8%B4%AA%E5%A9%AA%E6%A8%A1%E5%BC%8F"><span class="toc-text">贪婪模式与非贪婪模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84"><span class="toc-text">分组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%96%EF%BC%88%E5%A4%9A%E9%80%89%E5%88%86%E6%94%AF%EF%BC%89"><span class="toc-text">或（多选分支）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%BC%95%E7%94%A8"><span class="toc-text">反向引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E6%8B%AC%E5%8F%B7%E5%B5%8C%E5%A5%97"><span class="toc-text">分组括号嵌套</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%BD%E7%95%A5%E5%88%86%E7%BB%84%EF%BC%88%E9%9D%9E%E6%8D%95%E8%8E%B7%E6%8B%AC%E5%8F%B7%EF%BC%89"><span class="toc-text">忽略分组（非捕获括号）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%90%8E%E8%BE%B9%E6%9C%89%E9%87%8F%E8%AF%8D"><span class="toc-text">分组后边有量词</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%9B%9E%E6%BA%AF%E6%B3%95"><span class="toc-text">正则表达式回溯法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%9B%9E%E6%BA%AF"><span class="toc-text">产生回溯</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%86%E5%88%86%E6%AD%A3%E5%88%99"><span class="toc-text">拆分正则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E8%A6%81%E7%82%B9"><span class="toc-text">注意要点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7"><span class="toc-text">对象属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%96%B9%E6%B3%95"><span class="toc-text">正则表达式方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#test"><span class="toc-text">test()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#exec"><span class="toc-text">exec()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">字符串对象的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#search"><span class="toc-text">search()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#match"><span class="toc-text">match()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#split"><span class="toc-text">split()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#replace"><span class="toc-text">replace()</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;js&gt;正则表达式</h1>
+        <h3 id="模糊匹配"><a href="#模糊匹配" class="headerlink" title="模糊匹配"></a>模糊匹配</h3><ul>
+<li>横向模糊匹配：长度不固定，比如{m,n}最少出现m次最多出现n次</li>
+<li>纵向模糊匹配：某一位置字符多种可能，比如[\w]</li>
+</ul>
+<h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><ul>
+<li>g全局匹配</li>
+<li>i不区分大小写，默认大小写敏感</li>
+<li>m匹配多行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let str &#x3D;</span><br><span class="line">&#96;aA</span><br><span class="line">A</span><br><span class="line">&#96;.replace(&#x2F;a&#x2F;igm,&#39;B&#39;)</span><br><span class="line">console.log(str)</span><br><span class="line">&#x2F;&#x2F; &#96;BB</span><br><span class="line">&#x2F;&#x2F; b&#96;</span><br></pre></td></tr></table></figure>
+
+<h3 id="元字符"><a href="#元字符" class="headerlink" title="元字符"></a>元字符</h3><ul>
+<li>\t 水平制表符tab</li>
+<li>\v 垂直制表符</li>
+<li>\n 换行符</li>
+<li>\r 回车符</li>
+<li>\0 空字符</li>
+<li>\f 换页符</li>
+<li>\cX ctrl+X</li>
+</ul>
+<h3 id="字符类（字符组）"><a href="#字符类（字符组）" class="headerlink" title="字符类（字符组）"></a>字符类（字符组）</h3><ul>
+<li>使用[]创建一个字符类</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;1b2&#39;.replace(&#x2F;[abc]&#x2F;g,&#39;3&#39;))&#x2F;&#x2F;132</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用^符号（脱字符）字符类取反，即排除字符组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;1b2&#39;.replace(&#x2F;[^abc]&#x2F;g,&#39;3&#39;))&#x2F;&#x2F;3b3</span><br></pre></td></tr></table></figure>
+
+<h3 id="范围类"><a href="#范围类" class="headerlink" title="范围类"></a>范围类</h3><ul>
+<li>[a-zA-Z0-9]</li>
+<li>范围类中想包含-符号[a-z-]</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;a-&#39;.replace(&#x2F;[a-z-]&#x2F;g,&#39;1&#39;))&#x2F;&#x2F;11</span><br></pre></td></tr></table></figure>
+
+<h3 id="预定义的范围类"><a href="#预定义的范围类" class="headerlink" title="预定义的范围类"></a>预定义的范围类</h3><ul>
+<li><p>. 除了回车和换行符之外的所有字符–[^\n\r]</p>
+</li>
+<li><p>\d 数字字符–[0-9]，digit（数字）</p>
+</li>
+<li><p>\D 非数字字符–[^0-9]</p>
+</li>
+<li><p>\s 空白符–[\t\n\x0B\f\r]，space（空格）</p>
+</li>
+<li><p>\S 非空白符–[^\t\n\x0B\f\r]</p>
+</li>
+<li><p>\w 单词字符，字母、数字、下划线–[a-zA-Z_0-9]，word（单词）</p>
+</li>
+<li><p>\W 非单词字符–[^a-zA-Z_0-9]</p>
+</li>
+<li><p>. 通配符[^\n\t\u2028\u2029]，表示换行符、回车符、行分隔符、段分隔符之外的任意字符</p>
+</li>
+<li><p>如果想<strong>匹配任意字符</strong>可以使用：[\d\D],[\w\W],[\s\S],[^]中任意一个</p>
+</li>
+</ul>
+<h3 id="位置匹配"><a href="#位置匹配" class="headerlink" title="位置匹配"></a>位置匹配</h3><ul>
+<li>位置（锚）是指相邻字符串之间的位置</li>
+<li>ES5中有6个锚：^,$,\b,\B,(?=p),(?!p)</li>
+</ul>
+<h4 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h4><ul>
+<li>^ 以XXX开始</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;abc&#39;.replace(&#x2F;^[abc]&#x2F;,&#39;A&#39;))&#x2F;&#x2F;Abc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$ 以XXX结束</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;abc&#39;.replace(&#x2F;[abc]$&#x2F;,&#39;A&#39;))&#x2F;&#x2F;abA</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>\b 单词边界</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;Are you youOK&#39;.replace(&#x2F;you\b&#x2F;,&#39;YOU&#39;))&#x2F;&#x2F;Are YOU youOK</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>\B 非单词边界</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;Are you youOK&#39;.replace(&#x2F;you\B&#x2F;,&#39;YOU&#39;))&#x2F;&#x2F;Are you YOUOK</span><br></pre></td></tr></table></figure>
+
+<h4 id="前瞻-amp-后顾"><a href="#前瞻-amp-后顾" class="headerlink" title="前瞻&amp;后顾"></a>前瞻&amp;后顾</h4><ul>
+<li>(?=p) 表示p前面的位置，该位置后边的字符匹配p，可以理解为存在一个位置，该位置后边的字符与p匹配，正向先行断言</li>
+<li>(?!p) 是(?=p)反面的意思，负向先行断言</li>
+<li>正则表达式从文本头部向尾部解析，文本尾部称为’前’，前瞻就是匹配规则时候向前（尾部方向）检查是否断言</li>
+<li>js正则不支持后顾</li>
+<li>exp(?=asset) 正向前瞻（符合断言）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;a2aa&#39;.replace(&#x2F;\w(?&#x3D;\d)&#x2F;g,&#39;X&#39;))&#x2F;&#x2F;X2aa</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>exp(?!asset) 负向前瞻（不符合断言）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;a2aa&#39;.replace(&#x2F;\w(?!\d)&#x2F;g,&#39;X&#39;))&#x2F;&#x2F;aXXX</span><br></pre></td></tr></table></figure>
+
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><ul>
+<li>? 出现0次或者一次（最多一次）</li>
+<li>+ 出现一次或者多次（最少出现一次）</li>
+<li>* 0次或者多次（任意次）</li>
+<li>{n} 出现n次</li>
+<li>{n,m} n-m次</li>
+<li>{n,} 最少出现n次</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;aabbcc&#39;.replace(&#x2F;[abc]&#123;2&#125;&#x2F;g,&#39;A&#39;))&#x2F;&#x2F;AAA</span><br></pre></td></tr></table></figure>
+
+<h3 id="贪婪模式与非贪婪模式"><a href="#贪婪模式与非贪婪模式" class="headerlink" title="贪婪模式与非贪婪模式"></a>贪婪模式与非贪婪模式</h3><ul>
+<li>贪婪模式，js正则默认贪婪模式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;aaa&#39;.replace(&#x2F;a+&#x2F;g,&#39;A&#39;))&#x2F;&#x2F;A</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>非贪婪模式，尽可能少的匹配，一旦匹配成功就不再进行尝试</li>
+<li>非贪婪模式需要在量词后边加 ?</li>
+<li>{m.n}?,{m,}?,+?,*?,??</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;aaa&#39;.replace(&#x2F;a+?&#x2F;g,&#39;A&#39;))&#x2F;&#x2F;AAA</span><br></pre></td></tr></table></figure>
+
+<h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><ul>
+<li>使用()可以实现分组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;ababc&#39;.replace(&#x2F;(ab)&#123;2&#125;&#x2F;g,&#39;A&#39;))&#x2F;&#x2F;Ac</span><br></pre></td></tr></table></figure>
+
+<h4 id="或（多选分支）"><a href="#或（多选分支）" class="headerlink" title="或（多选分支）"></a>或（多选分支）</h4><ul>
+<li><p>|</p>
+</li>
+<li><p>分支结构是惰性的，前边的匹配之后，后边的就不在尝试了</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;abcadc&#39;.replace(&#x2F;a(b|d)c&#x2F;g,&#39;A&#39;))&#x2F;&#x2F;AA</span><br></pre></td></tr></table></figure>
+
+<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><ul>
+<li>分组后使用$1、$2…</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;2012-11-01&#39;.replace(&#x2F;(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)&#x2F;,&#39;$3&#x2F;$2&#x2F;$1&#39;))&#x2F;&#x2F;01&#x2F;11&#x2F;2012</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正则表达式中使用\1,\2,\3引用分组</li>
+<li>\10表示第十个分组，如果想匹配\1和0使用(?:\1)0,\1(?:0)</li>
+<li>引用不存在的分组不会报错，会匹配反向引用字符串本身</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;aa&#39;.replace(&#x2F;([a])\1&#x2F;,&#39;b&#39;))&#x2F;&#x2F;b</span><br></pre></td></tr></table></figure>
+
+<h4 id="分组括号嵌套"><a href="#分组括号嵌套" class="headerlink" title="分组括号嵌套"></a>分组括号嵌套</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var regex &#x3D; &#x2F;^((\d)(\d(\d)))\1\2\3\4$&#x2F;;</span><br><span class="line">var string &#x3D; &quot;1231231233&quot;;</span><br><span class="line">console.log( regex.test(string) ); &#x2F;&#x2F; true</span><br><span class="line">console.log( RegExp.$1 ); &#x2F;&#x2F; 123,第一个括号对应的</span><br><span class="line">console.log( RegExp.$2 ); &#x2F;&#x2F; 1，第二个括号对应的</span><br><span class="line">console.log( RegExp.$3 ); &#x2F;&#x2F; 23，。。。</span><br><span class="line">console.log( RegExp.$4 ); &#x2F;&#x2F; 3，。。。</span><br></pre></td></tr></table></figure>
+
+<h4 id="忽略分组（非捕获括号）"><a href="#忽略分组（非捕获括号）" class="headerlink" title="忽略分组（非捕获括号）"></a>忽略分组（非捕获括号）</h4><ul>
+<li>在分组内加上 ?: 即(?:)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;2012-11-01&#39;.replace(&#x2F;(?:\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)&#x2F;,&#39;$3&#x2F;$2&#x2F;$1&#39;))&#x2F;&#x2F;$3&#x2F;11&#x2F;2012</span><br></pre></td></tr></table></figure>
+
+<h4 id="分组后边有量词"><a href="#分组后边有量词" class="headerlink" title="分组后边有量词"></a>分组后边有量词</h4><ul>
+<li>分组后边有量词，分组最终捕获最后一次的匹配</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let r &#x3D; &#x2F;(\d)&#123;1,4&#125;&#x2F;</span><br><span class="line">console.log(&#39;123456&#39;.match(r))&#x2F;&#x2F; [&quot;1234&quot;, &quot;4&quot;, index: 0, input: &quot;123456&quot;, groups: undefined]</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则表达式回溯法"><a href="#正则表达式回溯法" class="headerlink" title="正则表达式回溯法"></a>正则表达式回溯法</h3><ul>
+<li>尝试匹配失败时，会退回之前的一步，本质是深度优先算法</li>
+</ul>
+<h4 id="产生回溯"><a href="#产生回溯" class="headerlink" title="产生回溯"></a>产生回溯</h4><ul>
+<li>贪婪量词，{2,4}因为是贪婪的，所以先会尝试尽可能多的匹配</li>
+<li>惰性量词，匹配少了，不够会回溯，’12345’.match(/^(\d{1,3}?)(\d{1,3})$/)，第一个分组会先尝试匹配一个，但是第二个就不能匹配，于是尝试两个、三个。。。</li>
+<li>分支结构，’123’.match(/^(12|123)$/)</li>
+</ul>
+<h3 id="拆分正则"><a href="#拆分正则" class="headerlink" title="拆分正则"></a>拆分正则</h3><h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><ul>
+<li>转义符\  &gt;  括号和方括号  &gt;  量词  &gt;  位置和序列（位置、一般字符）  &gt;  管道符</li>
+</ul>
+<h4 id="注意要点"><a href="#注意要点" class="headerlink" title="注意要点"></a>注意要点</h4><ul>
+<li>匹配字符串整体/^(a|b)$/而不是/^a|b&amp;/</li>
+<li>量词连续：/[abc]{3}+/会报错，应该写成/([abc]{3})+/</li>
+<li>元字符转义问题：^,$,.,*,+,?,|,,/,(,),[,],{,},=,!,:,-</li>
+</ul>
+<h3 id="对象属性"><a href="#对象属性" class="headerlink" title="对象属性"></a>对象属性</h3><ul>
+<li>global\ignoreCase\multiline\lastIndex\source</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let reg1 &#x3D; &#x2F;\w&#x2F;igm</span><br><span class="line">console.log(reg1.global)&#x2F;&#x2F;true</span><br><span class="line">console.log(reg1.ignoreCase)&#x2F;&#x2F;true</span><br><span class="line">console.log(reg1.multiline)&#x2F;&#x2F;true</span><br><span class="line">console.log(reg1.lastIndex)&#x2F;&#x2F;0 当前匹配结果最后一个字符的下一个字符</span><br><span class="line">console.log(reg1.source)&#x2F;&#x2F;\w</span><br></pre></td></tr></table></figure>
+
+<h3 id="正则表达式方法"><a href="#正则表达式方法" class="headerlink" title="正则表达式方法"></a>正则表达式方法</h3><h4 id="test"><a href="#test" class="headerlink" title="test()"></a>test()</h4><ul>
+<li>RegExp.prototype.test(str) 检测字符串参数中是否存在匹配正则表达式模式的字符串</li>
+<li>存在返回true不存在返回false</li>
+<li>注意如果包含全局匹配g那么结果会受到lastIndex影响</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let reg2 &#x3D; &#x2F;\w&#x2F;g</span><br><span class="line">console.log(reg2.test(&#39;ab&#39;))&#x2F;&#x2F;true</span><br><span class="line">console.log(reg2.lastIndex)&#x2F;&#x2F;1</span><br><span class="line">console.log(reg2.test(&#39;ab&#39;))&#x2F;&#x2F;true</span><br><span class="line">console.log(reg2.lastIndex)&#x2F;&#x2F;2</span><br><span class="line">console.log(reg2.test(&#39;ab&#39;))&#x2F;&#x2F;false</span><br><span class="line">console.log(reg2.lastIndex)&#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<h4 id="exec"><a href="#exec" class="headerlink" title="exec()"></a>exec()</h4><ul>
+<li>RegExp.prototype.exec(str)</li>
+<li>使用正则表达式对字符串执行搜索，并将更新全局RegExp对象的属性以反映匹配结果</li>
+<li>如果没有匹配文本返回null，否则返回一个结果的数组</li>
+<li>返回的数组有两个属性index声明第一个匹配字符的位置、input存放被检索的字符串string</li>
+<li>非全局调用返回的数组：第一项是与正则表达式匹配的文本、第二项（以及以后项）是与分组匹配的文本</li>
+<li>非全局匹配lastindex为0，全局匹配每次调用lastIndex会增加</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let reg3 &#x3D; &#x2F;\d(\w)(\w)\d&#x2F;</span><br><span class="line">let res1 &#x3D; reg3.exec(&#39;1aa21aa2&#39;)&#x2F;&#x2F;第一次</span><br><span class="line">console.log(res1.index + &#39;\t&#39; + reg3.lastIndex + &#39;\t&#39; + res1.toString())&#x2F;&#x2F;0	0	1aa2,a,a</span><br><span class="line">let res2 &#x3D; reg3.exec(&#39;1aa21aa2&#39;)&#x2F;&#x2F;第二次，lastIndex没有变化</span><br><span class="line">console.log(res2.index + &#39;\t&#39; + reg3.lastIndex + &#39;\t&#39; + res2.toString())&#x2F;&#x2F;0	0	1aa2,a,a</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>全局搜索</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let reg4 &#x3D; &#x2F;\d(\w)(\w)\d&#x2F;g</span><br><span class="line">let r1 &#x3D; reg4.exec(&#39;1aa23bb4&#39;)&#x2F;&#x2F;第一次</span><br><span class="line">console.log(r1.index + &#39;\t&#39; + reg4.lastIndex + &#39;\t&#39; + r1.toString())&#x2F;&#x2F;0	0	1aa2,a,a</span><br><span class="line">let r2 &#x3D; reg4.exec(&#39;1aa23bb4&#39;)&#x2F;&#x2F;第二次</span><br><span class="line">console.log(r2.index + &#39;\t&#39; + reg4.lastIndex + &#39;\t&#39; + r2.toString())&#x2F;&#x2F;4	0	3bb4,b,b</span><br><span class="line">let r3 &#x3D; reg4.exec(&#39;1aa23bb4&#39;)&#x2F;&#x2F;第三次</span><br><span class="line">console.log(reg4.lastIndex,r3)&#x2F;&#x2F;0 null</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串对象的方法"><a href="#字符串对象的方法" class="headerlink" title="字符串对象的方法"></a>字符串对象的方法</h3><h4 id="search"><a href="#search" class="headerlink" title="search()"></a>search()</h4><ul>
+<li>String.prototype.search(reg)，返回第一个匹配结果的index，查找不到返回-1，忽略g标志，总是从开始匹配。</li>
+<li>search会把字符串转换为正则匹配</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;aaa&#39;.search(&#39;.&#39;))&#x2F;&#x2F;0，转换为正则匹配</span><br><span class="line">console.log(&#39;abc&#39;.search(&#x2F;[abc]&#x2F;g))&#x2F;&#x2F;0</span><br><span class="line">console.log(&#39;abc&#39;.search(&#x2F;[abc]&#x2F;g))&#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<h4 id="match"><a href="#match" class="headerlink" title="match()"></a>match()</h4><ul>
+<li>String.prototype.match(reg) 检索字符串，以找到一个或者多个与正则匹配的文本 是否有标志g对结果影响很大</li>
+<li>match会把字符串转换为正则匹配</li>
+<li>非全局调用，返回数组第一个元素存放匹配的文本，其余元素是与正则的子表达式匹配的文本，还有两个对象属性index、input</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let str1 &#x3D; &#39;1aa21aa2&#39;</span><br><span class="line">let reg5 &#x3D; &#x2F;\d(\w)(\w)\d&#x2F;</span><br><span class="line">let re1 &#x3D; str1.match(reg5)&#x2F;&#x2F;第一次</span><br><span class="line">console.log(re1.index + &#39;\t&#39; + reg5.lastIndex + &#39;\t&#39; + re1.toString())&#x2F;&#x2F;0	0	1aa2,a,a</span><br><span class="line">let re2 &#x3D; str1.match(reg5)&#x2F;&#x2F;第二次</span><br><span class="line">console.log(re2.index + &#39;\t&#39; + reg5.lastIndex + &#39;\t&#39; + re2.toString())&#x2F;&#x2F;0	0	1aa2,a,a</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>全局调用，返回数组中包含所有匹配的字符串，没有找到返回null，没有index、input属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let str2 &#x3D; &#39;1aa21aa2&#39;</span><br><span class="line">let reg6 &#x3D; &#x2F;\d(\w)(\w)\d&#x2F;g</span><br><span class="line">let re3 &#x3D; str1.match(reg6)</span><br><span class="line">console.log(re3.index + &#39;\t&#39; + reg6.lastIndex + &#39;\t&#39; + re3.toString())&#x2F;&#x2F;undefined	0	1aa2,1aa2</span><br></pre></td></tr></table></figure>
+
+<h4 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h4><ul>
+<li>String.prototype.split(reg)</li>
+<li>存在第二个参数，表示结果数组最大长度</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;1a2b3c4d&#39;.split(&#x2F;\d&#x2F;g))&#x2F;&#x2F;[&#39;&#39;,a,b,c,d]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>正则使用分组时，结果包含分隔符</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;abc&#39;.split(&#x2F;(\w)&#x2F;g))&#x2F;&#x2F; [&quot;&quot;, &quot;a&quot;, &quot;&quot;, &quot;b&quot;, &quot;&quot;, &quot;c&quot;, &quot;&quot;]</span><br></pre></td></tr></table></figure>
+
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h4><ul>
+<li>String.prototype.replace(reg)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;aabc&#39;.replace(&#39;a&#39;,&#39;1&#39;))&#x2F;&#x2F;1abc 转换为&#x2F;a&#x2F;正则</span><br><span class="line">console.log(&#39;aabc&#39;.replace(&#x2F;a&#x2F;g,&#39;1&#39;))&#x2F;&#x2F;11bc</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>传第二个函数参数function有四个参数：匹配字符串、正则表达式分组内容(没有分组就没这个参数)、匹配项的index、原字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">console.log(&#39;a1b2c3d4&#39;.replace(&#x2F;\d&#x2F;g,function (match,index,str) &#123;</span><br><span class="line">    return parseInt(match) + 1</span><br><span class="line">&#125;))&#x2F;&#x2F;a2b3c4d5</span><br><span class="line">console.log(&#39;a1b2c3d4&#39;.replace(&#x2F;(\d)&#x2F;g,function (match,group,index,str) &#123;</span><br><span class="line">    console.log(group)</span><br><span class="line">    return parseInt(match) + 1</span><br><span class="line">&#125;))&#x2F;&#x2F;a2b3c4d5</span><br><span class="line">&#x2F;&#x2F;有分组情况</span><br><span class="line">&#39;abc&#39;.replace(&#x2F;(\w)(\w)&#x2F;g,function (match,$1,$2,index,str) &#123;</span><br><span class="line">    return match</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

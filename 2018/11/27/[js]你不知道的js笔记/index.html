@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;js&gt;你不知道的js笔记 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  js
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2018-11-26T16:00:00.000Z">
+                    2018-11-27
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">词法作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E6%8F%90%E5%8D%87"><span class="toc-text">作用域提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this"><span class="toc-text">this</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E4%BD%8D%E7%BD%AE"><span class="toc-text">调用位置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this%E7%BB%91%E5%AE%9A%E8%A7%84%E5%88%99"><span class="toc-text">this绑定规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E8%A7%84%E5%88%99"><span class="toc-text">默认规则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E7%BB%91%E5%AE%9A"><span class="toc-text">隐式绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E7%BB%91%E5%AE%9A"><span class="toc-text">显示绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#new%E7%BB%91%E5%AE%9A%E4%BD%BF"><span class="toc-text">new绑定使</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">优先级</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A2%AB%E5%BF%BD%E7%95%A5%E7%9A%84this"><span class="toc-text">被忽略的this</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E5%AE%89%E5%85%A8%E7%9A%84this"><span class="toc-text">更安全的this</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AF%E7%BB%91%E5%AE%9A"><span class="toc-text">软绑定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0"><span class="toc-text">箭头函数</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;js&gt;你不知道的js笔记</h1>
+        <h3 id="词法作用域"><a href="#词法作用域" class="headerlink" title="词法作用域"></a>词法作用域</h3><ul>
+<li>无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处的位置决定。词法作用域意味着作用域是由书写代码时函数声明的位置来决定。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let c &#x3D; 2</span><br><span class="line">function a() &#123;</span><br><span class="line">    let c &#x3D; 1</span><br><span class="line">    b()&#x2F;&#x2F;2</span><br><span class="line">&#125;</span><br><span class="line">function b() &#123;</span><br><span class="line">    console.log(c)</span><br><span class="line">&#125;</span><br><span class="line">b()&#x2F;&#x2F;2</span><br><span class="line">a()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在严格模式的程序中，eval(..)在运行时有其自己的词法作用域，意味着其中的声明无法修改所在的作用域。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function c(str) &#123;</span><br><span class="line">    eval(str)</span><br><span class="line">    console.log(b)&#x2F;&#x2F;1</span><br><span class="line">&#125;</span><br><span class="line">c(&#39;var b &#x3D; 1&#39;)</span><br><span class="line">function a(str) &#123;</span><br><span class="line">    &#39;use strict&#39;</span><br><span class="line">    eval(str)</span><br><span class="line">    console.log(b)&#x2F;&#x2F;ReferenceError</span><br><span class="line">&#125;</span><br><span class="line">a(&#39;var b &#x3D; 1&#39;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>setTimeout(..)和setInterval(..)的第一个参数可以是字符串，字符串的内容可以被解释为一段动态生成的函数代码。</li>
+<li>with 使用注意</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function f1(obj) &#123;</span><br><span class="line">    with (obj)&#123;</span><br><span class="line">        a &#x3D; 2</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var o1 &#x3D; &#123;</span><br><span class="line">    a: 1</span><br><span class="line">&#125;</span><br><span class="line">var o2 &#x3D; &#123;</span><br><span class="line">    b: 1</span><br><span class="line">&#125;</span><br><span class="line">f1(o1)</span><br><span class="line">f1(o2)</span><br><span class="line">console.log(o1)&#x2F;&#x2F;&#123;a:2&#125;</span><br><span class="line">console.log(o2)&#x2F;&#x2F;&#123;b:1&#125;</span><br><span class="line">console.log(a)&#x2F;&#x2F;2,因为o2中没有a，所以a被泄露到全局了</span><br><span class="line">&#x2F;&#x2F;o2的作用域、foo(..)的作用域和全局作用域中都没有找到标识符a，因此当a＝2执行时，自动创建了一个全局变量（因为是非严格模式）。</span><br></pre></td></tr></table></figure>
+
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
+<li>函数作用域的含义是指，属于这个函数的全部变量都可以在整个函数的范围内使用及复用（事实上在嵌套的作用域中也可以使用）。</li>
+<li>区分函数声明和表达式最简单的方法是function关键字出现在声明中的位置（不仅仅是一行代码，而是整个声明中的位置）。如function是声明中的第一个词，那么就是一个函数声明，否则就是一个函数表达式。</li>
+<li>提升是指声明会被视为存在于其所出现的作用域的整个范围内。但是使let进行的声明不会在块作用域中进行提升。</li>
+</ul>
+<h3 id="作用域提升"><a href="#作用域提升" class="headerlink" title="作用域提升"></a>作用域提升</h3><ul>
+<li>只有声明本身会被提升，而赋值或其他运行逻辑会留在原地。如果提升改变了代码执行的顺序，会造成非常严重的破坏。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(a)&#x2F;&#x2F;undefined</span><br><span class="line">var a &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数声明会被提升，但是函数表达式却不会被提升。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">f1()&#x2F;&#x2F;1</span><br><span class="line">f2()&#x2F;&#x2F;TypeError: f2 is not a function</span><br><span class="line">function f1() &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line">var f2 &#x3D; function () &#123;</span><br><span class="line">    console.log(2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>即使是具名的函数表达式，名称标识符在赋值之前也无法在所在作用域中。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">f1()&#x2F;&#x2F;TypeError</span><br><span class="line">f2()&#x2F;&#x2F;ReferenceError</span><br><span class="line">var f1 &#x3D; function f2() &#123;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;可以理解为</span><br><span class="line">&#x2F;&#x2F; var f1</span><br><span class="line">&#x2F;&#x2F; f1()</span><br><span class="line">&#x2F;&#x2F; f2()</span><br><span class="line">&#x2F;&#x2F; f1 &#x3D; function () &#123;</span><br><span class="line">&#x2F;&#x2F;     var f2 &#x3D; ...self...</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数优先提升，一个值得注意的细节（这个细节可以出现在有多个“重复”声明的代码中）是函数会首先被提升，然后才是变量。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a()&#x2F;&#x2F;1</span><br><span class="line">var a &#x3D; 1</span><br><span class="line">function a() &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>尽管重复var声明会被忽略掉，但出现在后面的函数声明还是可以覆盖前面的。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a()&#x2F;&#x2F;2</span><br><span class="line">function a() &#123;</span><br><span class="line">    console.log(1)</span><br><span class="line">&#125;</span><br><span class="line">function a() &#123;</span><br><span class="line">    console.log(2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一个普通块内部的函数声明通常会被提升到所在作用域的顶部，这个过程不会像下的代码暗示的那样可以被条件判断所控制。<strong>但是需要注意这个行为并不可靠，JavaScript未来的版本中有可能发生改变，因此应该尽可能避免在块内部声明函数。</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a()&#x2F;&#x2F;TypeError: a is not a function,**这个demo和书里面的就不一样了书里面说会log 2**</span><br><span class="line">var b &#x3D; true</span><br><span class="line">if(b)&#123;</span><br><span class="line">    function a() &#123;</span><br><span class="line">        console.log(1)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;else &#123;</span><br><span class="line">    function a() &#123;</span><br><span class="line">        console.log(2)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><ul>
+<li>当函数可以记住并访问所在的词法作用域，即使函数是在当前词法作用域之外执行，这时就产生了闭包。</li>
+<li>模块有两个主要特征：（1）为创建内部作用域而调用了一个包装函数；（2）包装函数的返回值必须至少包括一个对内部函数的引用，这样就会创建涵盖整个包装函数内部作用域的闭包。</li>
+</ul>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><ul>
+<li>学this的第一步是明this既不指向函数自身也不指向函数的词法作用域，</li>
+<li>this实际上是在函数被调用时发生的绑定，它指向什么完全取决于函数在哪里被调用。<h4 id="调用位置"><a href="#调用位置" class="headerlink" title="调用位置"></a>调用位置</h4></li>
+<li>调用位置就是函数在代码中被调用的位置（而不是声明的位置）。</li>
+</ul>
+<h3 id="this绑定规则"><a href="#this绑定规则" class="headerlink" title="this绑定规则"></a>this绑定规则</h3><h4 id="默认规则"><a href="#默认规则" class="headerlink" title="默认规则"></a>默认规则</h4><ul>
+<li>独立函数调用，，函数调用时应用this的默认绑定，因this指向全局对象。</li>
+<li>严格模式下this为undefined</li>
+</ul>
+<h4 id="隐式绑定"><a href="#隐式绑定" class="headerlink" title="隐式绑定"></a>隐式绑定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    console.log(this.data)</span><br><span class="line">&#125;</span><br><span class="line">var data &#x3D; 1</span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    data: 2,</span><br><span class="line">    fn: a</span><br><span class="line">&#125;</span><br><span class="line">a()&#x2F;&#x2F;1</span><br><span class="line">obj.fn()&#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>隐式丢失</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    console.log(this.data)</span><br><span class="line">&#125;</span><br><span class="line">var data &#x3D; 1</span><br><span class="line">var obj &#x3D; &#123;</span><br><span class="line">    data: 2,</span><br><span class="line">    fn: a</span><br><span class="line">&#125;</span><br><span class="line">var fn1 &#x3D; obj.fn</span><br><span class="line">fn1()&#x2F;&#x2F;1</span><br><span class="line">var f2</span><br><span class="line">(f2 &#x3D; obj.fn)()&#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<h4 id="显示绑定"><a href="#显示绑定" class="headerlink" title="显示绑定"></a>显示绑定</h4><ul>
+<li>JavaScript提供的绝大多数函数以及你自己创建的所有函数都可以使call(..)apply(..)bind(…)方法。</li>
+</ul>
+<h4 id="new绑定使"><a href="#new绑定使" class="headerlink" title="new绑定使"></a>new绑定使</h4><ul>
+<li>new来调用函数，或者说发生构造函数调用时，会自动执行下面的操作。</li>
+</ul>
+<ol>
+<li>创建（或者说构造）一个全新的对象。</li>
+<li>这个新对象会被执[[原]]连接。</li>
+<li>这个新对象会绑定到函数调用this。</li>
+<li>如果函数没有返回其他对象，那new表达式中的函数调用会自动返回这个新对象。</li>
+</ol>
+<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><ul>
+<li>new &gt; 显示 &gt; 隐式 &gt; 默认</li>
+</ul>
+<h4 id="被忽略的this"><a href="#被忽略的this" class="headerlink" title="被忽略的this"></a>被忽略的this</h4><ul>
+<li>如果你null或undefined作this的绑定对象传call、apply或者bind，这些值在调用时会被忽略，实际应用的是默认绑定规则。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    console.log(this.data)</span><br><span class="line">&#125;</span><br><span class="line">var data &#x3D; 1</span><br><span class="line">a.apply(null)&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+
+<h4 id="更安全的this"><a href="#更安全的this" class="headerlink" title="更安全的this"></a>更安全的this</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    console.log(this.data)</span><br><span class="line">&#125;</span><br><span class="line">var data &#x3D; 1</span><br><span class="line">var ø &#x3D; Object.create(null)</span><br><span class="line">a.apply(ø)&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+
+<h4 id="软绑定"><a href="#软绑定" class="headerlink" title="软绑定"></a>软绑定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">if (!Function.prototype.softBind) &#123;</span><br><span class="line">    Function.prototype.softBind &#x3D; function (obj) &#123;</span><br><span class="line">        var fn &#x3D; this;</span><br><span class="line">        &#x2F;&#x2F; 捕获所有 curried 参数</span><br><span class="line">        var curried &#x3D; [].slice.call(arguments, 1);</span><br><span class="line">        var bound &#x3D; function () &#123;</span><br><span class="line">            return fn.apply(</span><br><span class="line">                (!this || this &#x3D;&#x3D;&#x3D; (window || global)) ? obj : this,</span><br><span class="line">                curried.concat.apply(curried, arguments)</span><br><span class="line">            )</span><br><span class="line">        &#125;;</span><br><span class="line">        bound.prototype &#x3D; Object.create(fn.prototype);</span><br><span class="line">        return bound;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">var data &#x3D; 2</span><br><span class="line"></span><br><span class="line">function a() &#123;</span><br><span class="line">    console.log(data)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var b &#x3D; a.softBind(&#123;data: 1&#125;)</span><br><span class="line">a()&#x2F;&#x2F;2</span><br><span class="line">b()&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+
+<h4 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h4><ul>
+<li>箭头函数不使this的四种标准规则，而是根据外层（函数或者全局）作用域来决this。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123;</span><br><span class="line">    &#x2F;&#x2F;返回箭头函数</span><br><span class="line">    return ()&#x3D;&gt;&#123;</span><br><span class="line">        &#x2F;&#x2F;this继承自a()</span><br><span class="line">        console.log(this.data)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;ES5的实现</span><br><span class="line">    &#x2F;&#x2F; let self &#x3D; this</span><br><span class="line">    &#x2F;&#x2F; return function () &#123;</span><br><span class="line">    &#x2F;&#x2F;     console.log(self.data)</span><br><span class="line">    &#x2F;&#x2F; &#125;</span><br><span class="line">&#125;</span><br><span class="line">let b &#x3D; a.call(&#123;data:1&#125;)</span><br><span class="line">b.call(&#123;data:2&#125;)&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;ES6&gt;改进数组功能 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  ES6,js,Array
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2018-11-09T16:00:00.000Z">
+                    2018-11-10
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95"><span class="toc-text">常用数组方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A3%80%E6%B5%8B%E6%95%B0%E7%BB%84"><span class="toc-text">检测数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%AC%E6%8D%A2%E6%96%B9%E6%B3%95"><span class="toc-text">转换方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%88%E6%96%B9%E6%B3%95"><span class="toc-text">栈方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E5%88%97%E6%96%B9%E6%B3%95"><span class="toc-text">对列方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95"><span class="toc-text">排序方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-text">操作方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E3%80%81%E6%8F%92%E5%85%A5%E3%80%81%E6%9B%BF%E6%8D%A2"><span class="toc-text">删除、插入、替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE%E6%96%B9%E6%B3%95"><span class="toc-text">位置方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95"><span class="toc-text">迭代方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#some"><span class="toc-text">some()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%96%B9%E6%B3%95reduce-reduceRight"><span class="toc-text">归并方法reduce(),reduceRight()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6%E6%96%B9%E6%B3%95"><span class="toc-text">ES6方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Array-of"><span class="toc-text">Array.of()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Array-from"><span class="toc-text">Array.from()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#find-findIndex"><span class="toc-text">find()\findIndex()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#fill"><span class="toc-text">fill()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#copyWithin"><span class="toc-text">copyWithin()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E5%9E%8B%E6%95%B0%E7%BB%84"><span class="toc-text">定型数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Array-prototype-includes"><span class="toc-text">Array.prototype.includes()</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;ES6&gt;改进数组功能</h1>
+        <h3 id="常用数组方法"><a href="#常用数组方法" class="headerlink" title="常用数组方法"></a>常用数组方法</h3><h4 id="检测数组"><a href="#检测数组" class="headerlink" title="检测数组"></a>检测数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; [1,2,3]</span><br><span class="line">console.log(Array.isArray(arr1))&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<h4 id="转换方法"><a href="#转换方法" class="headerlink" title="转换方法"></a>转换方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">console.log(arr1.valueOf())&#x2F;&#x2F;[1,2,3]</span><br><span class="line">console.log(arr1.toString())&#x2F;&#x2F;1,2,3</span><br><span class="line">console.log(arr1.toLocaleString())&#x2F;&#x2F;1,2,3（每一项调用的是toLocalString()方法）</span><br><span class="line">console.log(arr1.join(&#39;#&#39;))&#x2F;&#x2F;1#2#3</span><br></pre></td></tr></table></figure>
+
+<h4 id="栈方法"><a href="#栈方法" class="headerlink" title="栈方法"></a>栈方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr2 &#x3D; [1,2,3]</span><br><span class="line">arr2.push(4)</span><br><span class="line">console.log(arr2)&#x2F;&#x2F;[1,2,3,4]</span><br><span class="line">arr2.pop(4)</span><br><span class="line">console.log(arr2)&#x2F;&#x2F;[1,2,3]</span><br></pre></td></tr></table></figure>
+
+<h4 id="对列方法"><a href="#对列方法" class="headerlink" title="对列方法"></a>对列方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let arr3 &#x3D; [1,2,3]</span><br><span class="line">arr3.unshift(0)&#x2F;&#x2F;[0,1,2,3,4]</span><br><span class="line">console.log(arr3)</span><br><span class="line">arr3.shift()</span><br><span class="line">console.log(arr3)</span><br></pre></td></tr></table></figure>
+
+<h4 id="排序方法"><a href="#排序方法" class="headerlink" title="排序方法"></a>排序方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let arr4 &#x3D; [3,2,1]</span><br><span class="line">arr4.reverse()&#x2F;&#x2F;反转数组顺序</span><br><span class="line">console.log(arr4)</span><br><span class="line">arr4.sort((a,b)&#x3D;&gt;&#123;</span><br><span class="line">    return a - b</span><br><span class="line">&#125;)&#x2F;&#x2F;由小到大</span><br><span class="line">console.log(arr4)</span><br><span class="line">arr4.sort((a,b)&#x3D;&gt;&#123;</span><br><span class="line">    return b - a</span><br><span class="line">&#125;)&#x2F;&#x2F;由大到小</span><br><span class="line">console.log(arr4)</span><br><span class="line"></span><br><span class="line">let arr5 &#x3D; [1,2,&#39;10&#39;]</span><br><span class="line">console.log(arr5.sort())&#x2F;&#x2F;[1,&#39;10&#39;,2]sort默认先toString()再排序</span><br></pre></td></tr></table></figure>
+
+<h4 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let a1 &#x3D; [1]</span><br><span class="line">let a2 &#x3D; [2]</span><br><span class="line">let a3 &#x3D; a1.concat(a2)</span><br><span class="line">console.log(a1)&#x2F;&#x2F;[1]</span><br><span class="line">console.log(a2)&#x2F;&#x2F;[2]</span><br><span class="line">console.log(a3)&#x2F;&#x2F;[1,2]</span><br><span class="line"></span><br><span class="line">let aa1 &#x3D; [1,2,3,4,5]</span><br><span class="line">let aa2 &#x3D; aa1.slice(1,4)&#x2F;&#x2F;slice()左闭右开</span><br><span class="line">let aa3 &#x3D; aa1.slice(1)</span><br><span class="line">console.log(aa1)&#x2F;&#x2F;[1,2,3,4,5]</span><br><span class="line">console.log(aa2)&#x2F;&#x2F;[2,3,4]</span><br><span class="line">console.log(aa3)&#x2F;&#x2F;[2,3,4,5]</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除、插入、替换"><a href="#删除、插入、替换" class="headerlink" title="删除、插入、替换"></a>删除、插入、替换</h4><ul>
+<li>删除splice(1,2)\插入splice(2,0,’a’,’b’)\替换splice(1,2,3,4)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let sa1 &#x3D; [1,2,3,4,5]</span><br><span class="line">let sa2 &#x3D; sa1.splice(1,2,&#39;a&#39;,&#39;b&#39;)&#x2F;&#x2F;从1位置开始，删除两项，并添加&#39;a&#39;\&#39;b&#39;两项</span><br><span class="line">console.log(sa1)</span><br><span class="line">console.log(sa2)&#x2F;&#x2F;返回删除的数组</span><br></pre></td></tr></table></figure>
+
+<h4 id="位置方法"><a href="#位置方法" class="headerlink" title="位置方法"></a>位置方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let la &#x3D; [1,2,3,2,1]</span><br><span class="line">console.log(la.indexOf(2))&#x2F;&#x2F;1</span><br><span class="line">console.log(la.lastIndexOf(2))&#x2F;&#x2F;3</span><br></pre></td></tr></table></figure>
+
+<h4 id="迭代方法"><a href="#迭代方法" class="headerlink" title="迭代方法"></a>迭代方法</h4><ul>
+<li>every()对数组中每一项进行运行给定函数，如果都返回true，则返回true</li>
+<li>filter()对数组中每一项进行运行给定函数，如果都返回true，则返回true项组成的数组</li>
+<li>forEach()对数组中每一项执行给定函数，没有返回值</li>
+<li>map()对数组中每一项执行给定函数，返回每次函数调用结果返回的数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let ma &#x3D; [1,2,3]</span><br><span class="line">let ma1 &#x3D; ma.map((item,index,arr)&#x3D;&gt;&#123;</span><br><span class="line">    return 2</span><br><span class="line">&#125;)</span><br><span class="line">console.log(ma)&#x2F;&#x2F;[1,2,3]</span><br><span class="line">console.log(ma1)&#x2F;&#x2F;[2,2,2]</span><br></pre></td></tr></table></figure>
+
+<h4 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h4><h4 id="归并方法reduce-reduceRight"><a href="#归并方法reduce-reduceRight" class="headerlink" title="归并方法reduce(),reduceRight()"></a>归并方法reduce(),reduceRight()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let ra &#x3D; [1,2,3]</span><br><span class="line">let res &#x3D; ra.reduce((pre,cur,index,arr)&#x3D;&gt;&#123;</span><br><span class="line">    return pre+cur</span><br><span class="line">&#125;)</span><br><span class="line">console.log(ra)</span><br><span class="line">console.log(res)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ES6方法"><a href="#ES6方法" class="headerlink" title="ES6方法"></a>ES6方法</h3><ul>
+<li>ES6标准继续改进数组，添加了许多新功能，比如创建数组新方法、几个实用的方法、创建定型数组</li>
+</ul>
+<h4 id="Array-of"><a href="#Array-of" class="headerlink" title="Array.of()"></a>Array.of()</h4><ul>
+<li>Array构造函数传入参数问题</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; new Array(2)</span><br><span class="line">console.log(arr)&#x2F;&#x2F;[undefined,undefined]</span><br><span class="line">arr &#x3D; new Array(&#39;2&#39;)</span><br><span class="line">console.log(arr)&#x2F;&#x2F;[&#39;2&#39;]</span><br><span class="line">arr &#x3D; new Array(1,2)</span><br><span class="line">console.log(arr)&#x2F;&#x2F;[1,2]</span><br><span class="line">arr &#x3D; new Array(2,&#39;2&#39;)</span><br><span class="line">console.log(arr)&#x2F;&#x2F;[2,&#39;2&#39;]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Array.of()方法总会创建一个包含所有参数的数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let arr1 &#x3D; Array.of(1,2,3)</span><br><span class="line">console.log(arr1)&#x2F;&#x2F;[1,2,3]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：Array.of()不使用Sympol.species属性返回确定的类型，而是使用of()方法中this()的值来返回数据类型</li>
+</ul>
+<h4 id="Array-from"><a href="#Array-from" class="headerlink" title="Array.from()"></a>Array.from()</h4><ul>
+<li>js不支持直接将非数组对象转换为真实数组，如arguments，如果把它当做数组使用必须先转换该对象的类型</li>
+<li>es5中的转换方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function makeArray(arrayLike) &#123;</span><br><span class="line">    var res &#x3D; []</span><br><span class="line">    for(var i &#x3D; 0;i&lt;arrayLike.length;i++)&#123;</span><br><span class="line">        res.push(arrayLike[i])</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;或者</span><br><span class="line">    &#x2F;&#x2F; res &#x3D; Array.prototype.slice().call(arrayLike)</span><br><span class="line">    return res</span><br><span class="line">&#125;</span><br><span class="line">(function f(a,b,c) &#123;</span><br><span class="line">    var arr &#x3D; makeArray(arguments)</span><br><span class="line">    console.log(arr)&#x2F;&#x2F;[1,2,3]</span><br><span class="line">&#125;)(1,2,3)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Array.from()用来将对象转化为数组，可以接受可迭代对象或类数组对象作为第一个参数，第二个参数可以提供一个映射关系，将每一个值转换为其他形式，第三个参数用来表示映射函数this的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function f1(a,b,c) &#123;</span><br><span class="line">    let arr &#x3D; Array.from(arguments,function (item) &#123;</span><br><span class="line">        return item+this.a</span><br><span class="line">    &#125;,&#123;a:1&#125;)</span><br><span class="line">    console.log(arr)&#x2F;&#x2F;[3,4,5]</span><br><span class="line">&#125;</span><br><span class="line">f1(2,3,4)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>转换可迭代对象，如果一个对象即是类数组又是可迭代对象，那么会根据迭代器来决定转换哪个值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let nums &#x3D; &#123;</span><br><span class="line">    *[Symbol.iterator]()&#123;</span><br><span class="line">        yield 1;</span><br><span class="line">        yield 2;</span><br><span class="line">        yield 3;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let i_arr &#x3D; Array.from(nums)</span><br><span class="line">console.log(i_arr)&#x2F;&#x2F;[1,2,3]</span><br></pre></td></tr></table></figure>
+
+<h4 id="find-findIndex"><a href="#find-findIndex" class="headerlink" title="find()\findIndex()"></a>find()\findIndex()</h4><ul>
+<li>find()返回找到的值、findIndex()返回找到值的位置，接收两个参数，一个是回调函数、一个是可选参数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let n &#x3D; [1,2,3,4,5]</span><br><span class="line">console.log(n.find(item&#x3D;&gt;item&gt;2))&#x2F;&#x2F;3</span><br><span class="line">console.log(n.findIndex(item&#x3D;&gt;item&gt;2))&#x2F;&#x2F;2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果在数组中查找根据某个条件匹配的元素，使用find()，如果只是匹配某个元素值使用indexOf()</li>
+</ul>
+<h4 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h4><ul>
+<li>fill()可以用指定的值填充一致多个数组元素</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let f_arr &#x3D; [1,2,3,4]</span><br><span class="line">f_arr.fill(1)</span><br><span class="line">console.log(f_arr)&#x2F;&#x2F;[1,1,1,1]</span><br><span class="line">f_arr.fill(0,1,3)</span><br><span class="line">console.log(f_arr)&#x2F;&#x2F;[1,0,0,1]左闭右开</span><br></pre></td></tr></table></figure>
+
+<h4 id="copyWithin"><a href="#copyWithin" class="headerlink" title="copyWithin()"></a>copyWithin()</h4><ul>
+<li>copyWithin()从数组中复制元素的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let c_arr &#x3D; [1,2,3,4,5]</span><br><span class="line">c_arr.copyWithin(2,0)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>console.log(c_arr)//[1,2,1,2,3]从索引2开始粘贴值，从索引0开始复制并持续到没有更多可复制的值</li>
+</ul>
+<h4 id="定型数组"><a href="#定型数组" class="headerlink" title="定型数组"></a>定型数组</h4><ul>
+<li>用于处理数值类型数据专用的数组</li>
+<li><a target="_blank" rel="noopener" href="http://www.shaoqun.com/a/318331.html">定型数组</a></li>
+</ul>
+<h4 id="Array-prototype-includes"><a href="#Array-prototype-includes" class="headerlink" title="Array.prototype.includes()"></a>Array.prototype.includes()</h4><ul>
+<li>ES7语法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let val &#x3D; [1,2,3]</span><br><span class="line">console.log(val.includes(1))&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

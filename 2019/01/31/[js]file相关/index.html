@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;js&gt;file相关 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  js,文件,file
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2019-01-30T16:00:00.000Z">
+                    2019-01-31
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Blob%E5%AF%B9%E8%B1%A1"><span class="toc-text">Blob对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="toc-text">属性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%EF%BC%9A"><span class="toc-text">方法：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Blob-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">Blob()构造函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="toc-text">参数：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js%E5%88%9B%E5%BB%BA%E5%B9%B6%E4%B8%8B%E8%BD%BDexcel"><span class="toc-text">js创建并下载excel</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File%E5%AF%B9%E8%B1%A1"><span class="toc-text">File对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%96%B9%E5%BC%8F"><span class="toc-text">获取方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7"><span class="toc-text">属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#File-%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">File()构造器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileReader%E5%AF%B9%E8%B1%A1"><span class="toc-text">FileReader对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%EF%BC%9A-1"><span class="toc-text">属性：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%EF%BC%9A"><span class="toc-text">事件：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%EF%BC%9A-1"><span class="toc-text">方法：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ObjectURL"><span class="toc-text">ObjectURL</span></a></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;js&gt;file相关</h1>
+        <h3 id="Blob对象"><a href="#Blob对象" class="headerlink" title="Blob对象"></a>Blob对象</h3><ul>
+<li>Blob对象表示一个不可变、原始数据的类文件对象。</li>
+</ul>
+<h4 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h4><ul>
+<li>Blob.size</li>
+<li>Blob.type</li>
+</ul>
+<h4 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h4><ul>
+<li>Blob.slice([start,[ end ,[contentType]]])，返回一个新的 Blob对象，包含指定范围数据。</li>
+</ul>
+<h3 id="Blob-构造函数"><a href="#Blob-构造函数" class="headerlink" title="Blob()构造函数"></a>Blob()构造函数</h3><ul>
+<li>返回一个新的 Blob 对象。</li>
+<li>var aBlob = new Blob( array, options );</li>
+</ul>
+<h4 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h4><ul>
+<li>array 是一个由ArrayBuffer, ArrayBufferView, Blob, DOMString 等对象构成的 Array ，或者其他类似对象的混合体，它将会被放进 Blob。DOMStrings会被编码为UTF-8。</li>
+<li>options：type，默认值为 “”，它代表了将会被放入到blob中的数组内容的MIME类型。endings，默认值为”transparent”，用于指定包含行结束符\n的字符串如何被写入。</li>
+</ul>
+<h4 id="js创建并下载excel"><a href="#js创建并下载excel" class="headerlink" title="js创建并下载excel"></a>js创建并下载excel</h4><ul>
+<li>步骤</li>
+</ul>
+<ol>
+<li>创建Blob对象</li>
+<li>转换为dataURL或者ObjectURL</li>
+<li>使用a标签download下载</li>
+</ol>
+<ul>
+<li>示例代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;myTable&quot;&gt;</span><br><span class="line">    &lt;style media&#x3D;&quot;screen&quot;&gt;</span><br><span class="line">        table &#123;</span><br><span class="line">            border-collapse: collapse;</span><br><span class="line">        &#125;</span><br><span class="line">        table th&#123;</span><br><span class="line">            height: 50px;</span><br><span class="line">            font-size: 24px;</span><br><span class="line">            font-family: &#39;微软雅黑&#39;;</span><br><span class="line">            font-weight: 700;</span><br><span class="line">        &#125;</span><br><span class="line">        table th &#123;</span><br><span class="line">            border: 1px #000 solid;</span><br><span class="line">            height: 40px;</span><br><span class="line">            background: #efefef;</span><br><span class="line">        &#125;</span><br><span class="line">        table td &#123;</span><br><span class="line">            padding: 0 40px;</span><br><span class="line">            border: 1px #000 solid;</span><br><span class="line">            height: 40px;</span><br><span class="line">            text-align: center;</span><br><span class="line">        &#125;</span><br><span class="line">        table td &#123;</span><br><span class="line">            font-size: 20px;</span><br><span class="line">            font-weight: 700;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style&gt;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th colspan&#x3D;&quot;2&quot;&gt;主要信息&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th colspan&#x3D;&quot;2&quot;&gt;其它信息&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;th&gt;姓名&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;性别&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;年龄&lt;&#x2F;th&gt;</span><br><span class="line">            &lt;th&gt;注册时间&lt;&#x2F;th&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;张三&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;男&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;18&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;123&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td&gt;张三&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;男&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;18&lt;&#x2F;td&gt;</span><br><span class="line">            &lt;td&gt;123&lt;&#x2F;td&gt;</span><br><span class="line">        &lt;&#x2F;tr&gt;</span><br><span class="line">    &lt;&#x2F;table&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    let table &#x3D; document.getElementById(&#39;myTable&#39;).outerHTML</span><br><span class="line">    var oMyBlob &#x3D; new Blob([table], &#123;type : &#39;application&#x2F;vnd.ms-excel&#39;&#125;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;方法1：使用FileReader dataURL</span><br><span class="line">    let reader &#x3D; new FileReader()</span><br><span class="line">    reader.onload &#x3D; function () &#123;</span><br><span class="line">        let a &#x3D; document.createElement(&#39;a&#39;)</span><br><span class="line">        a.href &#x3D; reader.result</span><br><span class="line">        a.download &#x3D; &#39;a.xls&#39;</span><br><span class="line">        a.click()</span><br><span class="line">    &#125;</span><br><span class="line">    reader.readAsDataURL(oMyBlob)</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;方法2：使用window.URL.createObjectURL</span><br><span class="line">    let objURL &#x3D; window.URL.createObjectURL(oMyBlob)</span><br><span class="line">    let a &#x3D; document.createElement(&#39;a&#39;)</span><br><span class="line">    a.href &#x3D; objURL</span><br><span class="line">    a.download &#x3D; &#39;a.xls&#39;</span><br><span class="line">    a.click()</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="File对象"><a href="#File对象" class="headerlink" title="File对象"></a>File对象</h3><ul>
+<li>File 对象是特殊类型的 Blob。</li>
+</ul>
+<h4 id="获取方式"><a href="#获取方式" class="headerlink" title="获取方式"></a>获取方式</h4><ul>
+<li><input> 元素上选择文件后返回的 FileList 对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let fileInput &#x3D; document.getElementById(&#39;myFile&#39;)</span><br><span class="line">fileInput.addEventListener(&#39;change&#39;,()&#x3D;&gt;&#123;</span><br><span class="line">    console.log(fileInput.files)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>由拖放操作生成的 DataTransfer 对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;可以是个div</span><br><span class="line">var dropbox;</span><br><span class="line">dropbox &#x3D; document.getElementById(&quot;dropbox&quot;);</span><br><span class="line">dropbox.addEventListener(&quot;dragenter&quot;, (e)&#x3D;&gt;&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line">dropbox.addEventListener(&quot;dragover&quot;, (e)&#x3D;&gt;&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    e.preventDefault();</span><br><span class="line">&#125;);</span><br><span class="line">dropbox.addEventListener(&quot;drop&quot;, (e)&#x3D;&gt;&#123;</span><br><span class="line">    e.stopPropagation();</span><br><span class="line">    e.preventDefault();</span><br><span class="line"></span><br><span class="line">    var dt &#x3D; e.dataTransfer;</span><br><span class="line">    var files &#x3D; dt.files;</span><br><span class="line">    console.log(files)</span><br><span class="line">    console.log(files)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>来自 HTMLCanvasElement 上的 mozGetAsFile() API</li>
+</ul>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>File.lastModified：文件最后修改时间</li>
+<li>File.lastModifiedDate：文件最后修改时间的 Date 对象</li>
+<li>File.name：名称</li>
+<li>File.size：大小</li>
+<li>File.type：类型</li>
+<li>File.webkitRelativePath：路径（非标准的）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;input需要设置 webkitdirectory 属性（只允许选择文件夹）</span><br><span class="line">&lt;input id&#x3D;&quot;myFile&quot; webkitdirectory type&#x3D;&quot;file&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="File-构造器"><a href="#File-构造器" class="headerlink" title="File()构造器"></a>File()构造器</h3><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><ul>
+<li>var myFile = new File(bits, name[, options]);</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<li>bits：ArrayBuffer，ArrayBufferView，Blob，或者 DOMString 对象的 Array — 或者任何这些对象的组合。这是 UTF-8 编码的文件内容。</li>
+<li>name：USVString，表示文件名称，或者文件路径。</li>
+<li>options：type: DOMString，表示将要放到文件中的内容的 MIME 类型。默认值为 “” 。lastModified: 数值，表示文件最后修改时间的 Unix 时间戳（毫秒）。默认值为 Date.now()。</li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/File">https://developer.mozilla.org/zh-CN/docs/Web/API/File/File</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var file &#x3D; new File([&quot;foo&quot;], &quot;foo.txt&quot;, &#123;</span><br><span class="line">  type: &quot;text&#x2F;plain&quot;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="FileReader对象"><a href="#FileReader对象" class="headerlink" title="FileReader对象"></a>FileReader对象</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader">https://developer.mozilla.org/zh-CN/docs/Web/API/FileReader</a></li>
+<li>允许Web应用程序异步读取存储在用户计算机上的文件</li>
+<li>FileReader()返回一个新构造的FileReader<h4 id="属性：-1"><a href="#属性：-1" class="headerlink" title="属性："></a>属性：</h4></li>
+<li>FileReader.error：读取文件发生错误</li>
+<li>FileReader.readyState：状态数字 EMPTY（0）、LOADING（1）、DONE（2）</li>
+<li>FileReader.result：文件的内容。该属性仅在读取操作完成后才有效。</li>
+</ul>
+<h4 id="事件："><a href="#事件：" class="headerlink" title="事件："></a>事件：</h4><ul>
+<li>继承自EventTarget，所以所有这些事件也可以通过addEventListener方法使用。</li>
+<li>FileReader.onabort：中断时触发</li>
+<li>FileReader.onerror：错误时触发</li>
+<li>FileReader.onload：读取操作完成时触发</li>
+<li>FileReader.onloadstart：</li>
+<li>FileReader.onloadend：</li>
+<li>FileReader.onprogress：处理progress事件。该事件在读取Blob时触发。</li>
+</ul>
+<h4 id="方法：-1"><a href="#方法：-1" class="headerlink" title="方法："></a>方法：</h4><ul>
+<li>FileReader.abort()：终止操作</li>
+<li>FileReader.readAsArrayBuffer()</li>
+<li>FileReader.readAsBinaryString()非标准的</li>
+<li>FileReader.readAsDataURL()</li>
+<li>FileReader.readAsText()</li>
+</ul>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><ul>
+<li>input图片展示</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;inputFile&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    let inputFile &#x3D; document.getElementById(&#39;inputFile&#39;)</span><br><span class="line">    inputFile.addEventListener(&#39;change&#39;, () &#x3D;&gt; &#123;</span><br><span class="line">        let file &#x3D; inputFile.files[0]</span><br><span class="line">        let reader &#x3D; new FileReader()</span><br><span class="line">        reader.onload &#x3D; function () &#123;</span><br><span class="line">            let img &#x3D; document.createElement(&#39;img&#39;)</span><br><span class="line">            img.src &#x3D; reader.result</span><br><span class="line">            document.documentElement.appendChild(img)</span><br><span class="line">        &#125;</span><br><span class="line">        reader.readAsDataURL(file)</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ObjectURL"><a href="#ObjectURL" class="headerlink" title="ObjectURL"></a>ObjectURL</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL">https://developer.mozilla.org/en-US/docs/Web/API/URL/createObjectURL</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL">https://developer.mozilla.org/en-US/docs/Web/API/URL/revokeObjectURL</a></li>
+<li>objectURL = URL.createObjectURL(object);表示指定的File对象或Blob对象的url</li>
+<li>window.URL.revokeObjectURL(objectURL);释放一个现有的对象URL</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;选择图片并转换为对象URL显示</span><br><span class="line">&lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;file1&quot;&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    let inputFile &#x3D; document.getElementById(&#39;file1&#39;)</span><br><span class="line">    inputFile.addEventListener(&#39;change&#39;,()&#x3D;&gt;&#123;</span><br><span class="line">        let file &#x3D; inputFile.files[0]</span><br><span class="line">        let url &#x3D; window.URL.createObjectURL(file)</span><br><span class="line"></span><br><span class="line">        let img &#x3D; document.createElement(&#39;img&#39;)</span><br><span class="line">        img.src &#x3D; url</span><br><span class="line">        document.documentElement.appendChild(img)</span><br><span class="line"></span><br><span class="line">        img.onload &#x3D; function() &#123;</span><br><span class="line">            window.URL.revokeObjectURL(url)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;展示pdf</span><br><span class="line">&lt;input type&#x3D;&quot;file&quot; id&#x3D;&quot;file2&quot;&gt;</span><br><span class="line">&lt;iframe src&#x3D;&quot;&quot; frameborder&#x3D;&quot;0&quot; id&#x3D;&quot;view&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    let pdfInput &#x3D; document.getElementById(&#39;file2&#39;)</span><br><span class="line">    pdfInput.addEventListener(&#39;change&#39;,()&#x3D;&gt;&#123;</span><br><span class="line">        let file &#x3D; pdfInput.files[0]</span><br><span class="line">        let url &#x3D; window.URL.createObjectURL(file)</span><br><span class="line">        var iframe &#x3D; document.getElementById(&#39;view&#39;);</span><br><span class="line">        iframe.setAttribute(&#39;src&#39;, url);</span><br><span class="line">    &#125;)</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

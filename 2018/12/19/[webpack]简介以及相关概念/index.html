@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;webpack&gt;简介以及相关概念 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  webpack
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2018-12-18T16:00:00.000Z">
+                    2018-12-19
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%80%E5%8F%91webpack"><span class="toc-text">作者为什么要开发webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9E%84%E5%BB%BA"><span class="toc-text">为什么要构建</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81webpack"><span class="toc-text">为什么要webpack</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96%E5%BC%80%E5%8F%91"><span class="toc-text">模块化开发</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#commonjs"><span class="toc-text">commonjs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AMD"><span class="toc-text">AMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CMD"><span class="toc-text">CMD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#UMD-Universal-Module-Definition-%E9%80%9A%E7%94%A8%E6%A8%A1%E5%9D%97%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">UMD(Universal Module Definition)通用模块解决方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ESM"><span class="toc-text">ESM</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#webpack%E6%94%AF%E6%8C%81%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">webpack支持的模块化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">css模块化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E7%AE%80%E4%BB%8B"><span class="toc-text">webpack简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E8%BF%9B%E5%8C%96"><span class="toc-text">功能进化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="toc-text">核心概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8D%E8%AF%8D"><span class="toc-text">名词</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;webpack&gt;简介以及相关概念</h1>
+        <h3 id="作者为什么要开发webpack"><a href="#作者为什么要开发webpack" class="headerlink" title="作者为什么要开发webpack"></a>作者为什么要开发webpack</h3><ul>
+<li>为了实现代码分割功能</li>
+</ul>
+<h3 id="为什么要构建"><a href="#为什么要构建" class="headerlink" title="为什么要构建"></a>为什么要构建</h3><ul>
+<li>开发分工变化：单页面应用、越来越复杂、文件越来越多</li>
+<li>框架演变：由js库变为前端框架、模块化开发、新的语法特性、逻辑分层、MVVM框架</li>
+<li>语言的发展：HTML(W3C)、css-&gt;less\sass\stylus预处理工具、js-&gt;ts\模块化\ES6</li>
+<li>环境的变化：前端代码可以使用node环境服务</li>
+<li>社区变化：github、npm 包管理需要构建</li>
+<li>工具的变化：grunt\gulp\webpack\rollup</li>
+<li><h4 id="为什么要webpack"><a href="#为什么要webpack" class="headerlink" title="为什么要webpack"></a>为什么要webpack</h4></li>
+<li>Vue-cli\React-starter\Angular-cli 都是webpack构建的</li>
+<li>支持Code-Spliting(代码分割)</li>
+<li>支持模块化</li>
+</ul>
+<h3 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h3><ul>
+<li>命名空间-&gt;commonjs(只能在nodejs服务端使用)-&gt;AMD|CMD|UMD-&gt;ES6 module</li>
+<li>命名空间</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var NameSpace &#x3D; &#123;&#125;</span><br><span class="line">NameSpace.type &#x3D; NameSpace.type || &#123;&#125;</span><br><span class="line">NameSpace.type.method &#x3D; function()&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="commonjs"><a href="#commonjs" class="headerlink" title="commonjs"></a>commonjs</h4><ol>
+<li>一个文件是一个模块</li>
+<li>通过 module.exports 暴露模块接口</li>
+</ol>
+<h4 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h4><ol>
+<li>使用 define 定义模块、使用 require 加载模块</li>
+<li>RequireJS</li>
+<li>依赖前置，提前执行</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">define([&#39;jquery&#39;], function ($) &#123;</span><br><span class="line">    &#x2F;&#x2F;    methods</span><br><span class="line">    function myFunc()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;    exposed public methods</span><br><span class="line">    return myFunc;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h4><ol>
+<li>SeaJS</li>
+<li>尽可能懒执行</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">define(function (require, exports, module) &#123;</span><br><span class="line">    &#x2F;&#x2F; load dependence</span><br><span class="line">    var $ &#x3D; require(&#39;jquery&#39;);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;    methods</span><br><span class="line">    function myFunc()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;    exposed public methods</span><br><span class="line">    return myFunc;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="UMD-Universal-Module-Definition-通用模块解决方案"><a href="#UMD-Universal-Module-Definition-通用模块解决方案" class="headerlink" title="UMD(Universal Module Definition)通用模块解决方案"></a>UMD(Universal Module Definition)通用模块解决方案</h4><ol>
+<li>判断是否支持AMD</li>
+<li>判断是否支持commonJS</li>
+<li>如果都没有，使用全局变量</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">(function (root, factory) &#123;</span><br><span class="line">    if (typeof define &#x3D;&#x3D;&#x3D; &#39;function&#39; &amp;&amp; define.amd) &#123;</span><br><span class="line">        &#x2F;&#x2F; AMD</span><br><span class="line">        define([&#39;jquery&#39;], factory);</span><br><span class="line">    &#125; else if (typeof exports &#x3D;&#x3D;&#x3D; &#39;object&#39;) &#123;</span><br><span class="line">        &#x2F;&#x2F; Node, CommonJS-like</span><br><span class="line">        module.exports &#x3D; factory(require(&#39;jquery&#39;));</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; Browser globals (root is window)</span><br><span class="line">        root.returnExports &#x3D; factory(root.jQuery);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(this, function ($) &#123;</span><br><span class="line">    &#x2F;&#x2F;    methods</span><br><span class="line">    function myFunc()&#123;&#125;;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;    exposed public method</span><br><span class="line">    return myFunc;</span><br><span class="line">&#125;));</span><br></pre></td></tr></table></figure>
+
+<h4 id="ESM"><a href="#ESM" class="headerlink" title="ESM"></a>ESM</h4><ol>
+<li>一个文件一个模块 export/import</li>
+</ol>
+<h4 id="webpack支持的模块化"><a href="#webpack支持的模块化" class="headerlink" title="webpack支持的模块化"></a>webpack支持的模块化</h4><ul>
+<li>AMD\ES Module(推荐)\CommonJS</li>
+</ul>
+<h4 id="css模块化"><a href="#css模块化" class="headerlink" title="css模块化"></a>css模块化</h4><ul>
+<li>CSS设计模式：OOCSS\SMACSS\Atomic css\MCSS\AMCSS\BEM</li>
+<li>CSS Module：</li>
+</ul>
+<h3 id="webpack简介"><a href="#webpack简介" class="headerlink" title="webpack简介"></a>webpack简介</h3><h4 id="功能进化"><a href="#功能进化" class="headerlink" title="功能进化"></a>功能进化</h4><ul>
+<li>v2版本</li>
+</ul>
+<ol>
+<li>Tree Shaking</li>
+<li>ES Module</li>
+<li>动态 import</li>
+<li>新的文档</li>
+</ol>
+<ul>
+<li>v3版本</li>
+</ul>
+<ol>
+<li>Scope Hoisting（作用于提升）打包后代码性能提升</li>
+<li>Magic Comments (配合动态import使用) 指定打包后的文件名</li>
+</ol>
+<ul>
+<li>v4版本</li>
+</ul>
+<h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h4><ul>
+<li>entry</li>
+</ul>
+<ol>
+<li>代码入口、打包入口、单个或者多个</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        index: &#39;index.js&#39;,</span><br><span class="line">        vendor: [&#39;jquery&#39;]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>output</li>
+</ul>
+<ol>
+<li>对打包生成文件的描述、一个或者多个</li>
+<li><a target="_blank" rel="noopener" href="https://www.webpackjs.com/configuration/output/">https://www.webpackjs.com/configuration/output/</a></li>
+</ol>
+<ul>
+<li>Loaders</li>
+</ul>
+<ol>
+<li>处理文件、转化为模块</li>
+<li><a target="_blank" rel="noopener" href="https://www.webpackjs.com/loaders/">https://www.webpackjs.com/loaders/</a></li>
+</ol>
+<ul>
+<li>Plugins</li>
+</ul>
+<ol>
+<li>参与整个打包过程</li>
+<li><a target="_blank" rel="noopener" href="https://www.webpackjs.com/plugins/">https://www.webpackjs.com/plugins/</a></li>
+</ol>
+<h4 id="名词"><a href="#名词" class="headerlink" title="名词"></a>名词</h4><ul>
+<li>chunk 代码块</li>
+<li>Bundle 打包后的文件</li>
+<li>Module 模块</li>
+</ul>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

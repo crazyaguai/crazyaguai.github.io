@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;前端&gt;性能优化 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  js,浏览器,性能优化
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2019-02-13T03:06:38.000Z">
+                    2019-02-13
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#http%E4%BC%98%E5%8C%96"><span class="toc-text">http优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#webpack%E4%BC%98%E5%8C%96"><span class="toc-text">webpack优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%90%AFgzip"><span class="toc-text">服务器开启gzip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E4%BC%98%E5%8C%96"><span class="toc-text">图片优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="toc-text">浏览器缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8"><span class="toc-text">本地存储</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8CDN%E7%BC%93%E5%AD%98"><span class="toc-text">使用CDN缓存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93"><span class="toc-text">服务端渲染</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6"><span class="toc-text">浏览器运行机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#DOM%E4%BC%98%E5%8C%96"><span class="toc-text">DOM优化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Event-Loop-%E4%B8%8E%E5%BC%82%E6%AD%A5%E6%9B%B4%E6%96%B0"><span class="toc-text">Event Loop 与异步更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9E%E6%B5%81%E4%B8%8E%E9%87%8D%E7%BB%98"><span class="toc-text">回流与重绘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Lazy-Load%E4%BC%98%E5%8C%96%E9%A6%96%E5%B1%8F%E4%BD%93%E9%AA%8C"><span class="toc-text">Lazy-Load优化首屏体验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8A%82%E6%B5%81%EF%BC%88throttle%EF%BC%89%E4%B8%8E%E9%98%B2%E6%8A%96%EF%BC%88debounce%EF%BC%89"><span class="toc-text">节流（throttle）与防抖（debounce）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E7%9B%91%E6%8E%A7"><span class="toc-text">性能监控</span></a></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;前端&gt;性能优化</h1>
+        <h4 id="http优化"><a href="#http优化" class="headerlink" title="http优化"></a>http优化</h4><ol>
+<li>减少单次请求时间</li>
+<li>减少请求次数</li>
+</ol>
+<h4 id="webpack优化"><a href="#webpack优化" class="headerlink" title="webpack优化"></a>webpack优化</h4><ol>
+<li>提高构建速度</li>
+</ol>
+<ul>
+<li>bable-loader中使用 include 或 exclude 来帮我们避免不必要的转译，比如排除node_modules文件夹</li>
+</ul>
+<ol start="2">
+<li>使用DLLPlugin打包第三方库</li>
+<li>Happypack将 loader 由单进程转为多进程</li>
+<li>使用tree-shaking删除冗余代码，UglifyJsPlugin</li>
+<li>webpack按需加载</li>
+<li>使用CommonsChunkPlugin拆分公共代码，webpack4使用optimization.splitChunks</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://crazyaguai.github.io/2019/01/15/webpack-CommonsChunkPlugin%E4%B8%8Eoptimization-splitChunks/">https://crazyaguai.github.io/2019/01/15/webpack-CommonsChunkPlugin%E4%B8%8Eoptimization-splitChunks/</a></li>
+</ul>
+<ol start="7">
+<li>生产环境关闭source-map</li>
+<li>压缩混淆代码，UglifyJsPlugin</li>
+<li>长缓存优化</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://crazyaguai.github.io/2018/12/21/webpack-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/#%E9%95%BF%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96">https://crazyaguai.github.io/2018/12/21/webpack-%E6%90%AD%E5%BB%BA%E7%8E%AF%E5%A2%83%E4%BB%A5%E5%8F%8A%E7%9B%B8%E5%85%B3%E4%BC%98%E5%8C%96/#%E9%95%BF%E7%BC%93%E5%AD%98%E4%BC%98%E5%8C%96</a></li>
+</ul>
+<ol start="10">
+<li>html-webpack-inline-chunk-plugin提前加载manifest.js</li>
+</ol>
+<h4 id="服务器开启gzip"><a href="#服务器开启gzip" class="headerlink" title="服务器开启gzip"></a>服务器开启gzip</h4><h4 id="图片优化"><a href="#图片优化" class="headerlink" title="图片优化"></a>图片优化</h4><ul>
+<li>一个像素对应的二进制位数越多，它可以表示的颜色种类就越多，成像效果也就越细腻，文件体积相应也会越大。一个二进制位表示两种颜色（0|1 对应黑|白），如果一种图片格式对应的二进制位数有 n 个，那么它就可以呈现 2^n 种颜色。</li>
+</ul>
+<ol>
+<li>JPEG/JPG：有损压缩、体积小、加载快、不支持透明</li>
+</ol>
+<ul>
+<li>优点：有损压缩，即使被称为“有损”压缩，JPG的压缩方式仍然是一种高质量的压缩方式：当我们把图片体积压缩至原有体积的 50% 以下时，JPG 仍然可以保持住 60% 的品质。</li>
+<li>使用场景：JPG 适用于呈现色彩丰富的图片，在我们日常开发中，JPG图片经常作为大的背景图、轮播图或 Banner 图出现。</li>
+<li>缺点：处理矢量图形和 Logo等线条感较强、颜色对比强烈的图像时，人为压缩导致的图片模糊会相当明显。JPEG 图像不支持透明度处理。</li>
+</ul>
+<ol start="2">
+<li>PNG-8 与 PNG-24：无损压缩、质量高、体积大、支持透明</li>
+</ol>
+<ul>
+<li>使用场景：呈现小的 Logo、颜色简单且对比强烈的图片或背景等。</li>
+</ul>
+<ol start="3">
+<li>SVG：文本文件、体积小、不失真、兼容性好</li>
+</ol>
+<ul>
+<li>特性：SVG 与 PNG 和 JPG 相比，文件体积更小，可压缩性更强。图片可无限放大而不失真。SVG 是文本文件，可以直接写在html dom中。</li>
+<li>局限：渲染成本比较高，有学习成本（是可编程的）。</li>
+<li>使用场景：</li>
+</ul>
+<ol start="4">
+<li>base64：文本文件、依赖编码、小图标解决方案</li>
+</ol>
+<ul>
+<li>Base64 是一种用于传输 8Bit 字节码的编码方式，通过对图片进行 Base64 编码，我们可以直接将编码结果写入 HTML 或者写入 CSS，从而减少 HTTP 请求的次数。</li>
+<li>应用场景：小图标，更新频率非常低</li>
+<li>url-loader可配置转换为base64图</li>
+</ul>
+<ol start="5">
+<li>WebP</li>
+</ol>
+<ul>
+<li>Google 专为 Web 开发的一种旨在加快图片加载速度的图片格式，它支持有损压缩和无损压缩。</li>
+<li>WebP 像 JPEG 一样对细节丰富的图片信手拈来，像 PNG 一样支持透明，像 GIF 一样可以显示动态图片——它集多种图片文件格式的优点于一身。</li>
+<li>局限性：浏览器支持情况不好，增加服务器的负担（编码同样质量的WebP文件会占用更多的计算资源。）</li>
+</ul>
+<h4 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h4><ol>
+<li>Memory Cache</li>
+</ol>
+<ul>
+<li>指内存中的缓存，从优先级上来说，它是浏览器最先尝试去命中的一种缓存。从效率上来说，它是响应速度最快的一种缓存。</li>
+<li>Base64 格式的图片，几乎永远可以被塞进 memory cache，体积不大的 JS、CSS文件，也有较大地被写入内存的几率。</li>
+</ul>
+<ol start="2">
+<li>Service Worker Cache</li>
+</ol>
+<ul>
+<li>Service Worker 是一种独立于主线程之外的 Javascript 线程。</li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/62338c038c42">https://www.jianshu.com/p/62338c038c42</a></li>
+</ul>
+<ol start="3">
+<li>HTTP Cache</li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://crazyaguai.github.io/2018/09/06/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/">https://crazyaguai.github.io/2018/09/06/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</a></li>
+</ul>
+<ol start="4">
+<li>Push Cache</li>
+</ol>
+<ul>
+<li>Push Cache 是指 HTTP2 在 server push 阶段存在的缓存。</li>
+</ul>
+<h4 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h4><ol>
+<li>cookie</li>
+</ol>
+<ul>
+<li>劣势：有体积上限（4KB）,紧跟域名，会带来资源浪费，同一个域名下的所有请求，都会携带 Cookie。</li>
+</ul>
+<ol start="2">
+<li>web storage</li>
+</ol>
+<ul>
+<li>特性：存储容量大，仅位于浏览器端，不与服务端发生通信。</li>
+<li>Local Storage 与 Session Storage 的区别：<strong>生命周期</strong>，Local Storage 是持久化的本地存储，Session Storage 是临时性的本地存储。<strong>作用域</strong>，Local Storage、Session Storage 和 Cookie 都遵循同源策略。但 Session Storage 特别的一点在于，即便是相同域名下的两个页面，只要它们不在同一个浏览器窗口中打开，那么它们的 Session Storage 内容便无法共享(不同tab页面不能共享)。</li>
+</ul>
+<h4 id="使用CDN缓存"><a href="#使用CDN缓存" class="headerlink" title="使用CDN缓存"></a>使用CDN缓存</h4><ul>
+<li>CDN 的核心点有两个，一个是缓存，一个是回源（缓存过期向上层服务器请求资源）。</li>
+<li>CDN 往往被用来存放静态资源。“静态资源”，就是像JS、CSS、图片等不需要业务服务器进行计算即得的资源。<h4 id="服务端渲染"><a href="#服务端渲染" class="headerlink" title="服务端渲染"></a>服务端渲染</h4><h4 id="浏览器运行机制"><a href="#浏览器运行机制" class="headerlink" title="浏览器运行机制"></a>浏览器运行机制</h4></li>
+<li>渲染过程：首先基于 HTML 构建一个 DOM 树，这棵 DOM 树与 CSS 解释器解析出的 CSSOM 相结合，就有了布局渲染树。最后浏览器以布局渲染树为蓝本，去计算布局并绘制图像，我们页面的初次渲染就大功告成了。</li>
+</ul>
+<ol>
+<li>CSS 优化</li>
+</ol>
+<ul>
+<li>CSS 选择符是从右到左进行匹配的。</li>
+<li>避免使用通配符，只对需要用到的元素进行选择。</li>
+<li>关注可以通过继承实现的属性，避免重复匹配重复定义。</li>
+<li>少用标签选择器。如果可以，用类选择器替代。</li>
+<li>减少选择器嵌套。</li>
+</ul>
+<ol start="2">
+<li>CSS与JS加载顺序优化</li>
+</ol>
+<ul>
+<li>CSS 是阻塞的资源。浏览器在构建 CSSOM 的过程中，不会渲染任何已处理的内容。需要将它尽早、尽快地下载到客户端，以便缩短首次渲染的时间。</li>
+<li>JS 引擎是独立于渲染引擎存在的。当 HTML 解析器遇到一个 script 标签时，它会暂停渲染过程，将控制权交给 JS 引擎。JS 引擎对内联的 JS 代码会直接执行，对外部 JS 文件还要先获取到脚本、再进行执行。等 JS 引擎运行完毕，浏览器又会把控制权还给渲染引擎，继续 CSSOM 和 DOM 的构建。</li>
+<li>通过对JS使用 defer 和 async 来避免不必要的阻塞。</li>
+<li>async 模式下，JS 不会阻塞浏览器做任何其它的事情。它的加载是异步的，当它加载结束，JS 脚本会立即执行。</li>
+<li>defer 模式下，JS 的加载是异步的，执行是被推迟的。等整个文档解析完成、DOMContentLoaded 事件即将被触发时，被标记了 defer 的 JS 文件才会开始依次执行。</li>
+<li>脚本与 DOM 元素和其它脚本之间的依赖关系不强时，我们会选用 async；当脚本依赖于 DOM 元素和其它脚本的执行结果时，我们会选用 defer。</li>
+</ul>
+<h4 id="DOM优化"><a href="#DOM优化" class="headerlink" title="DOM优化"></a>DOM优化</h4><ol>
+<li>DOM操作为什么慢：（1）JS 引擎和渲染引擎（浏览器内核）是独立实现的。用 JS 去操作 DOM 时依赖了桥接接口作为“桥梁”。（2）DOM 的修改引发样式的更迭，会触发回流或重绘。</li>
+<li>回流（重排）：当我们对 DOM 的修改引发了DOM几何尺寸的变化（比如修改元素的宽、高或隐藏元素等）。时</li>
+<li>重绘：当我们对 DOM 的修改导致了样式的变化、却并未影响其几何属性（比如修改了颜色或背景色）时。</li>
+<li>重绘不一定导致回流，回流一定会导致重绘。回流比重绘做的事情更多，带来的开销也更大。</li>
+<li>减少DOM操作<br>（1）使用js变量 （2）使用DocumentFragment（表示一个没有父级文件的最小文档对象，不是真实 DOM 树的一部分，它的变化不会引起 DOM 树的重新渲染的操作（reflow），且不会导致性能等问题。）<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment">https://developer.mozilla.org/zh-CN/docs/Web/API/DocumentFragment</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let container &#x3D; document.getElementById(&#39;container&#39;)</span><br><span class="line">&#x2F;&#x2F; 创建一个DOM Fragment对象作为容器</span><br><span class="line">let content &#x3D; document.createDocumentFragment()</span><br><span class="line">for(let count&#x3D;0;count&lt;10000;count++)&#123;</span><br><span class="line">  let oSpan &#x3D; document.createElement(&quot;span&quot;)</span><br><span class="line">  oSpan.innerHTML &#x3D; &#39;我是一个小测试&#39;</span><br><span class="line">  content.appendChild(oSpan)</span><br><span class="line">&#125;</span><br><span class="line">container.appendChild(content)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Event-Loop-与异步更新"><a href="#Event-Loop-与异步更新" class="headerlink" title="Event Loop 与异步更新"></a>Event Loop 与异步更新</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://crazyaguai.github.io/2018/10/20/js-eventLoop/">https://crazyaguai.github.io/2018/10/20/js-eventLoop/</a></li>
+</ul>
+<h4 id="回流与重绘"><a href="#回流与重绘" class="headerlink" title="回流与重绘"></a>回流与重绘</h4><ol>
+<li>触发回流：（1）几何属性有 width、height、padding、margin、left、top、border （2）节点的增减、移动等操作。（3）获取一些也定属性的值（需要即时计算），offsetTop、offsetLeft、 offsetWidth、offsetHeight、scrollTop、scrollLeft、scrollWidth、scrollHeight、clientTop、clientLeft、clientWidth、clientHeight</li>
+<li>（1）避免回流与重绘（用js变量将缓存属性值）（2）避免逐条改变样式（通过修改class修改style）(3)将DOM离线，设置display: none，之后再操作</li>
+<li>Flush对列</li>
+</ol>
+<ul>
+<li>浏览器会缓存flush对列，优化Layout和Paint。</li>
+</ul>
+<h4 id="Lazy-Load优化首屏体验"><a href="#Lazy-Load优化首屏体验" class="headerlink" title="Lazy-Load优化首屏体验"></a>Lazy-Load优化首屏体验</h4><ul>
+<li>监听屏幕加载页面</li>
+</ul>
+<h4 id="节流（throttle）与防抖（debounce）"><a href="#节流（throttle）与防抖（debounce）" class="headerlink" title="节流（throttle）与防抖（debounce）"></a>节流（throttle）与防抖（debounce）</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://crazyaguai.github.io/2018/11/15/js-%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96/">https://crazyaguai.github.io/2018/11/15/js-%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96/</a></li>
+</ul>
+<h4 id="性能监控"><a href="#性能监控" class="headerlink" title="性能监控"></a>性能监控</h4><ul>
+<li>chrome Performance面板</li>
+<li>LightHouse</li>
+</ul>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;ES6&gt;迭代器iterator&amp;生成器generator | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  ES6,js
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2018-08-21T16:00:00.000Z">
+                    2018-08-22
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8%EF%BC%88iterator%EF%BC%89"><span class="toc-text">迭代器（iterator）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88generator%EF%BC%89"><span class="toc-text">生成器（generator）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95"><span class="toc-text">生成器对象方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%B1%A1%E4%B8%8Efor%E2%80%A6of%E5%BE%AA%E7%8E%AF"><span class="toc-text">可迭代对象与for…of循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%8F%AF%E8%BF%AD%E4%BB%A3%E5%AF%B9%E8%B1%A1"><span class="toc-text">创建可迭代对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%BB%BA%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">内建迭代器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">字符串迭代器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#NodeList%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">NodeList迭代器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Set%E8%BD%AC%E6%8D%A2%E6%95%B0%E7%BB%84"><span class="toc-text">Set转换数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%8A%9F%E8%83%BD"><span class="toc-text">高级迭代器功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="toc-text">给迭代器传递参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E8%BF%AD%E4%BB%A3%E5%99%A8%E4%B8%AD%E6%8A%9B%E5%87%BA%E9%94%99%E8%AF%AF"><span class="toc-text">在迭代器中抛出错误</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E7%9A%84return%E8%BF%94%E5%9B%9E%E8%AF%AD%E5%8F%A5"><span class="toc-text">生成器的return返回语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A7%94%E6%89%98%E7%94%9F%E6%88%90%E5%99%A8%EF%BC%88%E5%90%88%E5%B9%B6%E8%BF%AD%E4%BB%A3%E5%99%A8%EF%BC%89"><span class="toc-text">委托生成器（合并迭代器）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%89%A7%E8%A1%8C%E5%99%A8"><span class="toc-text">异步任务执行器</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;ES6&gt;迭代器iterator&amp;生成器generator</h1>
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>通过程序化的方式使用迭代器对象返回集合中的元素，可以极大地简化数据操作，例如：for…of循环、展开运算符（…）、异步编程。</li>
+<li>循环存在的问题(如果多个循环要追踪多个变量，代码复杂度大大增加)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let arr &#x3D; [1,2,3]</span><br><span class="line">for(let i &#x3D; 0;i&lt;arr.length;i++)&#123;</span><br><span class="line">    console.log(arr[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="迭代器（iterator）"><a href="#迭代器（iterator）" class="headerlink" title="迭代器（iterator）"></a>迭代器（iterator）</h3><ul>
+<li>是一个特殊的对象，为专门的迭代程序设计了接口，都有一个next()方法</li>
+<li>每次调用next()返回一个对象有两个属性value和done,{value:’’,done:’’}</li>
+<li>每一次调用next()都会返回下一次的值，如果没有值的话，返回{value:undefined,done:true}</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function createIterator(items) &#123;</span><br><span class="line">    var i &#x3D; 0</span><br><span class="line">    return &#123;</span><br><span class="line">        next: function () &#123;</span><br><span class="line">            var done &#x3D; (i&gt;&#x3D;items.length)</span><br><span class="line">            var value &#x3D; !done ? items[i++] : undefined</span><br><span class="line">            return &#123;</span><br><span class="line">                done: done,</span><br><span class="line">                value: value</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var iterator &#x3D; createIterator([1,2])</span><br><span class="line">console.log(iterator.next())&#x2F;&#x2F;&#123;done:false,value:1&#125;</span><br><span class="line">console.log(iterator.next())</span><br><span class="line">console.log(iterator.next())&#x2F;&#x2F;&#123;done:true,value:undefined&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成器（generator）"><a href="#生成器（generator）" class="headerlink" title="生成器（generator）"></a>生成器（generator）</h3><ul>
+<li>生成器是一种返回迭代器的函数，通过function关键字后的*号来表示，函数中会用到新的关键字yield</li>
+<li>*号可以紧挨function也可以有个空格</li>
+<li>生成器中当每执行一条yield之后会自动停止执行，继续调用next()才会继续执行</li>
+<li>注意：yield只可以在生成器函数内部调用，在其他地方调用会出现语法错误，即使是在生成器内部函数里面调用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function *Fun() &#123;</span><br><span class="line">    yield 1</span><br><span class="line">    yield 2</span><br><span class="line">&#125;</span><br><span class="line">let iterator1 &#x3D; Fun()</span><br><span class="line">console.log(iterator1.next())</span><br><span class="line">console.log(iterator1.next())</span><br><span class="line">console.log(iterator1.next())</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;生成器函数表达式</span><br><span class="line">let Fun1 &#x3D; function *() &#123;</span><br><span class="line">    yield 1</span><br><span class="line">    yield 2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成器对象方法"><a href="#生成器对象方法" class="headerlink" title="生成器对象方法"></a>生成器对象方法</h4><ul>
+<li>生成器对象方法（生成器本身是函数，可以添加到对象中）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    createIterator: function *() &#123;</span><br><span class="line">        yield 1</span><br><span class="line">    &#125;,</span><br><span class="line">    *Fun()&#123;&#x2F;&#x2F;ES6函数写法创建</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="可迭代对象与for…of循环"><a href="#可迭代对象与for…of循环" class="headerlink" title="可迭代对象与for…of循环"></a>可迭代对象与for…of循环</h4><ul>
+<li>可迭代对象与for…of循环</li>
+<li>可迭代对象具有Symbol.iterator属性，通过指定的函数可以返回一个作用于附属对象的迭代器</li>
+<li>ES6中所有对象合集（数组、Set、Map、字符串）都是可迭代对象，都有默认的可迭代器</li>
+<li>for…of循环就是用到可迭代对象的这些功能，每执行一次都会调用可迭代对象的next()方法</li>
+<li>通过调用Symbol.iterator方法来获得迭代器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;默认的迭代器，通过Symbol.iterator来访问对象默认的迭代器</span><br><span class="line">let arr1 &#x3D; [1,2]</span><br><span class="line">let iterator2 &#x3D; arr1[Symbol.iterator]()</span><br><span class="line">console.log(iterator2.next())</span><br><span class="line">console.log(iterator2.next())</span><br><span class="line">console.log(iterator2.next())</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;可以使用Symbol.iterator检测是否为可迭代对象</span><br><span class="line">function checkItertor(obj)&#123;</span><br><span class="line">    return typeof obj[Symbol.iterator] &#x3D;&#x3D;&#x3D; &#39;function&#39;</span><br><span class="line">&#125;</span><br><span class="line">console.log(checkItertor([1,2]))&#x2F;&#x2F;true</span><br><span class="line">console.log(checkItertor(1))&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建可迭代对象"><a href="#创建可迭代对象" class="headerlink" title="创建可迭代对象"></a>创建可迭代对象</h4><ul>
+<li>创建可迭代对象，开发者定义的对象都是不可迭代的，如果给对象Symbol.iterator属性添加一个生成器可变为可迭代对象</li>
+<li>先创建一个生成器，并赋值给Symbol.iterator属性来创建默认的迭代器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let collection &#x3D; &#123;</span><br><span class="line">    items: [],</span><br><span class="line">    *[Symbol.iterator]()&#123;</span><br><span class="line">        for(let item of this.items)&#123;</span><br><span class="line">            yield item</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">collection.items.push(1)</span><br><span class="line">collection.items.push(2)</span><br><span class="line">for(let item of collection)&#123;</span><br><span class="line">    console.log(item)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="内建迭代器"><a href="#内建迭代器" class="headerlink" title="内建迭代器"></a>内建迭代器</h3><ul>
+<li>entries(),多个键值对</li>
+<li>values(),集合的值</li>
+<li>keys(),所有的键名(数组打印出来的都是数字类型的索引)</li>
+<li>默认的迭代器</li>
+<li>数组、Set是values</li>
+<li>Map是entries()</li>
+<li>注意：WeakMap与WeakSet没有内建迭代器，因为要管理弱引用无法确定存在的值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let map &#x3D; new Map([[&#39;a&#39;,1],[&#39;b&#39;,2]])</span><br><span class="line">for(let [k,value] of map.entries())&#123;&#x2F;&#x2F;解构运用</span><br><span class="line">    console.log(k)</span><br><span class="line">    console.log(value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串迭代器"><a href="#字符串迭代器" class="headerlink" title="字符串迭代器"></a>字符串迭代器</h4><ul>
+<li>字符串迭代器（可以正确使用双字节字符）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let msg &#x3D; &#39;123&#39;</span><br><span class="line">for(let s of msg)&#123;</span><br><span class="line">    console.log(s)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="NodeList迭代器"><a href="#NodeList迭代器" class="headerlink" title="NodeList迭代器"></a>NodeList迭代器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let divs &#x3D; document.getElementsByTagName(&#39;div&#39;)</span><br><span class="line">for(let d of divs)&#123;</span><br><span class="line">    console.log(d)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Set转换数组"><a href="#Set转换数组" class="headerlink" title="Set转换数组"></a>Set转换数组</h4><ul>
+<li>展开运算符与非数组可迭代对象(将可迭代对象转换为数组)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let set1 &#x3D; new</span><br><span class="line">Set([1,2,2,3])</span><br><span class="line">console.log([...set1])&#x2F;&#x2F;[1,2,3]</span><br></pre></td></tr></table></figure>
+
+<h3 id="高级迭代器功能"><a href="#高级迭代器功能" class="headerlink" title="高级迭代器功能"></a>高级迭代器功能</h3><h4 id="给迭代器传递参数"><a href="#给迭代器传递参数" class="headerlink" title="给迭代器传递参数"></a>给迭代器传递参数</h4><ul>
+<li>如果给迭代器的next()方法传递参数，这个参数会替代生成器内部上一条yield语句的返回值</li>
+<li>注意：第一次调用next()时无论传什么参数都会被丢弃</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function *createIterator2() &#123;</span><br><span class="line">    let first &#x3D; yield 1</span><br><span class="line">    let secoud &#x3D; yield first + 1</span><br><span class="line">    yield secoud + 1</span><br><span class="line">&#125;</span><br><span class="line">let iterator4 &#x3D; createIterator2()</span><br><span class="line">console.log(iterator4.next())</span><br><span class="line">console.log(iterator4.next(1))</span><br><span class="line">console.log(iterator4.next(2))</span><br><span class="line">console.log(iterator4.next())</span><br></pre></td></tr></table></figure>
+
+<h4 id="在迭代器中抛出错误"><a href="#在迭代器中抛出错误" class="headerlink" title="在迭代器中抛出错误"></a>在迭代器中抛出错误</h4><ul>
+<li>通过throw()方法，当迭代器执行时可以抛出错误</li>
+<li>next()和throw()像是迭代器两条指令，调用都会继续执行，但是调用throw()会抛出错误</li>
+<li>在错误之后的执行取决于内部的代码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">function *errIterator() &#123;</span><br><span class="line">    yield 1</span><br><span class="line">    yield 2</span><br><span class="line">    yield 3</span><br><span class="line">&#125;</span><br><span class="line">let iterator5 &#x3D; errIterator()</span><br><span class="line">console.log(iterator5.next())</span><br><span class="line">&#x2F;&#x2F; console.log(iterator5.throw(new Error(&#39;error&#39;)))</span><br><span class="line">console.log(iterator5.next())&#x2F;&#x2F;不会在执行</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;可以在内部通过try-catch捕获错误</span><br><span class="line">function *errIterator1() &#123;</span><br><span class="line">    let first &#x3D; yield 1</span><br><span class="line">    let secound</span><br><span class="line">    try &#123;&#x2F;&#x2F;由于生成器捕获了这些错误因此会继续执行下一条语句</span><br><span class="line">        secound &#x3D; yield first + 1</span><br><span class="line">    &#125;catch (e) &#123;</span><br><span class="line">        secound &#x3D; 2</span><br><span class="line">    &#125;</span><br><span class="line">    yield secound + 1</span><br><span class="line">&#125;</span><br><span class="line">let iterator6 &#x3D; errIterator1()</span><br><span class="line">console.log(iterator6.next())</span><br><span class="line">console.log(iterator6.next(1))</span><br><span class="line">console.log(iterator6.throw(new Error(&#39;error&#39;)))</span><br><span class="line">console.log(iterator6.next(1))</span><br></pre></td></tr></table></figure>
+
+<h4 id="生成器的return返回语句"><a href="#生成器的return返回语句" class="headerlink" title="生成器的return返回语句"></a>生成器的return返回语句</h4><ul>
+<li>可以通过return提前退出执行，如果return了值，则为{done:true,value:对应值}</li>
+<li>注意：展开运算符和for…of循环会直接忽略通过return返回的任何值，只要done变为true就会停止</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function *returnIterator() &#123;</span><br><span class="line">    return 1</span><br><span class="line">&#125;</span><br><span class="line">let iterator7 &#x3D; returnIterator()</span><br><span class="line">console.log(iterator7.next())&#x2F;&#x2F;&#123;value:1,done:true&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="委托生成器（合并迭代器）"><a href="#委托生成器（合并迭代器）" class="headerlink" title="委托生成器（合并迭代器）"></a>委托生成器（合并迭代器）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function *c1() &#123;</span><br><span class="line">    yield 1</span><br><span class="line">    return 2</span><br><span class="line">&#125;</span><br><span class="line">function *c2() &#123;</span><br><span class="line">    yield 3</span><br><span class="line">    return 4</span><br><span class="line">&#125;</span><br><span class="line">function *c3() &#123;</span><br><span class="line">    let result &#x3D; yield *c1()</span><br><span class="line">    yield result&#x2F;&#x2F;如果想返回这个return值需要这个么做</span><br><span class="line">    yield *c2()</span><br><span class="line">    yield *&#39;aaa&#39;&#x2F;&#x2F;会使用字符串的默认迭代器</span><br><span class="line">&#125;</span><br><span class="line">let iteratorC &#x3D; c3()</span><br></pre></td></tr></table></figure>
+
+<h4 id="异步任务执行器"><a href="#异步任务执行器" class="headerlink" title="异步任务执行器"></a>异步任务执行器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">function run(taskDef) &#123;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;创建一个无限使用的迭代器</span><br><span class="line">    let task &#x3D; taskDef()</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;开始执行任务</span><br><span class="line">    let result &#x3D; task.next()</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;循环调用使用next()函数</span><br><span class="line">    function step() &#123;</span><br><span class="line">        if(!result.done)&#123;</span><br><span class="line">            &#x2F;&#x2F;判断如果是函数则执行函数</span><br><span class="line">            if(typeof result.value &#x3D;&#x3D;&#x3D; &#39;function&#39;)&#123;</span><br><span class="line">                &#x2F;&#x2F;执行异步函数，传入回调，再回调中继续执行next(),处理数据</span><br><span class="line">                result.value(function (err,data) &#123;</span><br><span class="line">                    if(err)&#123;</span><br><span class="line">                        task.throw(err)</span><br><span class="line">                        return</span><br><span class="line">                    &#125;</span><br><span class="line">                    result &#x3D; task.next(data)</span><br><span class="line">                    step()</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                result &#x3D; task.next(result.value)</span><br><span class="line">                step()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    step()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function outFun() &#123;</span><br><span class="line">    return function (callback) &#123;</span><br><span class="line">        setTimeout(()&#x3D;&gt;&#123;</span><br><span class="line">            console.log(&#39;111&#39;)</span><br><span class="line">            callback(null,&#39;123&#39;)</span><br><span class="line">        &#125;,1000)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">run(function *() &#123;</span><br><span class="line">    let res &#x3D; yield outFun()</span><br><span class="line">    console.log(&#39;2222&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

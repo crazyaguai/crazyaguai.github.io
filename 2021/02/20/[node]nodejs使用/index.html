@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;node&gt;nodejs使用 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  node
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2021-02-19T16:00:00.000Z">
+                    2021-02-20
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#nodejs%E7%89%B9%E7%82%B9"><span class="toc-text">nodejs特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-text">事件循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E9%98%B6%E6%AE%B5"><span class="toc-text">循环阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#poll%E8%BF%87%E7%A8%8B"><span class="toc-text">poll过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1%E5%AE%8F%E4%BB%BB%E5%8A%A1"><span class="toc-text">微任务宏任务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-text">单线程多线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node%E9%80%82%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="toc-text">node适用服务场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nodejs%E6%A1%86%E6%9E%B6"><span class="toc-text">nodejs框架</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#express%E4%B8%8Ekoa%E5%8C%BA%E5%88%AB"><span class="toc-text">express与koa区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-text">中间件</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;node&gt;nodejs使用</h1>
+        <h3 id="nodejs特点"><a href="#nodejs特点" class="headerlink" title="nodejs特点"></a>nodejs特点</h3><ul>
+<li><p>js运行环境，基于chromeV8引擎解析代码，事件驱动，异步驱动，非阻塞I/O，高并发，单线程</p>
+</li>
+<li><p>nodejs前端工程化与后端服务应用：</p>
+</li>
+</ul>
+<ol>
+<li>运行环境：<br> 工程化：运行在本机开花环境<br> 服务：运行在远程服务器，涉及到发布工具（devops），进程管理工具（PM2）,监控告警机制，日志打印及跟踪染色</li>
+<li>受众群体不同：<br> 工程化：服务开发者，提升开发效率，研发质量<br> 服务：真实用户群体，需要关注服务稳定性，并发性能，考虑扩容方案，优化服务性能</li>
+<li>问题调试：<br> 工程化：本地运行，可以在脚本中打log<br> 服务：需要高性能日志工具，遇到内存泄漏、句柄泄漏或者进程异常退出等问题，需要工具分析</li>
+<li>关注点不同：<br> 工程化：注重开发效率提升以及研发质量保证<br> 服务：真正发挥node异步驱动特性，在非CPU密集场景下，开发网络I/O较高服务</li>
+</ol>
+<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><ul>
+<li>node 10+ 版本后在运行结果上与浏览器一致，但是基于 libev 库实现，浏览器的核心是宏任务和微任务，node 有阶段性任务执行阶段</li>
+</ul>
+<h4 id="循环阶段"><a href="#循环阶段" class="headerlink" title="循环阶段"></a>循环阶段</h4><ol>
+<li>timers：执行 setTimeout、setInterval 回调函数</li>
+<li>pending callbacks：执行操作系统回调，如 TCP 错误回调</li>
+<li>idle、prepare：仅系统内部使用</li>
+<li>poll：检索新的 I/O 事件，执行与 I/O 相关的回调</li>
+<li>check：执行 setImmediate 回调，setImmediate 并不是立马执行，而是当事件循环 poll 中没有新的事件处理时就执行该部分</li>
+<li>close callbacks：执行关闭的回调，如 socket.on(‘close’, …)</li>
+</ol>
+<ul>
+<li>发起事件循环起点：<br>  nodejs 启动后<br>  setTimeout、setInterval 回调<br>  某一次 I/O 回调</li>
+</ul>
+<h4 id="poll过程"><a href="#poll过程" class="headerlink" title="poll过程"></a>poll过程</h4><ul>
+<li>poll 过程中，主要处理的是异步 I/O 的回调函数，以及其他几乎所有的回调函数，异步 I/O 又分为网络 I/O 和文件 I/O</li>
+</ul>
+<h4 id="微任务宏任务"><a href="#微任务宏任务" class="headerlink" title="微任务宏任务"></a>微任务宏任务</h4><ul>
+<li>微任务：process.nextTick 和 Promise，同一个事件循环中有其他任务存在时，优先执行微任务队列，优先级 process.nextTick 高于 Promise</li>
+<li>宏任务：setTimeout、setInterval、setImmediate 和 I/O，宏任务在微任务执行之后执行，因此在同一个事件循环周期内，如果既存在微任务队列又存在宏任务队列，那么优先将微任务队列清空，再执行宏任务队列</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> process = <span class="built_in">require</span>(<span class="string">&quot;process&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&quot;path&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;start&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseRun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Promise</span>.resolve().then(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;promise&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fs.readFile(path.resolve(__dirname, <span class="string">&quot;./file.txt&quot;</span>), <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) &#123;</span><br><span class="line">    <span class="keyword">throw</span> err;</span><br><span class="line">  &#125;</span><br><span class="line">  promiseRun();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;fs io callback&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">setImmediate(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  promiseRun();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;immediate&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  promiseRun();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;timeout&quot;</span>);</span><br><span class="line">  fs.readFile(path.resolve(__dirname, <span class="string">&quot;./file.txt&quot;</span>), <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">      <span class="keyword">throw</span> err;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;async fs io callback&quot;</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">promiseRun();</span><br><span class="line"></span><br><span class="line">process.nextTick(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;nextTick&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;end&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// start</span></span><br><span class="line"><span class="comment">// end</span></span><br><span class="line"><span class="comment">// nextTick</span></span><br><span class="line"><span class="comment">// promise</span></span><br><span class="line"><span class="comment">// timeout</span></span><br><span class="line"><span class="comment">// promise</span></span><br><span class="line"><span class="comment">// immediate</span></span><br><span class="line"><span class="comment">// promise</span></span><br><span class="line"><span class="comment">// fs io callback</span></span><br><span class="line"><span class="comment">// promise</span></span><br><span class="line"><span class="comment">// async fs io callback</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="单线程多线程"><a href="#单线程多线程" class="headerlink" title="单线程多线程"></a>单线程多线程</h4><ul>
+<li>node 主线程是单线程执行的，但是 Node.js 存在多线程执行，多线程包括 setTimeout 和异步 I/O 事件。其实 Node.js 还存在其他的线程，包括垃圾回收、内存优化等</li>
+</ul>
+<h3 id="node适用服务场景"><a href="#node适用服务场景" class="headerlink" title="node适用服务场景"></a>node适用服务场景</h3><ul>
+<li><p>适用场景：<br>  业务网关：鉴权处理服务，特性：网络 I/O 高，高并发，不涉及 CPU 密集逻辑<br>  中台服务：配置系统、反馈系统、推送系统、系统工具搭建，特点：网络 I/O高、并发高、通用性强及业务复杂度低<br>  运营系统：并发高，不涉及底层数据库读写<br>  爬虫系统：puppeteer，jsdom 等库支持动态静态爬虫抓取</p>
+</li>
+<li><p>不适用场景：node 不适用阻塞主线程、CPU 密集型运算的服务，如：图片处理、大字符串数字处理、大文件读写</p>
+</li>
+</ul>
+<h3 id="nodejs框架"><a href="#nodejs框架" class="headerlink" title="nodejs框架"></a>nodejs框架</h3><h4 id="express与koa区别"><a href="#express与koa区别" class="headerlink" title="express与koa区别"></a>express与koa区别</h4><ul>
+<li>expres内置很多中间件，比如connext、router，koa更加轻量化，可以根据需求定制框架</li>
+<li>中间件处理：express基于callback处理，koa基于await/async处理</li>
+<li>异步执行中间件：express并非严格按照洋葱模型执行中间件，koa严格遵循</li>
+</ul>
+<h4 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h4><ol>
+<li>express</li>
+</ol>
+<ul>
+<li><p>流程<br>通过app.use方法注册中间件<br>一个中间件为一个layer对象，包含当前路由正则信息以及handle方法<br>所有中间件（Layer 对象）使用stack数组存储起来<br>每个 Router 对象都是通过一个stack数组，存储了相关中间件函数<br>router.handle函数通过next()方法遍历每一个 layer 进行比对，next()方法通过闭包维持了对于 Stack Index 游标的引用，当调用next()方法时，就会从下一个中间件开始查找</p>
+</li>
+<li><p>处理结果</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">((req, res) &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;第一个中间件&#39;);</span><br><span class="line">  ((req, res) &#x3D;&gt; &#123;</span><br><span class="line">    console.log(&#39;第二个中间件&#39;);</span><br><span class="line">    (async(req, res) &#x3D;&gt; &#123;</span><br><span class="line">      console.log(&#39;第三个中间件 &#x3D;&gt; 是一个 route 中间件，处理 &#x2F;api&#x2F;test1&#39;);</span><br><span class="line">      await sleep(2000)</span><br><span class="line">      res.status(200).send(&#39;hello&#39;)</span><br><span class="line">    &#125;)(req, res)</span><br><span class="line">    console.log(&#39;第二个中间件调用结束&#39;);</span><br><span class="line">  &#125;)(req, res)</span><br><span class="line">  console.log(&#39;第一个中间件调用结束&#39;)</span><br><span class="line">&#125;)(req, res)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Express 的线形机制不容易实现拦截处理逻辑，会对业务代码有一定程度的侵扰，甚至造成不同中间件间的耦合，例如：记录请求响应的中间件，需要在初始中间件计时，在结束处理中计算时间</li>
+</ul>
+<ol start="2">
+<li>koa中间件</li>
+</ol>
+<ul>
+<li>中间件使用</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 最外层中间件，可以用于兜底 Koa 全局错误</span></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="comment">// console.log(&#x27;中间件 1 开始执行&#x27;)</span></span><br><span class="line">    <span class="comment">// 执行下一个中间件</span></span><br><span class="line">    <span class="keyword">await</span> next();</span><br><span class="line">    <span class="comment">// console.log(&#x27;中间件 1 执行结束&#x27;)</span></span><br><span class="line">  &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`[koa error]: <span class="subst">$&#123;error.message&#125;</span>`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 第二层中间件，可以用于日志记录</span></span><br><span class="line">app.use(<span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="comment">// console.log(&#x27;中间件 2 开始执行&#x27;)</span></span><br><span class="line">  <span class="keyword">const</span> &#123; req &#125; = ctx;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`req is <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(req)&#125;</span>`</span>);</span><br><span class="line">  <span class="keyword">await</span> next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`res is <span class="subst">$&#123;<span class="built_in">JSON</span>.stringify(ctx.res)&#125;</span>`</span>);</span><br><span class="line">  <span class="comment">// console.log(&#x27;中间件 2 执行结束&#x27;)</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>koa组合中间件流程<br>通过compose方法组合中间件，返回一个中间件函数fnMiddleware<br>接收请求时，先调用handleRequest（调用createContext方法，封装ctx对象，调用this.handleRequest(ctx, fnMiddleware)处理该次请求）<br>通过fnMiddleware(ctx).then(handleResponse).catch(onerror)执行中间件</p>
+</li>
+<li><p>compose</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">middleware</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 这里返回的函数，就是上文中的 fnMiddleware</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">context, next</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index = -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> dispatch(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">dispatch</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      <span class="keyword">if</span> (i &lt;= index)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&quot;next() called multiple times&quot;</span>));</span><br><span class="line">      index = i;</span><br><span class="line">      <span class="comment">// 取出第 i 个中间件为 fn</span></span><br><span class="line">      <span class="keyword">let</span> fn = middleware[i];</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (i === middleware.length) fn = next;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 已经取到了最后一个中间件，直接返回一个 Promise 实例，进行串联</span></span><br><span class="line">      <span class="comment">// 这一步的意义是保证最后一个中间件调用 next 方法时，也不会报错</span></span><br><span class="line">      <span class="keyword">if</span> (!fn) <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 把 ctx 和 next 方法传入到中间件 fn 中，并将执行结果使用 Promise.resolve 包装</span></span><br><span class="line">        <span class="comment">// 这里可以发现，我们在一个中间件中调用的 next 方法，其实就是dispatch.bind(null, i + 1)，即调用下一个中间件</span></span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(fn(context, dispatch.bind(<span class="literal">null</span>, i + <span class="number">1</span>)));</span><br><span class="line">      &#125; <span class="keyword">catch</span> (err) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fn1 = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;1 start&quot;</span>);</span><br><span class="line">  <span class="keyword">await</span> next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;1 end&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> fn2 = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;2 start&quot;</span>);</span><br><span class="line">  <span class="keyword">await</span> next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;2 end&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> fn3 = <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;3 start&quot;</span>);</span><br><span class="line">  <span class="keyword">await</span> next();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;3 end&quot;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> fun = compose([fn1, fn2, fn3]);</span><br><span class="line">fun(&#123;&#125;, <span class="function">() =&gt;</span> &#123;&#125;);</span><br><span class="line"><span class="comment">// 1 start</span></span><br><span class="line"><span class="comment">// 2 start</span></span><br><span class="line"><span class="comment">// 3 start</span></span><br><span class="line"><span class="comment">// 3 end</span></span><br><span class="line"><span class="comment">// 2 end</span></span><br><span class="line"><span class="comment">// 1 end</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>dispatch(n)对应第 n 个中间件的执行，第 n 个中间件可以通过await next()来执行下一个中间件，同时在最后一个中间件执行完成后，依然有恢复执行的能力。</p>
+</li>
+<li><p>通过洋葱模型，await next()控制调用 “下游”中间件，直到 “下游”没有中间件且堆栈执行完毕，最终流回“上游”中间件</p>
+</li>
+<li><p>处理结果</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">async function middleware1() &#123;</span><br><span class="line">  ...</span><br><span class="line">  await (async function middleware2() &#123;</span><br><span class="line">    ...</span><br><span class="line">    await (async function middleware3() &#123;</span><br><span class="line">      ...</span><br><span class="line">    &#125;);</span><br><span class="line">    ...</span><br><span class="line">  &#125;);</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

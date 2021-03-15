@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;js&gt;类型 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  js,js类型
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2019-03-02T16:00:00.000Z">
+                    2019-03-03
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B"><span class="toc-text">类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">内置类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%BC%E5%92%8C%E7%B1%BB%E5%9E%8B"><span class="toc-text">值和类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%BC"><span class="toc-text">值</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-text">数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E5%AD%97"><span class="toc-text">数字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E5%80%BC"><span class="toc-text">特殊的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%BC%E5%92%8C%E5%BC%95%E7%94%A8"><span class="toc-text">值和引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E5%87%BD%E6%95%B0"><span class="toc-text">原生函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%8E%9F%E7%94%9F%E5%87%BD%E6%95%B0"><span class="toc-text">常用原生函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E5%B1%9E%E6%80%A7-Class"><span class="toc-text">内部属性[[Class]]</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E5%AF%B9%E8%B1%A1"><span class="toc-text">封装对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-text">原生函数作为构造函数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%94%9F%E5%8E%9F%E5%9E%8B"><span class="toc-text">原生原型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">强制类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">值类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="toc-text">抽象值操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">显示强制类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2"><span class="toc-text">字符串和数字之间的显示转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E6%95%B0%E5%AD%97%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">显式解析数字字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B8%83%E5%B0%94%E5%80%BC"><span class="toc-text">显示转换为布尔值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">隐式强制类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%95%B0%E5%AD%97%E4%B9%8B%E9%97%B4%E7%9A%84%E9%9A%90%E5%BC%8F%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">字符串与数字之间的隐式强制类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%80%BC%E5%88%B0%E6%95%B0%E5%AD%97%E7%9A%84%E9%9A%90%E5%BC%8F%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">布尔值到数字的隐式强制类型转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B8%83%E5%B0%94%E5%80%BC"><span class="toc-text">隐式强制类型转换为布尔值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AC%A6%E5%8F%B7%EF%BC%88symbol%EF%BC%89%E7%9A%84%E5%BC%BA%E5%88%B6%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-text">符号（symbol）的强制类型转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%BD%E6%9D%BE%E7%9B%B8%E7%AD%89%E5%92%8C%E4%B8%A5%E6%A0%BC%E7%9B%B8%E7%AD%89"><span class="toc-text">宽松相等和严格相等</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%9B%B8%E7%AD%89"><span class="toc-text">抽象相等</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%85%B3%E7%B3%BB%E6%AF%94%E8%BE%83-gt-lt"><span class="toc-text">抽象关系比较&gt;&lt;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%8F%8C%E6%96%B9%E9%83%BD%E6%98%AF%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">比较双方都是字符串</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%83%85%E5%86%B5"><span class="toc-text">其他情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lt-%E4%B8%8E-gt"><span class="toc-text">&lt;&#x3D; 与&gt;&#x3D;</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;js&gt;类型</h1>
+        <h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><h4 id="内置类型"><a href="#内置类型" class="headerlink" title="内置类型"></a>内置类型</h4><ul>
+<li>7种内置类型</li>
+</ul>
+<p>null,undefined,object,string,number,boolean,symbol</p>
+<ul>
+<li>检查类型</li>
+</ul>
+<p>使用typeof检查，注意：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">typeof null&#x2F;&#x2F;&quot;object&quot;</span><br><span class="line">typeof []&#x2F;&#x2F;&quot;object&quot;</span><br><span class="line">typeof function()&#123;&#125;&#x2F;&#x2F;&quot;function&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h4><p>null,undefined,string,number,boolean,symbol</p>
+<h4 id="值和类型"><a href="#值和类型" class="headerlink" title="值和类型"></a>值和类型</h4><ul>
+<li>js中变量没有类型，值才有类型，变量可以随时持有任何类型的值。</li>
+<li>执行typeof时，得到的是变量持有值的类型。</li>
+<li>undefined声明但还没有赋值的变量，undeclared作用域中还没有声明过得变量</li>
+<li>试图访问”undeclared” 变量时这样报错：ReferenceError: a is not defined， 并且typeof对undefined 和undeclared 变量都返回”undefined”。</li>
+</ul>
+<h3 id="值"><a href="#值" class="headerlink" title="值"></a>值</h3><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><ul>
+<li>数组可以容纳任何类型的值，可以是字符串、数字、对象（object），甚至是其他数组（多维数组）</li>
+<li>delete运算符可以删除数组元素，但是不会改变length</li>
+<li>类数组：DOM元素列表，arguments对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;类数组转换为数组</span><br><span class="line">function f()&#123;</span><br><span class="line">    let arr &#x3D; Array.prototype.slice.call( arguments )</span><br><span class="line">    let arr1 &#x3D; Array.from(arguments)&#x2F;&#x2F;ES6</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h4><ul>
+<li>字符串不可变是指字符串的成员函数不会改变其原始值，而是创建并返回一个新的字符串。而数组的成员函数都是在其原始值上进行操作。</li>
+<li>借用数组非变更方法处理字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; &#39;123&#39;</span><br><span class="line">let b &#x3D; Array.prototype.join.call(a,&#39;_&#39;)</span><br><span class="line">console.log(a)&#x2F;&#x2F;123</span><br><span class="line">console.log(b)&#x2F;&#x2F;1_2_3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>数组有一个字符串没有的可变更成员函数reverse()，反转数组。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;实现字符串反转</span><br><span class="line">let a &#x3D; &#39;123&#39;</span><br><span class="line">let b &#x3D; a.split(&#39;&#39;).reverse().join(&#39;&#39;)</span><br><span class="line">console.log(a)&#x2F;&#x2F;123</span><br><span class="line">console.log(b)&#x2F;&#x2F;321</span><br></pre></td></tr></table></figure>
+
+<h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><ul>
+<li>0.1 + 0.2是一个比较接近的数字0.30000000000000004</li>
+<li>机器精度：js中2^-52 (2.220446049250313e-16)，ES6中该值定义在Number.EPSILON中</li>
+<li>安全范围：最大整数是2^53 - 1（Number.MAX_SAFE_INTEGER），最整数（-2^53 - 1）-9007199254740991（Number.<br>MIN_SAFE_INTEGER）</li>
+<li>检测整数：Number.isInteger() 方法</li>
+<li>检测安全整数：Number.isSafeInteger()</li>
+</ul>
+<h4 id="特殊的值"><a href="#特殊的值" class="headerlink" title="特殊的值"></a>特殊的值</h4><ol>
+<li>undefined,null</li>
+</ol>
+<ul>
+<li>null 指空值（empty value），undefined 指没有值（missing value）</li>
+<li>不要给全局标识符undefined赋值</li>
+</ul>
+<ol start="2">
+<li>特殊数字</li>
+</ol>
+<ul>
+<li>NaN：理解为“无效数值”“失败数值”或者“坏数值</li>
+<li>NaN和自身不相等，isNaN() 来判断一个值是否是NaN，ES6可以使用Number.isNaN()判断</li>
+<li>Object.is(NaN,NaN)返回true</li>
+<li>无穷数：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1 &#x2F; 0; &#x2F;&#x2F; Infinity</span><br><span class="line">let b &#x3D; -1 &#x2F; 0; &#x2F;&#x2F; -Infinity</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>0值：0和-0</li>
+<li>加法和减法运算不会得到负零（negative zero）。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 0 &#x2F; -3; &#x2F;&#x2F; -0</span><br><span class="line">var b &#x3D; 0 * -3; &#x2F;&#x2F; -0</span><br><span class="line">0&#x3D;&#x3D;&#x3D;-0&#x2F;&#x2F;true</span><br><span class="line">Object.is(0,-0)&#x2F;&#x2F;false</span><br><span class="line">&#x2F;&#x2F;判断-0</span><br><span class="line">function isNegZero(n) &#123;</span><br><span class="line">    n &#x3D; Number( n );</span><br><span class="line">    return (n &#x3D;&#x3D;&#x3D; 0) &amp;&amp; (1 &#x2F; n &#x3D;&#x3D;&#x3D; -Infinity);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="值和引用"><a href="#值和引用" class="headerlink" title="值和引用"></a>值和引用</h4><ul>
+<li>JavaScript 中的引用和其他语言中的引用/ 指针不同，它们不能指向别的变量/ 引用，只能指向值。</li>
+<li>JavaScript引用指向的是值。如果一个值有10个引用，这些引用指向的都是同一个值，它们相互之间没有引/指向关系。</li>
+<li>简单值（即标量基本类型值，scalar primitive）总是通过<strong>值复制</strong>的方式来赋/传递，包括null、undefined、字符串、数字、布尔ES6中symbol。</li>
+<li>复合值（compound value）对象和函数，则总是通过<strong>引用复制</strong>的方式来赋/传递。</li>
+<li>我们无法自行决定使用值复制还是引用复制，一切由值的类型来决定。</li>
+</ul>
+<h3 id="原生函数"><a href="#原生函数" class="headerlink" title="原生函数"></a>原生函数</h3><h4 id="常用原生函数"><a href="#常用原生函数" class="headerlink" title="常用原生函数"></a>常用原生函数</h4><ul>
+<li>常用原生函数：String()，Number()，Boolean()，Array()，Object()，Function()，RegExp()，Date()，Error()，Symbol()</li>
+<li>原生函数可以当做构造函数使用，但是构造出来的是对象</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let s &#x3D; new String(&#39;123&#39;)</span><br><span class="line">&#x2F;&#x2F;，new String(&quot;123&quot;)创建的是字符&quot;123&quot;的封装对象，而非基本类型&quot;123&quot;</span><br><span class="line">console.log(typeof s)&#x2F;&#x2F;object</span><br><span class="line">s instanceof String; &#x2F;&#x2F; true</span><br><span class="line">Object.prototype.toString.call( s ); &#x2F;&#x2F; &quot;[object String]&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="内部属性-Class"><a href="#内部属性-Class" class="headerlink" title="内部属性[[Class]]"></a>内部属性[[Class]]</h4><ul>
+<li>所typeof返回值”object”的对象（如数组）都包含一个内部属[[Class]]（我们可以把它看作一个内部的分类，而非传统的面向对象意义上的类。</li>
+<li>Object.prototype.toString()来查看[[Class]]</li>
+<li>多数情况，对象的内[[Class]]属性和创建该对象的内建原生构造函数相对应。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call( [1,2,3] );&#x2F;&#x2F; &quot;[object Array]&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>虽Null()Undefined()这样的原生构造函数并不存在，但是内[[Class]]属性值仍然为”Null”和”Undefined”。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.prototype.toString.call( null );&#x2F;&#x2F; &quot;[object Null]&quot;</span><br><span class="line">Object.prototype.toString.call( undefined );&#x2F;&#x2F; &quot;[object Undefined]&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="封装对象"><a href="#封装对象" class="headerlink" title="封装对象"></a>封装对象</h4><ul>
+<li>一般情况不直接使用封装对象，让js引擎自己决定使用。</li>
+<li>使用封装对象注意</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; new Boolean(false)</span><br><span class="line">if(a)&#123;&#x2F;&#x2F;判断通过，因为a是对象，是真值（truthy）,不是false</span><br><span class="line">    console.log(123)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>自行封装基本类型，可以使用Object()（不带new关键字）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; &#39;aaa&#39;</span><br><span class="line">let b &#x3D; new String(a)</span><br><span class="line">let c &#x3D; Object(a)</span><br><span class="line">console.log(typeof a)&#x2F;&#x2F;string</span><br><span class="line">console.log(typeof b)&#x2F;&#x2F;object</span><br><span class="line">console.log(typeof c)&#x2F;&#x2F;object</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>拆封：得到封装对象基本类型值，可以使用valueOf()函数</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; new Boolean(false)</span><br><span class="line">console.log(a)&#x2F;&#x2F;Boolean &#123;false&#125;__proto__: Boolean[[PrimitiveValue]]: false</span><br><span class="line">console.log(a.valueOf())&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<h4 id="原生函数作为构造函数"><a href="#原生函数作为构造函数" class="headerlink" title="原生函数作为构造函数"></a>原生函数作为构造函数</h4><ul>
+<li>避免使用构造函数</li>
+<li>构造函数Array()，不要求带new关键字，会自己补上</li>
+<li>Array()只带一个<strong>数字参数</strong>时，作为预设长度</li>
+<li>ES5规范开始就允许在列表（数组值、属性列表等）末尾多加一个逗号，（在实际处理中会被忽略不计。</li>
+<li>永远不要创建使用空单元数组，会产生问题</li>
+<li>RegExp()有时还是很有用的，比如动态定义正则表达式时。</li>
+<li>Date()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(new Date()).getTime()</span><br><span class="line">+new Date()</span><br><span class="line">Date.now()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Symbol：使Symbol()原生构造函数来自定义符号</li>
+</ul>
+<h4 id="原生原型"><a href="#原生原型" class="headerlink" title="原生原型"></a>原生原型</h4><ul>
+<li>原生构造函数有自己的.prototype对象，这些对象包含对应子类的行为特征</li>
+<li>Function.prototype 是一个函数，RegExp.prototype 是一个正则表达式，而Array.prototype 是一个数组</li>
+<li>原型作为默认值</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function f(val) &#123;</span><br><span class="line">    val &#x3D; val || Array.prototype</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><h4 id="值类型转换"><a href="#值类型转换" class="headerlink" title="值类型转换"></a>值类型转换</h4><ul>
+<li>显式类型转换，隐式类型转换（强制类型转换）</li>
+<li>js中强制类型转换总是返回标量基本类型：字符串、数字、布尔值</li>
+<li>强制类型转换发生在动态语言的运行时</li>
+</ul>
+<h4 id="抽象值操作"><a href="#抽象值操作" class="headerlink" title="抽象值操作"></a>抽象值操作</h4><ul>
+<li>字符串、数字、布尔值之间类型转换的基本规则</li>
+</ul>
+<ol>
+<li>ToString</li>
+</ol>
+<ul>
+<li>负责处理非字符串到字符串的强制类型转换</li>
+<li>基本类型的规则：null-&gt;’null’,undefined-&gt;’undefined’,true-&gt;’true’,数字遵循通用规则</li>
+<li>对于普通对象：非自定义情况下，toString()（Object.prototype.toString()）返回内部属性[[Class]]，如果自定义了toString()方法，调用该方法使用其返回值。</li>
+<li>数组：数字默认toString()重新定义，用,连接单元字符。</li>
+<li>JSON字符串化：JSON.stringify()用到了toString()，不安全的JSON值（undefined,function.symbol,循环引用）不符合JSON解构标准，无法处理。</li>
+<li>如果对象中定义了toJSON()方法，会先调用该方法，然后将返回值序列化。</li>
+<li>JSON.stringify()，可以传递一个可选参数replacer，数组或者函数，用来指定哪些属性被处理。第三个参数space，用来指定缩进格式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    a: &#123;</span><br><span class="line">        b: 1</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let a &#x3D; JSON.stringify(obj,function (k,v) &#123;</span><br><span class="line">    return v</span><br><span class="line">&#125;)</span><br><span class="line">let b &#x3D; JSON.stringify(obj,[&#39;a&#39;,&#39;b&#39;])</span><br><span class="line">console.log(a)&#x2F;&#x2F;&#123;&quot;a&quot;:&#123;&quot;b&quot;:1&#125;&#125;</span><br><span class="line">console.log(b)&#x2F;&#x2F;&#123;&quot;a&quot;:&#123;&quot;b&quot;:1&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>ToNumber</li>
+</ol>
+<ul>
+<li>非数字值当做数字使用，比如数学运算时</li>
+<li>true-&gt;1,false-&gt;0,undefined-&gt;NaN,null-&gt;0</li>
+<li>处理字符串遵循数字常量规则，处理失败返回NaN，**’’-&gt;0**</li>
+<li>ToNumber对于0开头的16进制数按照十进制处理</li>
+<li>对象（包含数组）会先转换为相应的基本类型，如果是非数字的基本类型，再按照以上规则转换为数字</li>
+<li>为了将值转换为基本类型，抽象操作ToPromitive会先检查该值是否有valueOf()方法，如果有并且返回基本类型值，就使用该值进行强制类型转换，如果没有就使用toString()的返回值进行强制类型转换。</li>
+<li>如果valueOf()和toString()都不返回基本类型，会产生typeError错误</li>
+<li>使用Object.create(null)创建的对象[[Prototypr]]为null，没有valueOf(),toString()方法，因此无法进行强制类型转换。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Number(new Boolean(&#39;&#39;))&#x2F;&#x2F;0,valueOf()-&gt;false,false-&gt;0</span><br><span class="line">Number(new Array(&#39;22&#39;))&#x2F;&#x2F;22,toString()-&gt;&#39;22&#39;,&#39;22&#39;-&gt;22</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>ToBoolean</li>
+</ol>
+<ul>
+<li>虽然我们可以将1 强制类型转换为true，将0强制类型转换为false，反之亦然，但它们并不是一回事。</li>
+<li>js中的值分为两类</li>
+</ul>
+<p>(1)可以被强制类型转换为false的值<br>(2)其他（被强制类型转换为true的值）</p>
+<ul>
+<li>假值：**undefined,null,false,+0,-0,NaN,’’**，假值的布尔类型强制转换为false</li>
+<li>假值对象（并非封装了假值的对象，比如new Boolean(‘’)，而是js语法创建的外来值）：假值对象看起来和普通对象并无二致（都有属性，等等），但将它们强制类型转换为布尔值时结果为false。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;封装了假值的对象</span><br><span class="line">console.log(Boolean(false))&#x2F;&#x2F;false</span><br><span class="line">&#x2F;&#x2F;document.all假值对象</span><br><span class="line">console.log(Boolean(document.all))&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>真值：真值就是假值列表之外的值</li>
+</ul>
+<h3 id="显示强制类型转换"><a href="#显示强制类型转换" class="headerlink" title="显示强制类型转换"></a>显示强制类型转换</h3><h4 id="字符串和数字之间的显示转换"><a href="#字符串和数字之间的显示转换" class="headerlink" title="字符串和数字之间的显示转换"></a>字符串和数字之间的显示转换</h4><ul>
+<li>字符串和数字之间的转换通过String(),和Number()连个内建函数实现的</li>
+<li>String()遵循ToString规则，将值转换为字符串基本类型</li>
+<li>Number()遵循ToNumber规则，将至转换为数字基本类型</li>
+<li>a.toString(),+c转换</li>
+<li>日期显式转换为数字：+new Date(),(new Date()).getTime(),Date.now()</li>
+<li>~运算符（非运算符）：首先将值强制类型转换为32位数字，然后执行字位操作“非”（对每一个字位进行反转）。</li>
+</ul>
+<h4 id="显式解析数字字符串"><a href="#显式解析数字字符串" class="headerlink" title="显式解析数字字符串"></a>显式解析数字字符串</h4><ul>
+<li>解析和转换的差别：解析允许字符串中含有非数字字符，解析按从左到右的顺序，如果遇到非数字字符就停止。而转换不允许出现非数字字符，否则会失败并返回NaN。</li>
+<li>解析方法：parseInt(),parseFload()，针对字符串处理，注意传true等值会转换为字符串，第二个参数指定转换进制，默认为十进制</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;parseInt会转换为字符串处理</span><br><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    toString()&#123;</span><br><span class="line">        return &#39;1&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(parseInt(obj))</span><br></pre></td></tr></table></figure>
+
+<h4 id="显示转换为布尔值"><a href="#显示转换为布尔值" class="headerlink" title="显示转换为布尔值"></a>显示转换为布尔值</h4><ul>
+<li>Boolean()是显示的ToBoolean强制类型转换</li>
+<li>一元运算符!，显式地将值强制类型转换为布尔值</li>
+<li>因此最常用方法是!!</li>
+</ul>
+<h3 id="隐式强制类型转换"><a href="#隐式强制类型转换" class="headerlink" title="隐式强制类型转换"></a>隐式强制类型转换</h3><ul>
+<li>可以较少冗余，让代码更简洁</li>
+</ul>
+<h4 id="字符串与数字之间的隐式强制类型转换"><a href="#字符串与数字之间的隐式强制类型转换" class="headerlink" title="字符串与数字之间的隐式强制类型转换"></a>字符串与数字之间的隐式强制类型转换</h4><ul>
+<li>+操作：如果某个操作数是字符串或者能够通过<strong>以下步骤</strong>转换为字符串的话，+ 将进行拼接操作，如果其中一个操作数是对象（包括数组），则首先对其调用ToPrimitive 抽象操作，该抽象操作再调用[[DefaultValue]]，以数字作为上下文。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;数组valueOf()无法得到简单基本类型，因此调用toString()转换为字符串，然后拼接</span><br><span class="line">let a &#x3D; [1,2]</span><br><span class="line">let b &#x3D; [3,4]</span><br><span class="line">console.log(a+b)&#x2F;&#x2F;1,23,4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let obj &#x3D; &#123;</span><br><span class="line">    valueOf()&#123;</span><br><span class="line">        return 1</span><br><span class="line">    &#125;,</span><br><span class="line">    toString()&#123;</span><br><span class="line">        return &#39;2&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(obj+&#39;1&#39;)&#x2F;&#x2F;11,valueOf()返回基本类型1，然后1转换为字符串&#39;1&#39;拼接</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果+其中一个操作数是字符串（或者通过转换可以得到），则进行字符串拼接，否则进行数字加法。</li>
+<li>减法运算：a 和b 都需要被转换为数字</li>
+</ul>
+<h4 id="布尔值到数字的隐式强制类型转换"><a href="#布尔值到数字的隐式强制类型转换" class="headerlink" title="布尔值到数字的隐式强制类型转换"></a>布尔值到数字的隐式强制类型转换</h4><ul>
+<li>true-&gt;1,false-&gt;0</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(true+2)&#x2F;&#x2F;3</span><br></pre></td></tr></table></figure>
+
+<h4 id="隐式强制类型转换为布尔值"><a href="#隐式强制类型转换为布尔值" class="headerlink" title="隐式强制类型转换为布尔值"></a>隐式强制类型转换为布尔值</h4><ul>
+<li>发生布尔值隐式强制类型转换（非布尔值转换为布尔值）的情况：</li>
+</ul>
+<p>(1) if (..) 语句中的条件判断表达式。<br>(2) for ( .. ; .. ; .. ) 语句中的条件判断表达式（第二个）。<br>(3) while (..) 和do..while(..) 循环中的条件判断表达式。<br>(4) ? : 中的条件判断表达式。<br>(5) 逻辑运算符||（逻辑或）和&amp;&amp;（逻辑与）左边的操作数（作为条件判断表达式）。</p>
+<ul>
+<li>|| 与 &amp;&amp;：js中称为选择器运算符更合适（不像其他语言的逻辑运算符），因为他们在js中的返回值不是布尔值，它们的返回值是两个操作数中的一个。</li>
+<li>|| 和&amp;&amp; 首先会对第一个操作数（a和c）执行条件判断，如果其不是布尔值（如上例）就先进行ToBoolean 强制类型转换，然后再执行条件判断。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; 1</span><br><span class="line">let b &#x3D; a &amp;&amp; 0</span><br><span class="line">let c &#x3D; b || 1</span><br><span class="line">console.log(b)&#x2F;&#x2F;0</span><br><span class="line">console.log(c)&#x2F;&#x2F;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a &#x3D; 42;</span><br><span class="line">var b &#x3D; null;</span><br><span class="line">var c &#x3D; &quot;foo&quot;;</span><br><span class="line">if (a &amp;&amp; (b || c)) &#123;</span><br><span class="line">    console.log( &quot;yep&quot; );</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;这里a &amp;&amp; (b || c) 的结果实际上是&quot;foo&quot;而非true，然后再由if将foo强制类型转换为布尔值，所以最后结果为true。</span><br></pre></td></tr></table></figure>
+
+<h4 id="符号（symbol）的强制类型转换"><a href="#符号（symbol）的强制类型转换" class="headerlink" title="符号（symbol）的强制类型转换"></a>符号（symbol）的强制类型转换</h4><ul>
+<li>ES6 允许从符号到字符串的显式强制类型转换，然而隐式强制类型转换会产生错误。</li>
+<li>符号不能够被强制类型转换为数字（显式和隐式都会产生错误），但可以被强制类型转换为布尔值（显式和隐式结果都是true）。</li>
+</ul>
+<h3 id="宽松相等和严格相等"><a href="#宽松相等和严格相等" class="headerlink" title="宽松相等和严格相等"></a>宽松相等和严格相等</h3><ul>
+<li>对于两者差别的正确的解释是：“**== 允许在相等比较中进行强制类型转换，而=== 不允许。**”</li>
+</ul>
+<h4 id="抽象相等"><a href="#抽象相等" class="headerlink" title="抽象相等"></a>抽象相等</h4><ul>
+<li>定义==运算符的行为</li>
+<li>特殊情况：NaN与NaN不相等，+0与-0相等</li>
+</ul>
+<ol>
+<li>字符串和数字之间的比较</li>
+</ol>
+<ul>
+<li>规则</li>
+</ul>
+<p>(1) 如果Type(x) 是数字，Type(y) 是字符串，则返回x == ToNumber(y) 的结果。<br>(2) 如果Type(x) 是字符串，Type(y) 是数字，则返回ToNumber(x) == y 的结果。</p>
+<ol start="2">
+<li>其他类型和布尔类型之间的比较</li>
+</ol>
+<ul>
+<li>规则</li>
+</ul>
+<p>(1) 如果Type(x) 是布尔类型，则返回ToNumber(x) == y 的结果；<br>(2) 如果Type(y) 是布尔类型，则返回x == ToNumber(y) 的结果。</p>
+<ul>
+<li>真值假值与==没有关系</li>
+<li>if判断中无论什么情况下都不要使用== true 和== false</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#39;42&#39; &#x3D;&#x3D; true&#x2F;&#x2F;false</span><br><span class="line">&#x2F;&#x2F;true转换为数字1，与&#39;42&#39;比较，注意这里不涉及真值假值概念</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>null和undefined之间的比较</li>
+</ol>
+<ul>
+<li>规则</li>
+</ul>
+<p>(1) 如果x 为null，y 为undefined，则结果为true。<br>(2) 如果x 为undefined，y 为null，则结果为true。</p>
+<ol start="4">
+<li>对象和非对象之间的相等比较</li>
+</ol>
+<ul>
+<li>规则</li>
+</ul>
+<p>(1) 如果Type(x) 是字符串或数字，Type(y) 是对象，则返回x == ToPrimitive(y) 的结果；<br>(2) 如果Type(x) 是对象，Type(y) 是字符串或数字，则返回ToPromitive(x) == y 的结果。</p>
+<ol start="5">
+<li>少见情况</li>
+</ol>
+<ul>
+<li>返回其他数字，更改了valueOf()方法</li>
+<li>假值的相等比较</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#39;0&#39; &#x3D;&#x3D; false&#x2F;&#x2F;true，false先转换为数字0</span><br><span class="line">false &#x3D;&#x3D; 0&#x2F;&#x2F;true</span><br><span class="line">false &#x3D;&#x3D; &#39;&#39;&#x2F;&#x2F;true，false-&gt;0，&#39;&#39;-&gt;0，再比较</span><br><span class="line">false &#x3D;&#x3D; []&#x2F;&#x2F;true</span><br><span class="line">&#39;&#39; &#x3D;&#x3D; 0&#x2F;&#x2F;true</span><br><span class="line">&#39;&#39; &#x3D;&#x3D; []&#x2F;&#x2F;true</span><br><span class="line">0 &#x3D;&#x3D; []&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>[] == ![]//true，![]-&gt;false</li>
+<li>‘’ == [null]//true，[null].toString()-&gt;’’</li>
+<li>0 == ‘\n’//true，””、”\n”（或者” “ 等其他空格组合）等空字符串被ToNumber 强制类型转换<br>为0</li>
+<li>完整性检查：如果两边的值中有true 或者false，千万不要使用==。如果两边的值中有[]、”” 或者0，尽量不要使用==。</li>
+</ul>
+<ol start="6">
+<li>两个对象比较</li>
+</ol>
+<ul>
+<li>两个对象指向同一个值时即视为相等，不发生强制类型转换。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; &#123;&#125;</span><br><span class="line">let b &#x3D; &#123;&#125;</span><br><span class="line">let c &#x3D; a</span><br><span class="line">console.log(a &#x3D;&#x3D; b)&#x2F;&#x2F;false</span><br><span class="line">console.log(a &#x3D;&#x3D; c)&#x2F;&#x2F;true，指向同一个值</span><br></pre></td></tr></table></figure>
+
+<h3 id="抽象关系比较-gt-lt"><a href="#抽象关系比较-gt-lt" class="headerlink" title="抽象关系比较&gt;&lt;"></a>抽象关系比较&gt;&lt;</h3><h4 id="比较双方都是字符串"><a href="#比较双方都是字符串" class="headerlink" title="比较双方都是字符串"></a>比较双方都是字符串</h4><ul>
+<li>按照字母顺序比较</li>
+</ul>
+<h4 id="其他情况"><a href="#其他情况" class="headerlink" title="其他情况"></a>其他情况</h4><ul>
+<li>比较双方首先调用ToPrimitive，<strong>如果结果出现非字符串</strong>，就根据ToNumber规则将双方强制类型转换为数字来进行比较。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">true &gt; 0&#x2F;&#x2F;true，true-&gt;1比较</span><br></pre></td></tr></table></figure>
+
+<h4 id="lt-与-gt"><a href="#lt-与-gt" class="headerlink" title="&lt;= 与&gt;="></a>&lt;= 与&gt;=</h4><ul>
+<li>根据规范a &lt;= b 被处理为b &lt; a，然后将结果反转。因为b &lt; a 的结果是false，所以a &lt;= b 的结果是true</li>
+<li>实际上JavaScript 中&lt;= 是“不大于”的意思（即!(a &gt; b)，处理为!(b &lt; a)）。同理a &gt;= b 处理为b &lt;= a。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let a &#x3D; &#123;&#125;</span><br><span class="line">let b &#x3D; &#123;&#125;</span><br><span class="line">console.log(a &#x3D;&#x3D; b)&#x2F;&#x2F;false，两个对象不指向同一个值，不相等</span><br><span class="line">console.log(a &lt; b)&#x2F;&#x2F;false</span><br><span class="line">console.log(a &gt; b)&#x2F;&#x2F;false</span><br><span class="line">console.log(a &lt;&#x3D; b)&#x2F;&#x2F;true</span><br><span class="line">console.log(a &gt;&#x3D; b)&#x2F;&#x2F;true</span><br></pre></td></tr></table></figure>
+
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

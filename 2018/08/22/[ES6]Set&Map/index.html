@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;ES6&gt;Set&amp;Map | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  ES6,js
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2018-08-21T16:00:00.000Z">
+                    2018-08-22
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%B1%9E%E6%80%A7%E7%9A%84%E9%99%90%E5%88%B6"><span class="toc-text">对象属性的限制</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Set%E9%9B%86%E5%90%88"><span class="toc-text">Set集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set%E7%9A%84forEach%E6%96%B9%E6%B3%95"><span class="toc-text">set的forEach方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Weak-Set"><span class="toc-text">Weak Set</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Map%E9%9B%86%E5%90%88"><span class="toc-text">Map集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Map%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-text">Map的初始化方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Map%E9%9B%86%E5%90%88%E7%9A%84forEach"><span class="toc-text">Map集合的forEach</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Weak-Map"><span class="toc-text">Weak Map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%81%E6%9C%89%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE"><span class="toc-text">私有对象数据</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;ES6&gt;Set&amp;Map</h1>
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>如果开发者想使用非数值型索引，就会使用数组对象创建数据结构，这是Set&amp;Map早期实现</li>
+</ul>
+<h4 id="对象属性的限制"><a href="#对象属性的限制" class="headerlink" title="对象属性的限制"></a>对象属性的限制</h4><ol>
+<li>map[5]与map[‘5’]是同一个</li>
+<li>let k1 = {},k2 = {};map[k1]与map[k2]是同一个，因为对象会被转换为默认的字符换表达式</li>
+<li>map[‘count’] = 1,检查map.count是否存在很困难</li>
+<li>in运算符会检索对象原型，只有当原型为null时这个方法才比较稳妥</li>
+</ol>
+<h3 id="Set集合"><a href="#Set集合" class="headerlink" title="Set集合"></a>Set集合</h3><ol>
+<li>不会对所存储的值进行强制的类型转换，数字5和字符串’5’可作为两个元素存在（内部使用Object.is()检测），但是-0和+0被认为相等</li>
+<li>如果多次调用add()传入相同的参数，后续的调用会被忽略</li>
+<li>通过has()方法检测是否含有某个值</li>
+<li>使用delete()移除元素</li>
+<li>使用clear()清空Set集合</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let set &#x3D; new Set([1,1,1,2,2,3])&#x2F;&#x2F;使用含重复元素的数组初始化Set集合</span><br><span class="line">console.log(set.size)&#x2F;&#x2F;3</span><br><span class="line">set.add(5)</span><br><span class="line">set.add(&#39;5&#39;)</span><br><span class="line">set.add(5)&#x2F;&#x2F;被忽略</span><br><span class="line">console.log(set.has(5))&#x2F;&#x2F;true</span><br><span class="line">console.log(set.has(6))&#x2F;&#x2F;false</span><br><span class="line"></span><br><span class="line">set.delete(5)</span><br><span class="line">console.log(set.has(5))&#x2F;&#x2F;false</span><br><span class="line">set.clear()</span><br><span class="line">console.log(set.size)&#x2F;&#x2F;0</span><br></pre></td></tr></table></figure>
+
+<h4 id="set的forEach方法"><a href="#set的forEach方法" class="headerlink" title="set的forEach方法"></a>set的forEach方法</h4><ul>
+<li>set的forEach方法（回调参数：1、下一次索引位置，2、与第一次相同的值（为了和数组forEach参数统一），3、Set集合本身）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let set2 &#x3D; new Set([1,2,3])</span><br><span class="line">set2.forEach(function (val,k,set) &#123;</span><br><span class="line">    console.log(val)</span><br><span class="line">    console.log(k)</span><br><span class="line">    console.log(set&#x3D;&#x3D;&#x3D;set2)&#x2F;&#x2F;true</span><br><span class="line">&#125;,this)&#x2F;&#x2F;如果不是箭头函数，可以从这里传入this</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>不能通过访问数组元素那样直接通过索引访问Set集合元素，需要转换成数组</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let set3 &#x3D; new Set([1,1,1,2,2,3,3])</span><br><span class="line">let arr &#x3D; [...set]&#x2F;&#x2F;复制数组并且创建一个无重复元素的新数组</span><br></pre></td></tr></table></figure>
+
+<h4 id="Weak-Set"><a href="#Weak-Set" class="headerlink" title="Weak Set"></a>Weak Set</h4><ul>
+<li>只存储对象的弱引用，并且不可以存储原始值，如果集合中弱引用是对象的唯一引用，则回收释放相应内存</li>
+<li>两种Set的主要区别：</li>
+<li>1、WeakSet实例中，如果传入非对象参数会报错</li>
+<li>2、WeakSet对象不可迭代，不能用for-of循环</li>
+<li>3、WeakSet不暴露任何迭代器（keys()\values()）不能通过程序检测其中内容</li>
+<li>4、WeakSet不支持forEach方法</li>
+<li>5、WeakSize不支持size属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let wset4 &#x3D; new WeakSet()</span><br><span class="line">let k &#x3D; &#123;&#125;</span><br><span class="line">wset4.add(k)</span><br><span class="line">console.log(wset4.has(k))&#x2F;&#x2F;true</span><br><span class="line">wset4.delete(k)</span><br><span class="line">console.log(wset4.has(k))&#x2F;&#x2F;false</span><br></pre></td></tr></table></figure>
+
+<h3 id="Map集合"><a href="#Map集合" class="headerlink" title="Map集合"></a>Map集合</h3><ul>
+<li>Map类型是一种存储许多键值对的有序列表</li>
+<li>其中键名和对应的值支持所有类型，键名的等价性判断是通过Object.is()判断的</li>
+<li>添加set(),获取get()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">let map &#x3D; new Map()</span><br><span class="line">map.set(&#39;aaa&#39;,&#39;123&#39;)</span><br><span class="line">console.log(map.get(&#39;aaa&#39;))&#x2F;&#x2F;123</span><br><span class="line">console.log(map.get(111))&#x2F;&#x2F;undefined（不存在）</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;map总可以使用对象作为键名,对象键名不会强制转换为其他类型，所以这两个键名独立存在</span><br><span class="line">let key1 &#x3D; &#123;&#125;,key2 &#x3D; &#123;&#125;</span><br><span class="line">map.set(key1,5)</span><br><span class="line">map.set(key2,6)</span><br><span class="line">console.log(map.get(key1))&#x2F;&#x2F;5</span><br><span class="line">console.log(map.get(key2))&#x2F;&#x2F;6</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>has()判断键名是否存在</li>
+<li>delete()删除</li>
+<li>clear()清空</li>
+<li>Map集合中的size属性和Set中的类似，为集合中键值对的数量</li>
+</ul>
+<h4 id="Map的初始化方法"><a href="#Map的初始化方法" class="headerlink" title="Map的初始化方法"></a>Map的初始化方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let map1 &#x3D; new Map([[&#39;name&#39;,1],[&#39;age&#39;,2]])</span><br><span class="line">console.log(map1.has(&#39;name&#39;))</span><br></pre></td></tr></table></figure>
+
+<h4 id="Map集合的forEach"><a href="#Map集合的forEach" class="headerlink" title="Map集合的forEach"></a>Map集合的forEach</h4><ul>
+<li>Map集合的forEach方法，三个参数，1、下一次索引位置2、值对应的键名3、Map集合本身 (可以指定forEach的第二个参数作为回调的this)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">map1.forEach((value,key,ownerMap)&#x3D;&gt;&#123;</span><br><span class="line">    console.log(value)</span><br><span class="line">    console.log(key)</span><br><span class="line">    console.log(ownerMap &#x3D;&#x3D;&#x3D; map1)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Weak-Map"><a href="#Weak-Map" class="headerlink" title="Weak Map"></a>Weak Map</h4><ul>
+<li>最大用途是保存Web页面中的DOM元素</li>
+<li>ES6中Weak Map是一种存储许多键值对的无序列表，列表的键名必须是非null类型的对象</li>
+<li>has()\delete()</li>
+<li>不支持键名枚举、不支持clear()方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let wmap &#x3D; new WeakMap()</span><br><span class="line"></span><br><span class="line">let element &#x3D; document.getElementById(&#39;aaa&#39;)</span><br><span class="line">wmap.set(element,&#39;123&#39;)&#x2F;&#x2F;element不能为null</span><br><span class="line">console.log(wmap.get(element))</span><br></pre></td></tr></table></figure>
+
+<h4 id="私有对象数据"><a href="#私有对象数据" class="headerlink" title="私有对象数据"></a>私有对象数据</h4><ul>
+<li>尽管Weak Map大多被用来存储DOM元素，但也有其他用处,ES5一般使用_C下划线属性作为私有属性，但是没有任何标准规定如何使用，也会被更改</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;ES5处理私有变量,缺点无法获知对象何时被摧毁，obj中的数据永远不会消失</span><br><span class="line">var Person &#x3D; (function () &#123;</span><br><span class="line">    var obj &#x3D; &#123;&#125;</span><br><span class="line">    var idNum &#x3D; 0</span><br><span class="line">    function Person(name) &#123;</span><br><span class="line">        Object.defineProperty(this,&#39;_id&#39;,&#123;value: idNum++&#125;)</span><br><span class="line">        obj[this._id] &#x3D; &#123;</span><br><span class="line">            name: name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    Person.prototype.getName &#x3D; function () &#123;</span><br><span class="line">        return obj[this._id].name</span><br><span class="line">    &#125;</span><br><span class="line">    return Person</span><br><span class="line">&#125;)()</span><br><span class="line">console.log(new Person(111).getName())</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;使用WeakMap解决此问题,只要对象被摧毁，相关信息也会摧毁</span><br><span class="line">let WPerson &#x3D; (function () &#123;</span><br><span class="line">    let wmap &#x3D; new WeakMap()</span><br><span class="line">    function Person(name) &#123;</span><br><span class="line">        wmap.set(this,&#123;name: name&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    Person.prototype.getName &#x3D; function () &#123;</span><br><span class="line">        return wmap.get(this).name</span><br><span class="line">    &#125;</span><br><span class="line">    return Person</span><br><span class="line">&#125;)()</span><br><span class="line">console.log(new WPerson(222).getName())</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果只使用对象作为键名，那么WeakMap是最好的选择，可以有效避免内存泄漏问题</li>
+</ul>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

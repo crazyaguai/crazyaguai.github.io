@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        &lt;react&gt;react相关知识 | 杨晓川的博客
+    </title>
+    <meta name="description" content="">
+    
+    <meta name="keywords" content="
+  js,react
+  ">
+    
+    <meta name="author" content="杨晓川">
+
+    <meta http-equiv="Cache-Control" content="no-transform"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--<link rel="icon" type="image/x-icon" href="">-->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'XXX', 'auto');
+  ga('send', 'pageview');
+</script>
+
+-->
+    <!--
+-->
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+    <div class="navbar">
+        <div class="container clearfix">
+            <!--<a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>-->
+            <a href="/" class="navbar-logo">
+                <img class="git-icon" src="/images/git_icon.jpg" alt="">
+            </a>
+
+            <div class="navbar-search float-left">
+                <div class="navbar-search-form">
+                    <input class="search-input" type="text" placeholder="输入标题关键字搜索文章">
+                    <div class="search-list-con">
+                        
+                            <a class="search-list-item" href="/2020/06/11/[工程化]docker常用命令/">&lt;工程化&gt;docker常用命令</a>
+                        
+                            <a class="search-list-item" href="/2020/09/10/[工程化]代码检查/">&lt;工程化&gt;代码检查</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]Set&amp;Map/">&lt;ES6&gt;Set&amp;Map</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[ES6]Symbol/">&lt;ES6&gt;Symbol</a>
+                        
+                            <a class="search-list-item" href="/2018/12/10/[ES6]async-await/">&lt;ES6&gt;async-await</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]class/">&lt;ES6&gt;class</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]promise/">&lt;ES6&gt;promise</a>
+                        
+                            <a class="search-list-item" href="/2019/02/15/[ES6]代理-Proxy-与反射-Reflection/">&lt;ES6&gt;代理-Proxy-与反射-Reflection</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]函数/">&lt;ES6&gt;函数</a>
+                        
+                            <a class="search-list-item" href="/2018/08/21/[ES6]扩展对象属性/">&lt;ES6&gt;扩展对象属性</a>
+                        
+                            <a class="search-list-item" href="/2018/11/10/[ES6]改进数组功能/">&lt;ES6&gt;改进数组功能</a>
+                        
+                            <a class="search-list-item" href="/2017/08/17/[ES6]解构/">&lt;ES6&gt;解构</a>
+                        
+                            <a class="search-list-item" href="/2019/02/11/[ES6]模块化/">&lt;ES6&gt;模块化</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]flexible布局&amp;1px解决方案/">&lt;css&gt;flexible布局&amp;1px解决方案</a>
+                        
+                            <a class="search-list-item" href="/2018/08/22/[ES6]迭代器iterator&amp;生成器generator/">&lt;ES6&gt;迭代器iterator&amp;生成器generator</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[css]postcss相关配置/">&lt;css&gt;postcss相关配置</a>
+                        
+                            <a class="search-list-item" href="/2018/10/02/[css]translateY-实现列表hover的box-shadow动画/">&lt;css&gt;translateY-实现列表hover的box-shadow动画</a>
+                        
+                            <a class="search-list-item" href="/2019/02/16/[css]动画相关概念/">&lt;css&gt;动画相关概念</a>
+                        
+                            <a class="search-list-item" href="/2019/04/20/[css]选择器/">&lt;css&gt;选择器</a>
+                        
+                            <a class="search-list-item" href="/2018/08/20/[hexo]创建Hexo-github博客流程/">&lt;hexo&gt;创建Hexo-github博客流程</a>
+                        
+                            <a class="search-list-item" href="/2019/01/20/[css]视口概念/">&lt;css&gt;视口概念</a>
+                        
+                            <a class="search-list-item" href="/2018/11/14/[js]babel生态/">&lt;js&gt;babel生态</a>
+                        
+                            <a class="search-list-item" href="/2018/10/20/[js]eventLoop/">&lt;js&gt;eventLoop</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]decimal处理数字问题/">&lt;js&gt;decimal处理数字问题</a>
+                        
+                            <a class="search-list-item" href="/2019/01/31/[js]file相关/">&lt;js&gt;file相关</a>
+                        
+                            <a class="search-list-item" href="/2021/01/11/[js]new、call、apply、bind实现/">&lt;js&gt;new、call、apply、bind实现</a>
+                        
+                            <a class="search-list-item" href="/2019/04/18/[js]requestAnimationFrame平滑生成大量div方法/">&lt;js&gt;requestAnimationFrame平滑生成大量div方法</a>
+                        
+                            <a class="search-list-item" href="/2019/04/17/[js]scroll相关/">&lt;js&gt;scroll相关</a>
+                        
+                            <a class="search-list-item" href="/2019/04/15/[js]一些前端dom取值/">&lt;js&gt;一些前端dom取值</a>
+                        
+                            <a class="search-list-item" href="/2018/11/27/[js]你不知道的js笔记/">&lt;js&gt;你不知道的js笔记</a>
+                        
+                            <a class="search-list-item" href="/2019/10/20/[js]数组/">&lt;js&gt;数组</a>
+                        
+                            <a class="search-list-item" href="/2021/03/03/[js]数据类型/">&lt;js&gt;数据类型</a>
+                        
+                            <a class="search-list-item" href="/2019/03/20/[js]正则表达式/">&lt;js&gt;正则表达式</a>
+                        
+                            <a class="search-list-item" href="/2019/01/06/[js]深浅拷贝/">&lt;js&gt;浅拷贝</a>
+                        
+                            <a class="search-list-item" href="/2029/03/03/[js]继承/">&lt;js&gt;继承</a>
+                        
+                            <a class="search-list-item" href="/2020/09/11/[node]pm2使用/">&lt;node&gt;pm2使用</a>
+                        
+                            <a class="search-list-item" href="/2018/11/15/[js]节流与防抖/">&lt;js&gt;节流与防抖</a>
+                        
+                            <a class="search-list-item" href="/2020/08/24/[linux]基础操作/">&lt;linux&gt;基础操作</a>
+                        
+                            <a class="search-list-item" href="/2021/02/20/[node]nodejs使用/">&lt;node&gt;nodejs使用</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]react-router实现原理/">&lt;react&gt;react-router实现原理</a>
+                        
+                            <a class="search-list-item" href="/2020/09/12/[react]react相关知识/">&lt;react&gt;react相关知识</a>
+                        
+                            <a class="search-list-item" href="/2019/01/15/[webpack]CommonsChunkPlugin与optimization-splitChunks/">&lt;webpack&gt;CommonsChunkPlugin与optimization-splitChunks</a>
+                        
+                            <a class="search-list-item" href="/2020/06/11/[react]redux实现原理/">&lt;react&gt;redux实现原理</a>
+                        
+                            <a class="search-list-item" href="/2019/03/27/[react]学习笔记/">&lt;react&gt;学习笔记</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]打包文件相关/">&lt;webpack&gt;打包文件相关</a>
+                        
+                            <a class="search-list-item" href="/2018/12/21/[webpack]搭建环境以及相关优化/">&lt;webpack&gt;搭建环境以及相关优化</a>
+                        
+                            <a class="search-list-item" href="/2018/12/19/[webpack]简介以及相关概念/">&lt;webpack&gt;简介以及相关概念</a>
+                        
+                            <a class="search-list-item" href="/2018/09/26/[webpack]配置全局常量/">&lt;webpack&gt;配置全局常量</a>
+                        
+                            <a class="search-list-item" href="/2019/02/13/[前端]性能优化/">&lt;前端&gt;性能优化</a>
+                        
+                            <a class="search-list-item" href="/2020/10/06/[工程化]git-使用/">&lt;工程化&gt;git-使用</a>
+                        
+                            <a class="search-list-item" href="/2020/12/22/[工程化]npm使用/">&lt;工程化&gt;npm使用</a>
+                        
+                            <a class="search-list-item" href="/2020/07/20/[工程化]yarn使用/">&lt;工程化&gt;yarn使用</a>
+                        
+                            <a class="search-list-item" href="/2020/01/20/[浏览器]js执行机制/">&lt;浏览器&gt;js执行机制</a>
+                        
+                            <a class="search-list-item" href="/2020/01/30/[浏览器]url输入执行过程/">&lt;浏览器&gt;url输入执行过程</a>
+                        
+                            <a class="search-list-item" href="/2020/02/22/[浏览器]v8工作原理/">&lt;浏览器&gt;v8工作原理</a>
+                        
+                            <a class="search-list-item" href="/2018/09/06/[浏览器]浏览器缓存/">&lt;浏览器&gt;浏览器缓存</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[算法]一些排序算法/">&lt;算法&gt;一些排序算法</a>
+                        
+                            <a class="search-list-item" href="/2019/03/03/[js]类型/">&lt;js&gt;类型</a>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <ul class="navbar-nav float-left">
+                <li><a href="/">Overview</a></li>
+                
+                <li><a href="/">Posts</a></li>
+                
+                
+                <li><a href="/">Categories</a></li>
+                
+                
+                <li><a href="/">Tags</a></li>
+                
+                
+            </ul>
+
+            <!--<ul class="navbar-nav user-nav float-right desktop-only">-->
+                <!--<li class="user-nav-notification">-->
+                    <!--<a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>-->
+                <!--</li>-->
+                <!--<li>-->
+                    <!--<a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>-->
+                <!--</li>-->
+                <!--<li class="user-nav-logo">-->
+                    <!--<a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        </div>
+    </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+    <div class="container header-site-detail">
+        <ul class="header-toolbar">
+            <li class="clearfix">
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-file-text"></i> Posts </a>
+                <a href="/"
+                   class="header-toolbar-right"> 58 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-tags"></i> Tags </a>
+                <a href="/"
+                   class="header-toolbar-right"> 41 </a>
+            </li>
+            <li>
+                <a href="/" class="header-toolbar-left"><i
+                            class="fa fa-folder-open"></i> Categories </a>
+                <a href="/"
+                   class="header-toolbar-right"> 24 </a>
+            </li>
+        </ul>
+        <h2 class="header-title">
+            <i class="fa fa-book text-muted"></i>
+            <a href="/">杨晓川的博客</a>
+            
+            
+        </h2>
+    </div>
+
+    <!--<div class="container">-->
+        <!--<div class="header-tab-wrapper clearfix">-->
+            <!--<span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>-->
+            <!--<span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>-->
+            <!--<span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>-->
+            <!--<span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>-->
+            <!--<span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>-->
+        <!--</div>-->
+    <!--</div>-->
+</header>
+
+
+<div class="post-container container">
+    <h3>
+        <i class="fa fa-user-o"></i>
+        杨晓川
+
+        <span class="post-date float-right">
+            <i class="fa fa-pencil-square-o"></i>
+                <time class="time" datetime="2020-09-11T16:00:00.000Z">
+                    2020-09-12
+                </time>
+        </span>
+    </h3>
+    <!--目录-->
+    
+<div class="toc-container">
+    <div id="toc" class="toc-article">
+        <span class="toc-title">目录</span>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E5%86%85%E5%AE%B9"><span class="toc-text">主要内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">react是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8jsx"><span class="toc-text">react为什么使用jsx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">类组件生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#react15%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">react15生命周期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#react16%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-text">react16生命周期</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BB%84%E4%BB%B6%E4%B8%8E%E7%B1%BB%E7%BB%84%E4%BB%B6%E5%8C%BA%E5%88%AB"><span class="toc-text">函数式组件与类组件区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react%E7%BB%84%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="toc-text">react组件设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#setState%E6%98%AF%E5%90%8C%E6%AD%A5%E8%BF%98%E6%98%AF%E5%BC%82%E6%AD%A5"><span class="toc-text">setState是同步还是异步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text">react组件间通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E6%A1%86%E6%9E%B6"><span class="toc-text">react状态管理框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vitural-Dom-%E5%8E%9F%E7%90%86"><span class="toc-text">Vitural Dom 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-diff%E7%AE%97%E6%B3%95"><span class="toc-text">react diff算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B"><span class="toc-text">react 渲染流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E6%B8%B2%E6%9F%93%E5%BC%82%E5%B8%B8"><span class="toc-text">react 渲染异常</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">react 性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E6%B8%B2%E6%9F%93"><span class="toc-text">避免重复渲染</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D%E6%B8%B2%E6%9F%93%E5%88%86%E6%9E%90"><span class="toc-text">重复渲染分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8D%87-react-%E4%BB%A3%E7%A0%81%E5%8F%AF%E7%BB%B4%E6%8A%A4%E6%80%A7"><span class="toc-text">提升 react 代码可维护性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-hooks-%E9%99%90%E5%88%B6"><span class="toc-text">react hooks 限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useEffect-%E4%B8%8E-useLayoutEffect"><span class="toc-text">useEffect 与 useLayoutEffect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-hooks%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">react hooks设计模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-router%E5%8E%9F%E7%90%86"><span class="toc-text">react router原理</span></a>
+    </div>
+</div>
+
+
+    <article class="post-content">
+        <h1>&lt;react&gt;react相关知识</h1>
+        <h4 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h4><ul>
+<li>组件基础、状态管理、渲染流程、性能优化、Hooks、react生态</li>
+</ul>
+<h3 id="react是什么"><a href="#react是什么" class="headerlink" title="react是什么"></a>react是什么</h3><ul>
+<li>概念、用途、思路、优缺点</li>
+</ul>
+<ol>
+<li>react是网页UI框架，是组件化框架</li>
+<li>通过组件化方式解决视图层开发的问题，提升开发效率</li>
+<li>设计思路：声明式、组件化、通用性<br>声明式：使用jsx描述虚拟dom，更加直观<br>组件化：使用函数组件或者类组件，使试图模块可以复用<br>通用性：虚拟dom使react适用范围宾大，web、native都可以进行开发</li>
+<li>缺点：react只是视图层框架、没有提工完整的工程化开发方案，需要借助社区方案，在技术选型和学习上有一定成本</li>
+</ol>
+<h3 id="react为什么使用jsx"><a href="#react为什么使用jsx" class="headerlink" title="react为什么使用jsx"></a>react为什么使用jsx</h3><ul>
+<li>jsx介绍、核心概念、对比方案</li>
+</ul>
+<ol>
+<li>jsx是javascript的扩展语法，语法类似xml，react团队不想引入js外的开发体系，希望通过合理的关注点分离保持组件开发的纯粹性。</li>
+<li>jsx用于声明react元素，在构建时，会被babel编译为React.createElement，jsx更像是React.createElement的语法糖</li>
+<li>对比模板：模板会引入模板语法、模板指令等概念，增加学习成本<br>对比模板字符串：模板字符串结构会多次内嵌，结构复杂，优化困难<br> 对比json：代码提示困难</li>
+</ol>
+<h3 id="类组件生命周期"><a href="#类组件生命周期" class="headerlink" title="类组件生命周期"></a>类组件生命周期</h3><h4 id="react15生命周期"><a href="#react15生命周期" class="headerlink" title="react15生命周期"></a>react15生命周期</h4><ul>
+<li>挂载阶段</li>
+</ul>
+<p>constructor -&gt; componentWillMount -&gt; render -&gt; componentDidMount</p>
+<ul>
+<li>更新阶段</li>
+</ul>
+<p>只修改state：shouldComponentUpdate -&gt; componentWillUpdate -&gt; render -&gt; componentDidUpdate<br>修改props内容：componentWillReceiveProps -&gt; shouldComponentUpdate -&gt; componentWillUpdate -&gt; render -&gt; componentDidUpdate</p>
+<ul>
+<li>卸载阶段</li>
+</ul>
+<p>componentWillUnmount</p>
+<h4 id="react16生命周期"><a href="#react16生命周期" class="headerlink" title="react16生命周期"></a>react16生命周期</h4><ul>
+<li>挂载阶段</li>
+</ul>
+<p>getDerivedStateFromProps -&gt; render -&gt; componentDidMount</p>
+<ul>
+<li>更新阶段</li>
+</ul>
+<p>getDerivedStateFromProps -&gt; shouldComponentUpdate -&gt; render -&gt; getSnapshotBeforeUpdate -&gt; componentDidUpdate</p>
+<ul>
+<li>卸载阶段</li>
+</ul>
+<p>componentWillUnmount</p>
+<h3 id="函数式组件与类组件区别"><a href="#函数式组件与类组件区别" class="headerlink" title="函数式组件与类组件区别"></a>函数式组件与类组件区别</h3><ul>
+<li>共同点、不同点</li>
+</ul>
+<ol>
+<li>函数式组件与类组件最终呈现效果一致</li>
+<li>两者设计模式不同，类组件是面向对象编程，主打继承、生命周期概念。函数式组件是函数式编程，主打immutable、无副作用、引用透明等特点</li>
+<li>由于推出Hooks，函数式组件可以替代类组件</li>
+<li>性能优化方面，类组件使用shouldComponentUpdate阻断渲染提升性能，函数式组件依靠React.memo缓存渲染结果提升性能</li>
+<li>类组件容易上手，函数式组件Hooks思想不容易理解，但函数组件是社区主推方案</li>
+<li>类组件在未来时间切片与并发模式中，由于生命周期复杂性，不容易优化，函数组件轻量简单，且在 Hooks 的基础上提供了比原先更细粒度的逻辑组织与复用，更能适应 React 的未来发展</li>
+</ol>
+<h3 id="react组件设计"><a href="#react组件设计" class="headerlink" title="react组件设计"></a>react组件设计</h3><ul>
+<li>展示组件：专注展示组件本身特性</li>
+</ul>
+<ol>
+<li>代理组件，封装常用属性，减少重复代码，例如：封装antd按钮组件</li>
+<li>样式组件，封装常用样式</li>
+<li>布局组件</li>
+</ol>
+<ul>
+<li>灵巧组件，专注组合组件</li>
+</ul>
+<ol>
+<li>容器组件，例如：ListWrap接受list数据，展示ListItem元素</li>
+<li>高阶组件，抽取公共逻辑，链式调用，渲染劫持</li>
+</ol>
+<ul>
+<li>高阶组件存在的问题以及处理方法</li>
+</ul>
+<ol>
+<li>丢失静态函数：通过 hoist-non-react-statics 来处理</li>
+<li>refs属性不能穿透：使用 React.forwardRef 处理</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抽取公共逻辑</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isLogin</span>(<span class="params">WrappedComponent</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> isLogin = <span class="literal">true</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">props</span>)=&gt;</span>(</span><br><span class="line">    &lt;Fragment&gt;</span><br><span class="line">      &lt;p&gt;高阶组件检测是否登录&lt;/p&gt;</span><br><span class="line">      &#123;isLogin ? <span class="xml"><span class="tag">&lt;<span class="name">WrappedComponent</span> &#123;<span class="attr">...props</span>&#125; /&gt;</span></span> : (<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>未登录<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>)&#125;</span><br><span class="line">    &lt;/Fragment&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 埋点统计</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pageLog</span>(<span class="params">pagename</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">WrappedComponent</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="title">Wrapper</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">      <span class="function"><span class="title">componentDidMount</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(pagename)</span><br><span class="line">      &#125;</span><br><span class="line">      render ()&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">WrappedComponent</span> &#123;<span class="attr">...this.props</span>&#125; /&gt;</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高阶组件，链式调用</span></span><br><span class="line">@pageLog(<span class="string">&#x27;个人中心&#x27;</span>)</span><br><span class="line">@isLogin</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserInfo</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span></span>&#123;</span><br><span class="line">  render ()&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>已登录，个人中心<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 高阶组件，渲染劫持</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withLoading</span>(<span class="params">WrappedComponent</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">WrappedComponent</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>.props.isLoading) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>loading<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">super</span>.render();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line">@withLoading</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CardWrap</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render ()&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>card<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="setState是同步还是异步"><a href="#setState是同步还是异步" class="headerlink" title="setState是同步还是异步"></a>setState是同步还是异步</h3><ul>
+<li>react合成事件：挂载在document（17之后挂载在渲染节点），dom事件出发后冒泡到document，react找到对应组件，创造合成事件</li>
+<li>react中通过isBatchingUpdates 来判断setState是否异步，当值为true时异步，当值为false时直接更新</li>
+<li>异步场景：react可以控制的地方，如生命周期、合成事件中</li>
+<li>同步场景：react无法控制的地方，如ddEventListener 、setTimeout、setInterval 等事件中，就只能同步更新</li>
+<li>异步设计为了性能优化、减少渲染次数、保持内部一致性（如果setSatte是同步的，但是props更新还是异步的）、启用并发完成异步渲染</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Test extends React.Component &#123;</span><br><span class="line">  state  &#x3D; &#123;</span><br><span class="line">      count: 0</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">    componentDidMount() &#123;</span><br><span class="line">	&#x2F;&#x2F; 异步</span><br><span class="line">    this.setState(&#123;count: this.state.count + 1&#125;);</span><br><span class="line">    console.log(this.state.count);</span><br><span class="line"></span><br><span class="line">    this.setState(&#123;count: this.state.count + 1&#125;);</span><br><span class="line">    console.log(this.state.count);</span><br><span class="line">	&#x2F;&#x2F; 同步 </span><br><span class="line">    setTimeout(() &#x3D;&gt; &#123;</span><br><span class="line">      this.setState(&#123;count: this.state.count + 1&#125;);</span><br><span class="line">      console.log(this.state.count);</span><br><span class="line"></span><br><span class="line">      this.setState(&#123;count: this.state.count + 1&#125;);</span><br><span class="line">      console.log(this.state.count);</span><br><span class="line">    &#125;, 0);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  render() &#123;</span><br><span class="line">    return null;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="react组件间通信"><a href="#react组件间通信" class="headerlink" title="react组件间通信"></a>react组件间通信</h3><ul>
+<li>父-&gt;子：props</li>
+<li>子-&gt;夫：回调函数、实例函数(React.createRef)</li>
+<li>兄弟组件：父组件中转</li>
+<li>多层：Context，全局变量与事件、状态管理框架（flux、redux、Mobx）</li>
+</ul>
+<h3 id="react状态管理框架"><a href="#react状态管理框架" class="headerlink" title="react状态管理框架"></a>react状态管理框架</h3><h3 id="Vitural-Dom-原理"><a href="#Vitural-Dom-原理" class="headerlink" title="Vitural Dom 原理"></a>Vitural Dom 原理</h3><ul>
+<li>概念、用途、思路、优缺点</li>
+</ul>
+<ol>
+<li>原理：虚拟DOM原理是通过js对象模拟DOM节点，为了要提升代码抽象能力、避免人为DOM操作、降低代码整体风险等因素，react引入了虚拟DOM</li>
+<li>实现：react在render函数中写的JSX会在babel编译下，转换为React.createElement执行JSX中的参数</li>
+<li>过程：React.createElement执行后，会返回一个描述自己当前tag类型、props等属性以及children等情况的对象，通过树结构形成一颗虚拟DOM树，当状态发生变化时，对比更新前后虚拟DOM的差异，整个过程成为diff，生成的结果为patch，计算后，渲染patch完成真实dom更新</li>
+<li>优点：改善大规模DOM操作的性能、避免XSS风险、以较低成本实现跨平台开发</li>
+<li>缺点：内存占用高、高性能场景存在难以优化情况（如Google Earth等高性能应用）</li>
+</ol>
+<h3 id="react-diff算法"><a href="#react-diff算法" class="headerlink" title="react diff算法"></a>react diff算法</h3><h3 id="react-渲染流程"><a href="#react-渲染流程" class="headerlink" title="react 渲染流程"></a>react 渲染流程</h3><h3 id="react-渲染异常"><a href="#react-渲染异常" class="headerlink" title="react 渲染异常"></a>react 渲染异常</h3><h3 id="react-性能优化"><a href="#react-性能优化" class="headerlink" title="react 性能优化"></a>react 性能优化</h3><h3 id="避免重复渲染"><a href="#避免重复渲染" class="headerlink" title="避免重复渲染"></a>避免重复渲染</h3><h4 id="重复渲染分析"><a href="#重复渲染分析" class="headerlink" title="重复渲染分析"></a>重复渲染分析</h4><ul>
+<li>步骤：选择优化时机、定位重复渲染的问题、引入解决方案</li>
+<li>优化时机：需要确认当前性能问题与业务的关系，是否有必要优化</li>
+<li>定位问题：还原用户使用环境的方式进行复现，然后使用 Performance 与 React Profiler 工具进行分析，对照卡顿点与组件重复渲染次数及耗时排查性能问题</li>
+</ul>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><ul>
+<li>组件使用 React.memo、pureComponent、shouldComponentUpdate 缓存 API，减少重新渲染</li>
+<li>注意问题：</li>
+</ul>
+<ol>
+<li>箭头函数props会触发更新，需要改为传递类方法</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ListItem</span><br><span class="line"> key=&#123;id&#125;</span><br><span class="line"> id=&#123;id&#125;</span><br><span class="line"> text=&#123;text&#125;</span><br><span class="line"> onMoveUp=&#123;<span class="function">(<span class="params">id</span>) =&gt;</span> &#123; <span class="comment">//... &#125;&#125; // 会触发更新</span></span><br><span class="line"> onMoveDown=&#123;<span class="built_in">this</span>.handleMoveDown&#125; <span class="comment">// 不会触发更新</span></span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>props参数是对象时会触发更新，可以使用reselect库解决，增加缓存</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"> <span class="keyword">const</span> data = <span class="built_in">this</span>.props.list.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123; <span class="comment">/*... */</span> &#125;)</span><br><span class="line"> <span class="keyword">return</span> (</span><br><span class="line">    &lt;FlatList</span><br><span class="line">      data=&#123;data&#125;</span><br><span class="line">      renderItem=&#123;<span class="built_in">this</span>.renderItem&#125;</span><br><span class="line">    /&gt;</span><br><span class="line"> )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决方法</span></span><br><span class="line"><span class="keyword">import</span> &#123; createSelector &#125; fr om <span class="string">&#x27;reselect&#x27;</span></span><br><span class="line"><span class="keyword">const</span> listSelector = <span class="function"><span class="params">props</span> =&gt;</span> props.list || []</span><br><span class="line"><span class="keyword">const</span> dataSelector = createSelector(</span><br><span class="line">  listSelector,</span><br><span class="line">  list =&gt; list.map(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123; <span class="comment">/*... */</span> &#125;)</span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"> <span class="keyword">return</span> (</span><br><span class="line">    &lt;FlatList</span><br><span class="line">      data=&#123;dataSelector(<span class="built_in">this</span>.props)&#125;</span><br><span class="line">      renderItem=&#123;<span class="built_in">this</span>.renderItem&#125;</span><br><span class="line">    /&gt;</span><br><span class="line"> )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>使用不可变数据处理：ImmutableJS、immerjs</li>
+</ol>
+<h3 id="提升-react-代码可维护性"><a href="#提升-react-代码可维护性" class="headerlink" title="提升 react 代码可维护性"></a>提升 react 代码可维护性</h3><ol>
+<li>可分析性：从预防与兜底两个维度展开工作，预防依靠Lint工具与团队内部Code Review，兜底主要是在流水线中加入 sourcemap，能够通过线上报错快速定位源码</li>
+<li>可改变性：使代码易于拓展，业务易于迭代，工作主要从设计模式与架构设计展开，设计模式指通过组件设计，使容器组件与展示组件划分边界，隔绝业务逻辑，整体架构设计，采用了 rematch 方案，rematch 中可以设计的 model 概念可以很好地收敛 action、reducer 及副作用，同时支持动态引入 model，保障业务横向拓展的能力</li>
+<li>稳定性：通过提升核心业务代码的测试覆盖率来完成，</li>
+<li>易测试性：采用 Rematch 的架构完成模块分离，整体业务逻辑挪到了 model 中，且 model 自身是一个 Pure Object，附加了多个纯函数。纯函数只要管理好输入与输出，在测试上就很容易</li>
+<li>可维护性的依从性：建立团队规范，遵循代码约定，提升代码可读性。这方面的工作就是引入工具，减少人为犯错的概率，使用ESLint、stylelint、commitlint、配置编辑器的 editorconfig，配置样式的 prettier</li>
+</ol>
+<h3 id="react-hooks-限制"><a href="#react-hooks-限制" class="headerlink" title="react hooks 限制"></a>react hooks 限制</h3><ul>
+<li>限制：</li>
+</ul>
+<ol>
+<li>不能在循环，条件判断，嵌套函数中使用Hook</li>
+<li>在 react 函数式组件中使用Hook</li>
+</ol>
+<ul>
+<li>存在限制的原因</li>
+</ul>
+<ol>
+<li>react旧开发模式存在的问题：（1）组件间难以复用状态逻辑（需要使用高阶组件、props、状态管框架），复杂组件难以理解（生命周期与业务耦合太深，关键功能难以拆分），人和机器容易混淆类（this问题，类难以优化）</li>
+<li>Hook是基于链表实现的，在调用时按顺序加入数组中，如果使用循环、条件或嵌套函数很有可能导致取值错位，执行错误的 Hook</li>
+<li>可以引入Eslint的Hook检查插件预防错误</li>
+</ol>
+<h3 id="useEffect-与-useLayoutEffect"><a href="#useEffect-与-useLayoutEffect" class="headerlink" title="useEffect 与 useLayoutEffect"></a>useEffect 与 useLayoutEffect</h3><ul>
+<li>相同点：底层签名函数一直，都是调用的 mountEffectImpl，在使用上也没什么差异，基本可以直接替换，也都是用于处理副作用</li>
+<li>不同点：useEffect 在 React 的渲染过程中是被异步调用的，用于绝大多数场景，而 LayoutEffect 会在所有的 DOM 变更之后同步调用，主要用于处理 DOM 操作、调整样式、避免页面闪烁等问题。也正因为是同步处理，所以需要避免在 LayoutEffect 做计算量较大的耗时任务从而造成阻塞</li>
+<li>趋势：在未来的趋势上，两个 API 是会长期共存的，暂时没有删减合并的计划，需要开发者根据场景去自行选择。React 团队的建议非常实用，如果实在分不清，先用 useEffect，一般问题不大；如果页面有异常，再直接替换为 useLayoutEffect 即可</li>
+</ul>
+<h3 id="react-hooks设计模式"><a href="#react-hooks设计模式" class="headerlink" title="react hooks设计模式"></a>react hooks设计模式</h3><ol>
+<li>react hooks开发要抛弃生命周期的思考模式，以effects的角度思考，类组件的开发模式中，在componentDidMount 中放置一个监听事件，还需要考虑在 componentWillUnmount 中取消监听，甚至可能由于部分值变化，还需要在其他生命周期函数中对监听事件做特殊处理，可以将这一系列监听与取消监听放置在一个 useEffect 中，useEffect 可以不关心组件的生命周期，只需要关心外部依赖的变化即可，对于开发心智而言是极大的减负。这是 Hooks 的设计根本</li>
+<li>React.useMemo 取代 React.memo，因为 React.memo 并不能控制组件内部共享状态的变化，而 React.useMemo 更适合于 Hooks 的场景</li>
+<li>常量处理，类组件中，经常将常量定义在类中，在组件函数中，由于每次渲染都会重新声明常量，组件内的函数每次会被重新创建，如果这个函数需要使用函数组件内部的变量，那么可以用 useCallback 包裹下这个函数</li>
+<li>useEffect第二个参数容易错误使用，使用值类型而不是引用类型，引用类型容易被篡改</li>
+<li>将业务逻辑封装到各自的自定义 Hook 中，组件内部是抽空不放置业务逻辑，只是调用单个hooks暴漏的接口</li>
+</ol>
+<h3 id="react-router原理"><a href="#react-router原理" class="headerlink" title="react router原理"></a>react router原理</h3><ul>
+<li>实现原理</li>
+</ul>
+<ol>
+<li>HASH方式：依靠浏览器Hash变换</li>
+<li>切换地址中的path：需要使用 HTML5 的 history API 中的 pushState、replaceState，使用时还需要服务端完成 historyApiFallback 配置</li>
+</ol>
+<ul>
+<li>react router实现：内部靠自己封装的history库实现，提供两套基础history，一套直接使用浏览器history api，用于支持react-dom。另一套基于内存实现，自己做一个存储数组，用于支持react-router-native</li>
+<li>工作方式：</li>
+</ul>
+<ol>
+<li>设计模式：在架构上通过Monorepo进行项目管理，具有团队间透明、迭代便利有点，整体的数据通信，通过react Content Api实现</li>
+<li>关键模块：主要分为三类组件，（1）Context容器，比如 Router 与 MemoryRouter。（2）消费者组件，用于匹配路由，有Route、Redirect、Switch 等。（3）平台相关功能组件，如 Link、NavLink、DeepLinking 等</li>
+</ol>
+
+    </article>
+</div>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+    <footer class="footer clearfix">
+        <div class="clearfix">
+            <a href="https://github.com/crazyaguai" class="footer-logo">
+                <i class="fa fa-github"></i>
+            </a>
+            <ul class="footer-social-link">
+                <li>© 2019 杨晓川</li>
+                <li><a href="https://github.com/crazyaguai">Home</a></li>
+                
+            </ul>
+            <div class="footer-theme-info">
+                Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+                by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            </div>
+        </div>
+        
+    </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
